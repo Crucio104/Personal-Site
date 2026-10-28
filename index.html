@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261028_04">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261028_05">
 </head>
 <body>
 
@@ -349,6 +349,11 @@
             <p class="timeline-desc" data-i18n="edu_bsc_desc">
               Undergraduate degree taught entirely in English. Final graduation grade: 110/110. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.
             </p>
+            <div style="margin-top: 1rem;">
+              <button class="btn btn-outline btn-sm open-transcript-modal" id="open-transcript-btn">
+                <i class="fas fa-graduation-cap"></i> <span data-i18n="edu_btn_transcript">View Exam Transcript & Thesis</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -947,12 +952,263 @@
     </div>
   </div>
 
+  <!-- Modal for Transcript & Exams -->
+  <div class="modal-backdrop" id="transcript-modal">
+    <div class="modal-content modal-transcript-content">
+      <div class="modal-header">
+        <div>
+          <h4 data-i18n="transcript_modal_title" style="margin-bottom: 0.2rem;">Academic Degree Certificate & Profit Exams</h4>
+          <div style="font-size: 0.82rem; color: var(--text-secondary);" data-i18n="transcript_modal_sub">
+            Sapienza University of Rome — Faculty of Information Engineering, Informatics & Statistics
+          </div>
+        </div>
+        <button class="icon-btn" id="transcript-modal-close" aria-label="Close Modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="modal-body modal-transcript-body">
+        <!-- Highlights Header Box -->
+        <div class="transcript-highlights-box">
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">110 / 110</span>
+            <span class="transcript-metric-label" data-i18n="transcript_final_grade">Final Grade</span>
+          </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">180 CFU</span>
+            <span class="transcript-metric-label" data-i18n="transcript_total_credits">Total ECTS Credits</span>
+          </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">23 / 23</span>
+            <span class="transcript-metric-label" data-i18n="transcript_passed_exams">Passed Exams</span>
+          </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">30L & 30</span>
+            <span class="transcript-metric-label" data-i18n="transcript_top_honors">Top Honors (30L & 30)</span>
+          </div>
+        </div>
+
+        <!-- Official Thesis Box -->
+        <div class="transcript-thesis-card">
+          <div class="transcript-thesis-badge">
+            <i class="fas fa-scroll"></i> <span data-i18n="transcript_thesis_badge">B.Sc. Thesis & Internship</span>
+          </div>
+          <h5 class="transcript-thesis-title">
+            "Seismic Viewer: Design, Implementation and Evaluation of an Interactive 4D Spatio-Temporal Visualisation System for Seismological Data"
+          </h5>
+          <div class="transcript-thesis-meta">
+            <span><strong data-i18n="transcript_advisor">Advisor: Prof. Danilo Avola</strong></span>
+            <span>•</span>
+            <span><strong data-i18n="transcript_partner">Research Host: INGV</strong></span>
+            <span>•</span>
+            <span><strong data-i18n="transcript_date">Graduation Date: 23/10/2026</strong></span>
+          </div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="transcript-filters">
+          <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
+          <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision & HCI</button>
+          <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software & Systems</button>
+          <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math & Statistics</button>
+        </div>
+
+        <!-- Table of Exams -->
+        <div class="transcript-table-wrapper">
+          <table class="transcript-table" id="transcript-table">
+            <thead>
+              <tr>
+                <th data-i18n="ttable_name">Course / Educational Activity</th>
+                <th data-i18n="ttable_ssd">Code & SSD</th>
+                <th data-i18n="ttable_cfu" style="text-align: center;">Credits</th>
+                <th data-i18n="ttable_date" style="text-align: center;">Date</th>
+                <th data-i18n="ttable_grade" style="text-align: right;">Grade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-category="math">
+                <td><strong>Linear Algebra</strong></td>
+                <td><code>10595524 (MAT/02)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">10/01/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">25 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Programming (Python)</strong></td>
+                <td><code>10595102 (INF/01)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">29/01/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-honors">30 with honors</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Physics</strong></td>
+                <td><code>10595523 (FIS/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">17/06/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">26 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Algorithms</strong></td>
+                <td><code>1049269 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">01/07/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">27 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Computer Architecture</strong></td>
+                <td><code>10595546 (INF/01)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">12/07/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-top">29 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Programming 2 (Java)</strong></td>
+                <td><code>10600241 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">12/07/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-top">30 / 30</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Calculus</strong></td>
+                <td><code>10595099 (MAT/05)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">22/07/2024</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">26 / 30</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Calculus 2</strong></td>
+                <td><code>10595529 (MAT/05)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">07/01/2025</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">27 / 30</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Probability</strong></td>
+                <td><code>10595525 (MAT/06)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">30/01/2025</td>
+                <td style="text-align: right;"><span class="grade-badge grade-top">30 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Systems and Networking</strong></td>
+                <td><code>10595616 (INF/01)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">06/02/2025</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">22 / 30</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Statistics</strong></td>
+                <td><code>1055043 (SECS-S/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">05/06/2025</td>
+                <td style="text-align: right;"><span class="grade-badge grade-honors">30 with honors</span></td>
+              </tr>
+              <tr data-category="ai">
+                <td><strong>Artificial Intelligence and Machine Learning</strong></td>
+                <td><code>10595618 (INF/01)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">20/06/2025</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">27 / 30</span></td>
+              </tr>
+              <tr data-category="ai">
+                <td><strong>AI Lab: Computer Vision and NLP</strong></td>
+                <td><code>10595610 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">10/07/2025</td>
+                <td style="text-align: right;"><span class="grade-badge grade-honors">30 with honors</span></td>
+              </tr>
+              <tr data-category="ai">
+                <td><strong>Deep Learning</strong></td>
+                <td><code>10595531 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">15/01/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">25 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Cybersecurity</strong></td>
+                <td><code>10595532 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">16/01/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">25 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Web and Software Architecture</strong></td>
+                <td><code>10595534 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">20/01/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-top">29 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Foundations of Computer Science</strong></td>
+                <td><code>10595530 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">04/02/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">20 / 30</span></td>
+              </tr>
+              <tr data-category="sw">
+                <td><strong>Embedded and Multicore Systems Programming</strong></td>
+                <td><code>10593235 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">16/04/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">27 / 30</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Business and Computer Science</strong></td>
+                <td><code>10595536 (SECS-P/07)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">04/06/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">23 / 30</span></td>
+              </tr>
+              <tr data-category="math">
+                <td><strong>Data Management and Analysis</strong></td>
+                <td><code>10595617 (INF/01)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">18/06/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-standard">26 / 30</span></td>
+              </tr>
+              <tr data-category="ai">
+                <td><strong>Human Computer Interaction</strong></td>
+                <td><code>10595535 (INF/01)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">23/06/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-top">30 / 30</span></td>
+              </tr>
+              <tr data-category="ai">
+                <td><strong>Final Exam (Bachelor's Thesis Defense)</strong></td>
+                <td><code>AAF2011 (-)</code></td>
+                <td style="text-align: center;">6 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">23/10/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-qualified">Qualified (110/110)</span></td>
+              </tr>
+              <tr data-category="ai">
+                <td><strong>Curricular Research Internship (INGV)</strong></td>
+                <td><code>AAF1466 (-)</code></td>
+                <td style="text-align: center;">12 CFU</td>
+                <td style="text-align: center; color: var(--text-secondary);">23/10/2026</td>
+                <td style="text-align: right;"><span class="grade-badge grade-qualified">Qualified</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.8rem; color: var(--text-secondary);" data-i18n="transcript_verified_note">
+          Official Sapienza University Certificate (L-31 L-270 Ordin. 2021) • UID: 5883130
+        </span>
+        <button class="btn btn-outline btn-sm" id="transcript-modal-close-btn" data-i18n="modal_close">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification Pop-up -->
   <div class="toast" id="toast">Copied to clipboard!</div>
 
   <!-- Scripts with cache busters -->
-  <script src="assets/js/canvas.js?v=20261028_04"></script>
-  <script src="assets/js/translations.js?v=20261028_04"></script>
-  <script src="assets/js/main.js?v=20261028_04"></script>
+  <script src="assets/js/canvas.js?v=20261028_05"></script>
+  <script src="assets/js/translations.js?v=20261028_05"></script>
+  <script src="assets/js/main.js?v=20261028_05"></script>
 </body>
 </html>

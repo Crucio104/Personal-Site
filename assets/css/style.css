@@ -1345,6 +1345,221 @@ textarea.form-control {
   gap: 0.75rem;
 }
 
+/* --- Transcript Modal Styles --- */
+.modal-transcript-content {
+  max-width: 980px;
+  height: 90vh;
+}
+
+.modal-transcript-body {
+  background: var(--bg-card);
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.transcript-highlights-box {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.transcript-metric {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 0.9rem 0.5rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.transcript-metric-num {
+  display: block;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--accent-bordeaux-bright);
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+[data-theme="light"] .transcript-metric-num {
+  color: var(--accent-bordeaux);
+}
+
+.transcript-metric-label {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
+.transcript-thesis-card {
+  background: rgba(123, 30, 43, 0.08);
+  border: 1px solid rgba(196, 65, 84, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.transcript-thesis-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-beige);
+  margin-bottom: 0.35rem;
+}
+
+[data-theme="light"] .transcript-thesis-badge {
+  color: var(--accent-bordeaux);
+}
+
+.transcript-thesis-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+.transcript-thesis-meta {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.transcript-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.transcript-filter-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.transcript-filter-btn:hover {
+  border-color: var(--accent-bordeaux);
+  color: var(--text-primary);
+}
+
+.transcript-filter-btn.active {
+  background: var(--accent-bordeaux);
+  color: #fff;
+  border-color: var(--accent-bordeaux);
+}
+
+.transcript-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+}
+
+.transcript-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.transcript-table th {
+  background: var(--bg-secondary);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.transcript-table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.transcript-table tbody tr:hover {
+  background: rgba(123, 30, 43, 0.05);
+}
+
+.grade-badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.grade-honors {
+  background: rgba(196, 65, 84, 0.22);
+  color: var(--accent-beige);
+  border: 1px solid var(--accent-bordeaux-bright);
+}
+
+[data-theme="light"] .grade-honors {
+  background: rgba(123, 30, 43, 0.12);
+  color: var(--accent-bordeaux);
+}
+
+.grade-top {
+  background: rgba(123, 30, 43, 0.12);
+  color: var(--accent-beige);
+  border: 1px solid rgba(123, 30, 43, 0.3);
+}
+
+[data-theme="light"] .grade-top {
+  color: var(--accent-bordeaux);
+}
+
+.grade-standard {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.grade-qualified {
+  background: rgba(46, 125, 50, 0.15);
+  color: #81c784;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+[data-theme="light"] .grade-qualified {
+  color: #2e7d32;
+}
+
+@media (max-width: 768px) {
+  .transcript-highlights-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .modal-transcript-content {
+    height: 94vh;
+  }
+}
+
 /* --- Footer --- */
 .footer {
   padding: 3rem 0;

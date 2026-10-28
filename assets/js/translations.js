@@ -99,6 +99,7 @@ const translations = {
     edu_bsc_grade: "Grade: 110 / 110",
     edu_bsc_status: "Grade: 110 / 110",
     edu_bsc_desc: "Corso triennale tenuto interamente in lingua inglese (2023 – 2026). Votazione finale di 110/110. Tesi di laurea e tirocinio svolti presso l'INGV con il progetto Seismic Viewer. Corsi: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Architetture Software, Reti, Intelligenza Artificiale, Programmazione Concorrente.",
+    edu_btn_transcript: "Visualizza Piano di Studi & Tesi",
 
     edu_hs_lead: "Diploma di Maturità Scientifica",
     edu_hs_title: "Scienze Applicate",
@@ -196,7 +197,30 @@ const translations = {
 
     // Footer
     footer_text: "Sito personale di Alessio Curcio. Dati da GitHub, percorso accademico e CV.",
-    footer_rights: "Tutti i diritti riservati."
+    footer_rights: "Tutti i diritti riservati.",
+
+    // Transcript Modal
+    transcript_modal_title: "Certificato di Laurea & Esami di Profitto",
+    transcript_modal_sub: "Sapienza Università di Roma — Facoltà di Ingegneria dell'Informazione, Informatica e Statistica",
+    transcript_final_grade: "Voto Finale",
+    transcript_total_credits: "Crediti Totali (CFU)",
+    transcript_passed_exams: "Esami Superati",
+    transcript_top_honors: "Voti Massimi (30L & 30)",
+    transcript_thesis_badge: "Tesi Triennale & Tirocinio",
+    transcript_advisor: "Relatore: Prof. Danilo Avola",
+    transcript_partner: "Ente Ospitante: INGV",
+    transcript_date: "Data Laurea: 23/10/2026",
+    tfilter_all: "Tutti gli Esami (23)",
+    tfilter_ai: "AI, Visione & HCI",
+    tfilter_sw: "Software & Sistemi",
+    tfilter_math: "Matematica & Statistica",
+    ttable_name: "Insegnamento / Attività Formativa",
+    ttable_ssd: "Codice & SSD",
+    ttable_cfu: "CFU",
+    ttable_date: "Data",
+    ttable_grade: "Voto",
+    transcript_verified_note: "Certificato ufficiale Sapienza Università di Roma (L-31 L-270 Ordin. 2021) • UID: 5883130",
+    modal_close: "Chiudi"
   },
 
   en: {
@@ -293,6 +317,7 @@ const translations = {
     edu_bsc_grade: "Grade: 110 / 110",
     edu_bsc_status: "Grade: 110 / 110",
     edu_bsc_desc: "Undergraduate degree taught entirely in English (2023 – 2026). Final graduation grade: 110/110. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.",
+    edu_btn_transcript: "View Exam Transcript & Thesis",
 
     edu_hs_lead: "Scientific High School Diploma",
     edu_hs_title: "Applied Sciences Curriculum",
@@ -390,6 +415,29 @@ const translations = {
 
     // Footer
     footer_text: "Personal website of Alessio Curcio. Data sourced from GitHub, academic record, and CV.",
-    footer_rights: "All rights reserved."
+    footer_rights: "All rights reserved.",
+
+    // Transcript Modal
+    transcript_modal_title: "Academic Degree Certificate & Profit Exams",
+    transcript_modal_sub: "Sapienza University of Rome — Faculty of Information Engineering, Informatics & Statistics",
+    transcript_final_grade: "Final Grade",
+    transcript_total_credits: "Total ECTS Credits",
+    transcript_passed_exams: "Passed Exams",
+    transcript_top_honors: "Top Honors (30L & 30)",
+    transcript_thesis_badge: "B.Sc. Thesis & Internship",
+    transcript_advisor: "Advisor: Prof. Danilo Avola",
+    transcript_partner: "Research Host: INGV",
+    transcript_date: "Graduation Date: 23/10/2026",
+    tfilter_all: "All Exams (23)",
+    tfilter_ai: "AI, Vision & HCI",
+    tfilter_sw: "Software & Systems",
+    tfilter_math: "Math & Statistics",
+    ttable_name: "Course / Educational Activity",
+    ttable_ssd: "Code & SSD",
+    ttable_cfu: "Credits",
+    ttable_date: "Date",
+    ttable_grade: "Grade",
+    transcript_verified_note: "Official Sapienza University Certificate (L-31 L-270 Ordin. 2021) • UID: 5883130",
+    modal_close: "Close"
   }
 };

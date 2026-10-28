@@ -20,6 +20,12 @@
   const cvModal = document.getElementById('cv-modal');
   const cvModalClose = document.getElementById('cv-modal-close');
   const openCvModalBtns = document.querySelectorAll('.open-cv-modal');
+  const transcriptModal = document.getElementById('transcript-modal');
+  const transcriptModalClose = document.getElementById('transcript-modal-close');
+  const transcriptModalCloseBtn = document.getElementById('transcript-modal-close-btn');
+  const openTranscriptBtns = document.querySelectorAll('.open-transcript-modal');
+  const tFilterBtns = document.querySelectorAll('.transcript-filter-btn');
+  const tRows = document.querySelectorAll('#transcript-table tbody tr');
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
   const contactForm = document.getElementById('contact-form');
@@ -229,10 +235,63 @@
     });
   }
 
+  // --- Academic Transcript Modal ---
+  openTranscriptBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (transcriptModal) {
+        transcriptModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeTranscriptModal() {
+    if (transcriptModal) {
+      transcriptModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (transcriptModalClose) {
+    transcriptModalClose.addEventListener('click', closeTranscriptModal);
+  }
+
+  if (transcriptModalCloseBtn) {
+    transcriptModalCloseBtn.addEventListener('click', closeTranscriptModal);
+  }
+
+  if (transcriptModal) {
+    transcriptModal.addEventListener('click', (e) => {
+      if (e.target === transcriptModal) closeTranscriptModal();
+    });
+  }
+
+  // Transcript category filters
+  tFilterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tFilterBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-tfilter');
+
+      tRows.forEach((row) => {
+        const cat = row.getAttribute('data-category') || '';
+        if (filter === 'all' || cat.split(' ').includes(filter)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (cvModal && cvModal.classList.contains('active')) {
         closeCvModal();
+      }
+      if (transcriptModal && transcriptModal.classList.contains('active')) {
+        closeTranscriptModal();
       }
       if (navLinks && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
