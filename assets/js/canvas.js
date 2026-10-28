@@ -1,5 +1,6 @@
 /**
  * Neural Network / Constellation Interactive Canvas Background
+ * Styled for Beige & Bordeaux Palette
  * High performance, responsive, respects dark/light theme
  */
 (function() {
@@ -21,8 +22,8 @@
   function getColors() {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     return {
-      particle: isLight ? 'rgba(99, 102, 241, 0.45)' : 'rgba(56, 189, 248, 0.45)',
-      line: isLight ? 'rgba(99, 102, 241, ' : 'rgba(56, 189, 248, '
+      particle: isLight ? 'rgba(123, 30, 43, 0.45)' : 'rgba(212, 185, 150, 0.55)',
+      line: isLight ? 'rgba(184, 150, 110, ' : 'rgba(194, 65, 83, '
     };
   }
 
@@ -30,8 +31,8 @@
     constructor() {
       this.x = Math.random() * width;
       this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.7;
-      this.vy = (Math.random() - 0.5) * 0.7;
+      this.vx = (Math.random() - 0.5) * 0.65;
+      this.vy = (Math.random() - 0.5) * 0.65;
       this.baseRadius = Math.random() * 1.8 + 1;
       this.radius = this.baseRadius;
     }
@@ -68,7 +69,6 @@
 
   function initParticles() {
     particles = [];
-    // Number of particles proportional to screen size, capped for performance
     const count = Math.min(Math.floor((width * height) / 18000), 75);
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
@@ -121,7 +121,6 @@
     mouse.y = null;
   });
 
-  // Pause when tab is hidden to save battery
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       cancelAnimationFrame(animationFrameId);

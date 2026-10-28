@@ -355,3 +355,4 @@ const translations = {
     footer_rights: "All rights reserved."
   }
 };
+

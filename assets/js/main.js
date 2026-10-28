@@ -1,6 +1,6 @@
 /**
  * Main Application Logic for Alessio Curcio Portfolio
- * Multilingual, Dark/Light Themes, Typewriter, Filters, Modal & Copy Tooltips
+ * Multilingual (Flag-only Switcher), Beige & Bordeaux Themes, Typewriter, Filters, Modal & Copy Tooltips
  */
 
 (function () {
@@ -44,7 +44,7 @@
     });
   }
 
-  // --- Multilingual Management ---
+  // --- Multilingual Management (Flag Only) ---
   function applyLanguage(lang) {
     if (!translations[lang]) return;
     currentLang = lang;
@@ -68,12 +68,13 @@
       }
     });
 
-    // Update toggle button text
+    // Update toggle button: ONLY FLAG EMOJI
     if (langToggleBtn) {
       langToggleBtn.innerHTML = lang === 'it' 
-        ? '<span>🇬🇧 EN</span>' 
-        : '<span>🇮🇹 IT</span>';
+        ? '<span class="flag-icon">🇬🇧</span>' 
+        : '<span class="flag-icon">🇮🇹</span>';
       langToggleBtn.setAttribute('title', lang === 'it' ? 'Switch to English' : 'Passa all\'Italiano');
+      langToggleBtn.setAttribute('aria-label', lang === 'it' ? 'Switch to English' : 'Passa all\'Italiano');
     }
 
     // Reset Typewriter with new language roles
@@ -149,16 +150,15 @@
       if (!textToCopy) return;
 
       navigator.clipboard.writeText(textToCopy).then(() => {
-        const msg = translations[currentLang]?.contact_copied || 'Copied to clipboard!';
+        const msg = translations[currentLang]?.contact_copied || 'Copiato negli appunti!';
         showToast(msg);
 
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="fas fa-check"></i> Copiato!';
+        btn.innerHTML = '<i class="fas fa-check"></i>';
         setTimeout(() => {
           btn.innerHTML = originalText;
         }, 2000);
       }).catch(() => {
-        // Fallback prompt
         window.prompt('Copy to clipboard:', textToCopy);
       });
     });

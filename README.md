@@ -77,3 +77,4 @@ Il sito è statico e pronto per essere deployato istantaneamente su qualsiasi pi
 
 3. **Netlify o Cloudflare Pages**:
    - Trascina semplicemente la cartella `PersonalSite` sul cruscotto di Netlify Drop o Cloudflare.
+
