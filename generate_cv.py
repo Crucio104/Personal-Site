@@ -2,6 +2,7 @@
 """
 Generate a modern, recruiter-standard, ATS-optimized Curriculum Vitae in PDF format
 for Alessio Curcio, styled with the elegant Bordeaux & Beige palette.
+Accurate, concise, professional tone highlighting 110/110 graduation from B.Sc. ACSAI.
 """
 
 import os
@@ -24,7 +25,7 @@ MUTED_GREY = colors.HexColor("#4A5568")
 LIGHT_LINE = colors.HexColor("#E2E8F0")
 
 class NumberedCanvas(canvas.Canvas):
-    """Adds page numbers and subtle header/footer to the document."""
+    """Adds page numbers and subtle footer to the document."""
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._saved_page_states = []
@@ -195,11 +196,11 @@ def build_cv(output_path):
     summary_text = (
         "Software Engineer and M.Sc. student in <b>Artificial Intelligence & Robotics (AIRO)</b> at "
         "<b>Sapienza University of Rome</b>, holding a Bachelor's degree in <b>Applied Computer Science and "
-        "Artificial Intelligence (ACSAI)</b> taught entirely in English. Maximum marks (30 and 30 cum laude) "
-        "in university programming examinations (Python & Java). Technical expertise focuses on "
-        "<b>Multi-Agent Orchestration</b>, <b>Privacy-First Local LLMs</b>, <b>Real-Time Computer Vision (YOLO)</b>, "
-        "and <b>Concurrent Robotic Systems</b>. Strong competitive problem-solving track record across national "
-        "Mathematics and Informatics Olympiads and top rank in international algorithmic competitions."
+        "Artificial Intelligence (ACSAI)</b> graduated with <b>110 / 110</b> (taught entirely in English). "
+        "Scored 30 and 30 cum laude in university programming examinations (Python and Java). Technical focus on "
+        "<b>Multi-Agent Orchestration</b>, <b>Local LLMs</b>, <b>Computer Vision (YOLO)</b>, "
+        "and <b>Concurrent Robotic Systems</b>. Problem-solving background across national "
+        "Mathematics and Informatics Olympiads and maximum score in the TeraBebras competition."
     )
     story.append(Paragraph(summary_text, body_style))
     story.append(Spacer(1, 4))
@@ -238,14 +239,14 @@ def build_cv(output_path):
     edu_acsai = [
         [
             Paragraph("<b>Bachelor of Science (B.Sc.) in Applied Computer Science and AI (ACSAI)</b>", item_title_style),
-            Paragraph("<b>Graduated</b>", ParagraphStyle('R3', parent=item_title_style, alignment=2))
+            Paragraph("<b>Graduated: 110 / 110</b>", ParagraphStyle('R3', parent=item_title_style, alignment=2, textColor=BORDEAUX))
         ],
         [
             Paragraph("Sapienza University of Rome — Degree Program Taught 100% in English", item_subtitle_style),
             Paragraph("Rome, Italy", ParagraphStyle('R4', parent=item_subtitle_style, alignment=2))
         ]
     ]
-    t_acsai = Table(edu_acsai, colWidths=[420, 120])
+    t_acsai = Table(edu_acsai, colWidths=[390, 150])
     t_acsai.setStyle(TableStyle([
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
         ('LEFTPADDING', (0, 0), (-1, -1), 0),
@@ -255,15 +256,16 @@ def build_cv(output_path):
     ]))
     story.append(KeepTogether([
         t_acsai,
-        Paragraph("• <b>Academic Honors:</b> Scored 30 and 30 cum laude in University Programming Examinations (Python and Java).", bullet_style),
-        Paragraph("• <b>Coursework:</b> Data Structures & Algorithms, Operating Systems, Databases, Web & Software Architecture, Computer Networks, Artificial Intelligence, Concurrent & Multicore Programming.", bullet_style),
+        Paragraph("• <b>Final Graduation Grade:</b> 110 / 110.", bullet_style),
+        Paragraph("• <b>Honors:</b> Maximum grades (30 and 30 cum laude) in University Programming Examinations (Python and Java).", bullet_style),
+        Paragraph("• <b>Coursework:</b> Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Concurrent Programming.", bullet_style),
         Spacer(1, 4)
     ]))
 
     # High School
     edu_hs = [
         [
-            Paragraph("<b>Scientific High School Diploma — Applied Sciences & Mathematics Curriculum</b>", item_title_style),
+            Paragraph("<b>Scientific High School Diploma — Applied Sciences Curriculum</b>", item_title_style),
             Paragraph("<b>Grade: 98 / 100</b>", ParagraphStyle('R5', parent=item_title_style, alignment=2))
         ],
         [
@@ -288,28 +290,28 @@ def build_cv(output_path):
 
     skills_data = [
         [
-            Paragraph("<b>Artificial Intelligence & Vision:</b>", item_title_style),
+            Paragraph("<b>AI & Computer Vision:</b>", item_title_style),
             Paragraph("PyTorch, TensorFlow, Keras, YOLOv11, OpenCV, Local LLMs (LM Studio), Hugging Face, Qwen3-TTS, Scikit-Learn, Reinforcement Learning.", body_style)
         ],
         [
             Paragraph("<b>Programming Languages:</b>", item_title_style),
-            Paragraph("Python (Primary / Advanced), Java, C, C++, Go (Golang), TypeScript, JavaScript, SQL, Bash, R.", body_style)
+            Paragraph("Python, Java, C, C++, Go (Golang), TypeScript, JavaScript, SQL, Bash, R.", body_style)
         ],
         [
-            Paragraph("<b>Backend & Distributed Systems:</b>", item_title_style),
-            Paragraph("Go, Docker, Docker Compose, Node.js, WebSockets, PostgreSQL, REST APIs, Multithreading (POSIX).", body_style)
+            Paragraph("<b>Backend & Distributed:</b>", item_title_style),
+            Paragraph("Go, Docker, Docker Compose, Node.js, WebSockets, PostgreSQL, REST APIs, POSIX Multithreading.", body_style)
         ],
         [
-            Paragraph("<b>Frontend & UI Development:</b>", item_title_style),
-            Paragraph("React, Vue.js, TailwindCSS, HTML5/CSS3, PyQt5, Tkinter, Flet (Flutter).", body_style)
+            Paragraph("<b>Frontend & UI:</b>", item_title_style),
+            Paragraph("React, Vue.js, TailwindCSS, HTML5/CSS3, PyQt5, Tkinter, Flet.", body_style)
         ],
         [
-            Paragraph("<b>Tools & Platforms:</b>", item_title_style),
-            Paragraph("Git, GitHub, Linux Environments, Tesseract OCR, Streamlit, IBM Cloud & Watson.", body_style)
+            Paragraph("<b>Tools & Systems:</b>", item_title_style),
+            Paragraph("Git, GitHub, Linux, Tesseract OCR, Streamlit, IBM Cloud & Watson.", body_style)
         ]
     ]
 
-    t_skills = Table(skills_data, colWidths=[175, 365])
+    t_skills = Table(skills_data, colWidths=[150, 390])
     t_skills.setStyle(TableStyle([
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
         ('LEFTPADDING', (0, 0), (-1, -1), 0),
@@ -328,67 +330,67 @@ def build_cv(output_path):
     projects = [
         (
             "OpenSyntax AI Coding Workspace",
-            "TypeScript, Multi-Agent Orchestration, React, Local LLMs, Node.js",
+            "TypeScript, Multi-Agent, React, Local LLMs, Node.js",
             [
-                "Architected a next-generation AI workspace featuring <b>multi-agent orchestration</b> for autonomous software development.",
-                "Supported dynamic multi-file project scaffolding and real-time compilation across Python, C/C++, Java, Go, and Rust.",
-                "Engineered hybrid execution support for both privacy-preserving local LLMs (via LM Studio) and cloud endpoints (OpenAI)."
+                "Workspace using <b>multi-agent orchestration</b> for software development.",
+                "Supports dynamic scaffolding and compilation across Python, C/C++, Java, Go, and Rust.",
+                "Hybrid support for local LLMs (via LM Studio) and cloud endpoints (OpenAI)."
             ]
         ),
         (
-            "Privacy-First Local LLM Email Agent",
+            "Local LLM Email Agent",
             "Python, LM Studio, Desktop GUI, Local AI Automation",
             [
-                "Developed an autonomous desktop inbox assistant operating 100% locally to eliminate sensitive data transmission to external clouds.",
-                "Integrated LM Studio inference to produce structured email summaries, automated action items, and rule-based priority tagging."
+                "Inbox assistant operating locally without sending email data to external cloud services.",
+                "Uses LM Studio for message summaries, task identification, and rule-based priority tagging."
             ]
         ),
         (
             "Echo Real-Time Messaging Platform",
             "Go (Golang), Vue.js, WebSockets, Docker Compose, PostgreSQL",
             [
-                "Designed and deployed a high-performance messaging architecture for Sapienza's Web & Software Architecture examination.",
-                "Implemented persistent WebSocket duplex communication for 1-on-1 chats and multi-user channels with full Docker containerization."
+                "Messaging platform built for the Web & Software Architecture examination.",
+                "WebSocket duplex communication for 1-to-1 chats and group channels with Docker containerization."
             ]
         ),
         (
             "League of Legends Autonomous Bot (YOLOv11)",
             "Python, YOLOv11, Computer Vision, PyTorch, Screen Analysis",
             [
-                "Engineered a real-time computer vision agent utilizing <b>YOLOv11</b> for minion detection and priority classification in live gameplay.",
-                "Executed automated target prioritization, skillshot mechanics, automated level-ups, and turret proximity safety routines."
+                "Real-time computer vision agent using <b>YOLOv11</b> for minion detection and priority scoring.",
+                "Executes target prioritization, skillshots, and turret proximity safety routines."
             ]
         ),
         (
-            "Voice Cloning & Speech Synthesis Interface (Qwen3-TTS)",
+            "Voice Cloning & Speech Synthesis (Qwen3-TTS)",
             "TypeScript, React, Docker, Speech AI, Qwen3-TTS",
             [
-                "Built a high-fidelity web client for zero-shot voice cloning and multilingual speech synthesis using Qwen3-TTS.",
-                "Delivered sub-second audio generation with responsive modern UI and modular Docker container orchestration."
+                "Web client for zero-shot voice cloning and multilingual speech synthesis using Qwen3-TTS.",
+                "Built with React and containerized with Docker."
             ]
         ),
         (
-            "Financial Stock Market Predictor (LSTM)",
-            "Python, LSTM Neural Networks, Streamlit, Pandas, Yahoo Finance API",
+            "Stock Market Predictor (LSTM)",
+            "Python, LSTM Neural Networks, Streamlit, Pandas, Yahoo Finance",
             [
-                "Implemented deep learning time-series forecasting models using Long Short-Term Memory (LSTM) recurrent neural networks.",
-                "Provided real-time ticker ingestion, moving average technical indicators, and interactive predictive dashboard via Streamlit."
+                "Time-series forecasting models using Long Short-Term Memory (LSTM) recurrent neural networks.",
+                "Yahoo Finance data integration, technical moving averages, and interactive Streamlit UI."
             ]
         ),
         (
-            "PDF File Extractor & OCR Desktop Suite",
-            "Python, PyQt5, Tesseract OCR Engine, DOCX/TXT Export",
+            "PDF File Extractor & OCR Desktop App",
+            "Python, PyQt5, Tesseract OCR, DOCX/TXT Export",
             [
-                "Created an intuitive cross-platform desktop application extracting digital and scanned image PDF text with high OCR accuracy.",
-                "Integrated multi-language OCR recognition and structured document conversion with a modern dark theme interface."
+                "Desktop tool to extract text from digital and scanned PDFs via Tesseract OCR.",
+                "Multi-language recognition and document export in DOCX and TXT."
             ]
         ),
         (
             "Concurrent & Robotic Systems Programming",
-            "C, C++, POSIX Threads, Mutex Synchronization, Robotic Kinematics",
+            "C, C++, POSIX Threads, Mutex Synchronization, Kinematics",
             [
-                "Implemented low-level multi-threaded concurrent programs, thread-safe memory allocations, and synchronization primitives.",
-                "Modeled robotic kinematic transformations and sensor feedback processing algorithms for autonomous actuators."
+                "Multi-threaded concurrent programs with thread synchronization (mutex, semaphores).",
+                "Robotic kinematic transformations and sensor feedback processing algorithms."
             ]
         )
     ]
@@ -418,24 +420,24 @@ def build_cv(output_path):
     # ==========================
     # 6. INDUSTRY & RESEARCH COLLABORATIONS
     # ==========================
-    story.extend(section_header("Industrial Collaborations & Research"))
+    story.extend(section_header("Industrial Collaborations & Labs"))
 
     exp_data = [
         (
-            "Technical Research & Big Data Analytics",
+            "Data Analytics & Conversational AI",
             "IBM & Sapienza University",
-            "Academic Technical Activity",
+            "Academic Project",
             [
-                "Conducted research in Big Data analytics for psychological and behavioral profiling models utilizing public data streams.",
-                "Designed and implemented customer support conversational chatbots leveraging IBM Cloud services and IBM Watson AI."
+                "Big Data analytics for profiling models from public data streams.",
+                "Customer support conversational chatbots built with IBM Cloud and Watson services."
             ]
         ),
         (
-            "Software Engineering & Digital Acceleration Labs",
+            "Software & Telecom Labs",
             "Ericsson & Fondazione Mondo Digitale",
-            "Technological Program",
+            "Technical Program",
             [
-                "Participated in hands-on engineering challenges in telecommunications architectures, advanced object-oriented design, and robotics."
+                "Technical problem solving in telecommunications, object-oriented design, and robotics."
             ]
         )
     ]
@@ -467,11 +469,11 @@ def build_cv(output_path):
     story.extend(section_header("Competitions, Honors & Certifications"))
 
     honors = [
-        "<b>TeraBebras International Competition:</b> Attained the <b>maximum possible score</b> in algorithmic problem-solving and computational design.",
+        "<b>TeraBebras Competition:</b> Achieved the <b>maximum score</b> in computational thinking and algorithm design.",
         "<b>Mathematics & Computer Science Olympiads:</b> Qualified for regional and national stages in Italian Mathematics, Informatics and Problem Solving Olympiads.",
-        "<b>Bocconi University Mathematics Games:</b> Advanced through competitive stages to national ranking rounds.",
-        "<b>National Cybersecurity Competition:</b> Successfully cleared qualification stages in algorithmic security and cryptography challenges.",
-        "<b>Languages & International Experience:</b> <b>Italian</b> (Native), <b>English</b> (CEFR B2 Certification, Academic English B.Sc. degree, Oxford study abroad program)."
+        "<b>Bocconi University Mathematics Games:</b> Advanced to national ranking rounds.",
+        "<b>National Cybersecurity Competition:</b> Cleared qualification stages in security and cryptography challenges.",
+        "<b>Languages:</b> <b>Italian</b> (Native), <b>English</b> (CEFR B2 Certification, English B.Sc. degree curriculum, Oxford study abroad)."
     ]
 
     honors_flowables = []

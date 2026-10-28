@@ -1,13 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
-    <linearGradient id="grad-bb" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#9E2A3B" />
-      <stop offset="50%" stop-color="#D4B996" />
-      <stop offset="100%" stop-color="#F3E7D7" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B1E2B" />
+      <stop offset="100%" stop-color="#58141F" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="#151113" />
-  <rect x="2" y="2" width="60" height="60" rx="14" stroke="url(#grad-bb)" stroke-width="2" fill="none" opacity="0.7"/>
-  <path d="M22 46L30 18H34L42 46H36.8L35.1 39.5H28.9L27.2 46H22ZM29.8 35.5H34.2L32 26.2L29.8 35.5Z" fill="url(#grad-bb)" font-weight="bold"/>
-  <circle cx="46" cy="44" r="3" fill="#D4B996" />
+  <!-- Background with subtle border -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bgGrad)" stroke="#D4B996" stroke-width="2" />
+  <!-- AC Monogram (Crisp, High-Contrast, Tab-Optimized) -->
+  <text x="32" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="800" fill="#FAF4ED" text-anchor="middle" letter-spacing="-1">AC</text>
+  <!-- Subtle accent dot -->
+  <circle cx="51" cy="40" r="2.5" fill="#D4B996" />
 </svg>
