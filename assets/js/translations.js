@@ -38,9 +38,9 @@ const translations = {
     stat_ingv: "Tirocinio INGV",
     stat_ingv_sub: "Seismic Viewer 4D & Tesi",
     stat_repos: "Progetti GitHub",
-    stat_repos_sub: "18+ Repository pubbliche",
-    stat_honors: "30 e 30L Programmazione",
-    stat_honors_sub: "Esami Python e Java",
+    stat_repos_sub: ">18 Repository pubbliche",
+    stat_olympiad: "TeraBebras & Gare",
+    stat_olympiad_sub: "Punteggio Max & Nazionali",
 
     // About Section
     about_badge: "Profilo",
@@ -53,7 +53,7 @@ const translations = {
     about_card1_title: "Laurea Magistrale AIRO",
     about_card1_desc: "Sapienza Università di Roma (2026 – In corso) — Sistemi Multi-Agente, Reinforcement Learning, Robot Programming e Deep Learning.",
     about_card2_title: "Laurea Triennale ACSAI (110/110)",
-    about_card2_desc: "Sapienza Università di Roma (2023 – 2026). Corso in lingua inglese. Voto finale 110/110. Voto di 30 e 30 e lode in programmazione Python e Java.",
+    about_card2_desc: "Sapienza Università di Roma (2023 – 2026). Corso in lingua inglese. Voto finale 110/110.",
     about_card_ingv_title: "Tirocinio Ricerca INGV",
     about_card_ingv_desc: "Sviluppo di Seismic Viewer 4D: clustering sismico, stima di faglie e streaming binario compresso (-80%).",
     about_card4_title: "Maturità (98/100) & Gare",
@@ -98,7 +98,7 @@ const translations = {
     edu_bsc_inst: "Sapienza Università di Roma",
     edu_bsc_grade: "Grade: 110 / 110",
     edu_bsc_status: "Grade: 110 / 110",
-    edu_bsc_desc: "Corso triennale tenuto interamente in lingua inglese (2023 – 2026). Votazione finale di 110/110. Votazione di 30 e 30 e lode negli esami di programmazione Python e Java. Tesi di laurea e tirocinio svolti presso l'INGV con il progetto Seismic Viewer. Corsi: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Architetture Software, Reti, Intelligenza Artificiale, Programmazione Concorrente.",
+    edu_bsc_desc: "Corso triennale tenuto interamente in lingua inglese (2023 – 2026). Votazione finale di 110/110. Tesi di laurea e tirocinio svolti presso l'INGV con il progetto Seismic Viewer. Corsi: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Architetture Software, Reti, Intelligenza Artificiale, Programmazione Concorrente.",
 
     edu_hs_lead: "Diploma di Maturità Scientifica",
     edu_hs_title: "Scienze Applicate",
@@ -127,10 +127,6 @@ const translations = {
     proj_view_details: "Dettagli",
 
     // Project Details
-    p0_title: "Seismic Viewer 4D (INGV)",
-    p0_desc: "Applicazione desktop interattiva 4D per la visualizzazione spazio-temporale di dati sismici e faglie geologiche, sviluppata per il tirocinio e tesi con l'INGV. Backend in Python per clustering spaziale e stima automatica dei piani di faglia; frontend WebGL con protocollo binario compresso (-80% payload) e integrazione API GOSSIP.",
-    p0_tech: ["Python", "WebGL", "3D/4D Visualization", "Fault Estimation", "INGV API"],
-
     p1_title: "OpenSyntax AI Coding Workspace",
     p1_desc: "Workspace con orchestrazione multi-agente per lo sviluppo software. Supporta compilazione per Python, C/C++, Java, Go e Rust, con terminale integrato e supporto a LLM locali (LM Studio) e OpenAI.",
     p1_tech: ["TypeScript", "Multi-Agent", "React", "Local LLMs", "Node.js"],
@@ -236,9 +232,9 @@ const translations = {
     stat_ingv: "INGV Internship",
     stat_ingv_sub: "Seismic Viewer 4D & Thesis",
     stat_repos: "GitHub Projects",
-    stat_repos_sub: "18+ Active Repositories",
-    stat_honors: "30 & 30L Programming",
-    stat_honors_sub: "Python & Java Exams",
+    stat_repos_sub: ">18 Active Repositories",
+    stat_olympiad: "TeraBebras & Contests",
+    stat_olympiad_sub: "Top Score & National Stages",
 
     // About Section
     about_badge: "Profile",
@@ -251,7 +247,7 @@ const translations = {
     about_card1_title: "M.Sc. in AIRO",
     about_card1_desc: "Sapienza University of Rome (2026 – Present) — Multi-Agent Systems, Reinforcement Learning, Robot Programming, Deep Learning.",
     about_card2_title: "B.Sc. in ACSAI (110/110)",
-    about_card2_desc: "Sapienza University of Rome (2023 – 2026). Taught in English. Final grade: 110/110. Scored 30 and 30 cum laude in Python and Java examinations.",
+    about_card2_desc: "Sapienza University of Rome (2023 – 2026). Taught in English. Final grade: 110/110.",
     about_card_ingv_title: "INGV Research Internship",
     about_card_ingv_desc: "Engineered Seismic Viewer 4D for seismic clustering, fault plane estimation, and compressed binary streaming (-80%).",
     about_card4_title: "High School (98/100) & Contests",
@@ -296,7 +292,7 @@ const translations = {
     edu_bsc_inst: "Sapienza University of Rome",
     edu_bsc_grade: "Grade: 110 / 110",
     edu_bsc_status: "Grade: 110 / 110",
-    edu_bsc_desc: "Undergraduate degree taught entirely in English (2023 – 2026). Final graduation grade: 110/110. Grades of 30 and 30 cum laude in Python and Java programming. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.",
+    edu_bsc_desc: "Undergraduate degree taught entirely in English (2023 – 2026). Final graduation grade: 110/110. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.",
 
     edu_hs_lead: "Scientific High School Diploma",
     edu_hs_title: "Applied Sciences Curriculum",
@@ -325,10 +321,6 @@ const translations = {
     proj_view_details: "Details",
 
     // Project Details
-    p0_title: "Seismic Viewer 4D (INGV)",
-    p0_desc: "Interactive 4D desktop application for spatio-temporal seismic data visualization and fault plane analysis developed for my INGV research internship and B.Sc. thesis. Features Python backend for spatial clustering and automated fault plane estimation, WebGL frontend with compressed binary protocol (-80% payload), and INGV GOSSIP API integration.",
-    p0_tech: ["Python", "WebGL", "3D/4D Visualization", "Fault Estimation", "INGV API"],
-
     p1_title: "OpenSyntax AI Coding Workspace",
     p1_desc: "AI workspace featuring multi-agent orchestration for software development. Supports compilation for Python, C/C++, Java, Go, and Rust with an integrated terminal and support for local LLMs (LM Studio) and OpenAI.",
     p1_tech: ["TypeScript", "Multi-Agent", "React", "Local LLMs", "Node.js"],
