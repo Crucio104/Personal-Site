@@ -433,7 +433,13 @@
 
         const data = await response.json().catch(() => ({}));
 
-        if (response.ok && (data.success === 'true' || data.success === true || response.status === 200)) {
+        const isSuccess = response.ok && (data.success === 'true' || data.success === true);
+        const needsActivation = data && data.message && (
+          data.message.toLowerCase().includes('activation') ||
+          data.message.toLowerCase().includes('activate')
+        );
+
+        if (isSuccess) {
           showToast(successText);
           contactForm.reset();
           if (submitBtn) {
@@ -442,6 +448,16 @@
               submitBtn.disabled = false;
               submitBtn.innerHTML = defaultBtnHtml;
             }, 4000);
+          }
+        } else if (needsActivation) {
+          console.warn('FormSubmit needs one-time email activation:', data.message);
+          const activateMsg = currentLang === 'it'
+            ? "Form in attesa di attivazione: controlla la mail ricevuta su alessio.curcio04@gmail.com e clicca 'Activate Form'."
+            : "Form activation required: check alessio.curcio04@gmail.com and click 'Activate Form'.";
+          showToast(activateMsg);
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = defaultBtnHtml;
           }
         } else {
           throw new Error(data.message || 'Submission failed');
