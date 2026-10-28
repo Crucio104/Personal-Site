@@ -130,6 +130,7 @@ a:hover {
 .gradient-text {
   background: linear-gradient(135deg, var(--accent-bordeaux-bright) 0%, var(--accent-beige) 65%, var(--accent-cream) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -137,6 +138,7 @@ a:hover {
 [data-theme="light"] .gradient-text {
   background: linear-gradient(135deg, var(--accent-bordeaux) 0%, var(--accent-bordeaux-bright) 50%, var(--accent-beige) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -176,6 +178,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.85rem;
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
 
@@ -203,8 +206,8 @@ section {
   width: 100%;
   z-index: 100;
   background: var(--bg-nav);
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-color);
   transition: var(--transition);
 }
@@ -344,6 +347,7 @@ section {
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 1.25rem;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -461,6 +465,7 @@ section {
   background: var(--bg-card);
   color: var(--text-primary) !important;
   border: 1px solid var(--border-color);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 }
 
@@ -523,6 +528,7 @@ section {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: var(--shadow-lg);
   transition: var(--transition);
@@ -754,6 +760,7 @@ section {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.5rem;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   transition: var(--transition);
 }
@@ -824,6 +831,7 @@ section {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 1.75rem;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   transition: var(--transition);
 }
@@ -925,6 +933,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   transition: var(--transition);
   position: relative;
@@ -1150,6 +1159,7 @@ section {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 
@@ -1229,6 +1239,7 @@ textarea.form-control {
   width: 100%;
   height: 100%;
   background: rgba(15, 10, 12, 0.8);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   z-index: 1000;
   display: none;
@@ -1337,7 +1348,8 @@ textarea.form-control {
     left: 0;
     width: 100%;
     background: var(--bg-nav);
-    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     flex-direction: column;
     padding: 2rem;
