@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261028_08">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261028_09">
 </head>
 <body>
 
@@ -873,28 +873,33 @@
 
         <!-- Contact Message Form -->
         <div class="contact-form-column">
-          <form class="contact-form" id="contact-form">
+          <form class="contact-form" id="contact-form" action="https://formsubmit.co/alessio.curcio04@gmail.com" method="POST">
+            <!-- FormSubmit Anti-Spam & Config -->
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
             <div class="form-group">
               <label for="form-name" data-i18n="form_name">Name</label>
-              <input type="text" id="form-name" class="form-control" placeholder="e.g. John Doe" required data-i18n-placeholder="form_name">
+              <input type="text" name="name" id="form-name" class="form-control" placeholder="e.g. John Doe" required data-i18n-placeholder="form_name">
             </div>
 
             <div class="form-group">
               <label for="form-email" data-i18n="form_email">Email</label>
-              <input type="email" id="form-email" class="form-control" placeholder="name@example.com" required data-i18n-placeholder="form_email">
+              <input type="email" name="email" id="form-email" class="form-control" placeholder="name@example.com" required data-i18n-placeholder="form_email">
             </div>
 
             <div class="form-group">
               <label for="form-subject" data-i18n="form_subject">Subject</label>
-              <input type="text" id="form-subject" class="form-control" placeholder="Project collaboration / Engineering role" required data-i18n-placeholder="form_subject">
+              <input type="text" name="_subject" id="form-subject" class="form-control" placeholder="Project collaboration / Engineering role" required data-i18n-placeholder="form_subject">
             </div>
 
             <div class="form-group">
               <label for="form-message" data-i18n="form_message">Message</label>
-              <textarea id="form-message" class="form-control" rows="4" placeholder="Write your message here..." required data-i18n-placeholder="form_message"></textarea>
+              <textarea name="message" id="form-message" class="form-control" rows="4" placeholder="Write your message here..." required data-i18n-placeholder="form_message"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <button type="submit" id="form-submit-btn" class="btn btn-primary" style="width: 100%;">
               <i class="fas fa-paper-plane"></i> <span data-i18n="form_submit">Send Message</span>
             </button>
           </form>
@@ -1203,8 +1208,8 @@
   <div class="toast" id="toast">Copied to clipboard!</div>
 
   <!-- Scripts with cache busters -->
-  <script src="assets/js/canvas.js?v=20261028_08"></script>
-  <script src="assets/js/translations.js?v=20261028_08"></script>
-  <script src="assets/js/main.js?v=20261028_08"></script>
+  <script src="assets/js/canvas.js?v=20261028_09"></script>
+  <script src="assets/js/translations.js?v=20261028_09"></script>
+  <script src="assets/js/main.js?v=20261028_09"></script>
 </body>
 </html>

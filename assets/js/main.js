@@ -381,28 +381,92 @@
     });
   });
 
-  // --- Contact Form ---
+  // --- Contact Form (FormSubmit AJAX with Fallback) ---
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = document.getElementById('form-name')?.value.trim() || '';
-      const email = document.getElementById('form-email')?.value.trim() || '';
-      const subject = document.getElementById('form-subject')?.value.trim() || 'Nuovo Messaggio da Portfolio';
-      const message = document.getElementById('form-message')?.value.trim() || '';
 
-      const mailtoUrl = `mailto:alessio.curcio04@gmail.com?subject=${encodeURIComponent(
-        `[Personal Site] ${subject} - da ${name}`
-      )}&body=${encodeURIComponent(
-        `Nome: ${name}\nEmail: ${email}\n\nMessaggio:\n${message}`
-      )}`;
+      const nameInput = document.getElementById('form-name');
+      const emailInput = document.getElementById('form-email');
+      const subjectInput = document.getElementById('form-subject');
+      const messageInput = document.getElementById('form-message');
+      const submitBtn = document.getElementById('form-submit-btn') || contactForm.querySelector('button[type="submit"]');
 
-      const successMsg = translations[currentLang]?.form_success || 
-        'Grazie! Il tuo client di posta si aprirà con il messaggio compilato.';
-      showToast(successMsg);
+      const name = nameInput?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const subject = subjectInput?.value.trim() || 'Nuovo Messaggio da Portfolio';
+      const message = messageInput?.value.trim() || '';
 
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
-      }, 500);
+      if (!name || !email || !message) {
+        showToast(currentLang === 'it' ? 'Compila tutti i campi obbligatori.' : 'Please fill in all required fields.');
+        return;
+      }
+
+      const t = translations[currentLang] || {};
+      const sendingText = t.form_sending || (currentLang === 'it' ? 'Invio in corso...' : 'Sending...');
+      const successText = t.form_success || (currentLang === 'it' ? 'Messaggio inviato con successo! Ti risponderò al più presto.' : 'Message sent successfully! I will get back to you soon.');
+      const sentBtnText = t.form_sent || (currentLang === 'it' ? 'Messaggio Inviato!' : 'Message Sent!');
+      const errorText = t.form_error || (currentLang === 'it' ? 'Errore durante l\'invio. Apertura client email...' : 'Could not send automatically. Opening email client...');
+      const defaultBtnHtml = submitBtn ? submitBtn.innerHTML : '';
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin"></i> <span>${sendingText}</span>`;
+      }
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/alessio.curcio04@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            _subject: `[Personal Site] ${subject} — da ${name}`,
+            message: message,
+            _captcha: 'false',
+            _template: 'table'
+          })
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok && (data.success === 'true' || data.success === true || response.status === 200)) {
+          showToast(successText);
+          contactForm.reset();
+          if (submitBtn) {
+            submitBtn.innerHTML = `<i class="fas fa-check-circle"></i> <span>${sentBtnText}</span>`;
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = defaultBtnHtml;
+            }, 4000);
+          }
+        } else {
+          throw new Error(data.message || 'Submission failed');
+        }
+      } catch (err) {
+        console.warn('FormSubmit AJAX issue, falling back to mailto:', err);
+        showToast(errorText);
+
+        const mailtoUrl = `mailto:alessio.curcio04@gmail.com?subject=${encodeURIComponent(
+          `[Personal Site] ${subject} - da ${name}`
+        )}&body=${encodeURIComponent(
+          `Nome: ${name}\nEmail: ${email}\n\nMessaggio:\n${message}`
+        )}`;
+
+        setTimeout(() => {
+          window.location.href = mailtoUrl;
+        }, 600);
+
+        if (submitBtn) {
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = defaultBtnHtml;
+          }, 2500);
+        }
+      }
     });
   }
 

@@ -193,7 +193,10 @@ const translations = {
     form_subject: "Oggetto",
     form_message: "Messaggio",
     form_submit: "Invia Messaggio",
-    form_success: "Il client di posta si aprirà con il messaggio compilato.",
+    form_sending: "Invio in corso...",
+    form_sent: "Messaggio Inviato!",
+    form_success: "Messaggio inviato con successo! Ti risponderò al più presto.",
+    form_error: "Errore durante l'invio. Apertura client email...",
 
     // Footer
     footer_text: "Sito personale di Alessio Curcio. Dati da GitHub, percorso accademico e CV.",
@@ -410,7 +413,10 @@ const translations = {
     form_subject: "Subject",
     form_message: "Message",
     form_submit: "Send Message",
-    form_success: "Your default email client will open with the pre-filled message.",
+    form_sending: "Sending...",
+    form_sent: "Message Sent!",
+    form_success: "Message sent successfully! I'll get back to you soon.",
+    form_error: "Could not send automatically. Opening email client...",
 
     // Footer
     footer_text: "Personal website of Alessio Curcio. Data sourced from GitHub, academic record, and CV.",
