@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alessio Curcio | AI & Robotics Engineer | M.Sc. AIRO Student @ Sapienza</title>
+  
+  <!-- Meta tags for SEO & Social -->
+  <meta name="description" content="Sito personale e CV di Alessio Curcio. Studente magistrale in Artificial Intelligence and Robotics (AIRO) e laureato ACSAI presso Sapienza Università di Roma. Esperto in sistemi multi-agente, local LLMs, computer vision e robotica.">
+  <meta name="keywords" content="Alessio Curcio, CV, Portfolio, Sapienza, AIRO, ACSAI, Artificial Intelligence, Robotics, Multi-Agent Systems, Computer Vision, YOLO, Python, Go, Machine Learning">
+  <meta name="author" content="Alessio Curcio">
+  <meta property="og:title" content="Alessio Curcio | Personal Portfolio & CV">
+  <meta property="og:description" content="AI & Robotics Engineer — M.Sc. AIRO Student & B.Sc. ACSAI Graduate @ Sapienza University of Rome.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/profile.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/img/profile.png">
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Interactive Neural Mesh Background -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-brand">
+        <div class="nav-logo-box">AC</div>
+        <span>Alessio Curcio</span>
+      </a>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link" data-i18n="nav_about">Chi Sono</a></li>
+        <li><a href="#experience" class="nav-link" data-i18n="nav_experience">Esperienze</a></li>
+        <li><a href="#education" class="nav-link" data-i18n="nav_education">Formazione</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav_skills">Competenze</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav_projects">Progetti</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contatti</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <button id="lang-toggle" class="icon-btn" title="Switch language" aria-label="Cambia Lingua">
+          <span>🇬🇧 EN</span>
+        </button>
+
+        <!-- Theme Switcher -->
+        <button id="theme-toggle" class="icon-btn" title="Toggle Theme" aria-label="Cambia Tema">
+          <i class="fas fa-sun"></i>
+        </button>
+
+        <!-- CV Button -->
+        <a href="assets/docs/Alessio_Curcio_CV.pdf" download class="btn btn-primary btn-sm" style="display: none;">
+          <i class="fas fa-file-pdf"></i> <span data-i18n="nav_resume">CV</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="icon-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu Mobile">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <!-- Status Pill -->
+        <div class="status-pill">
+          <span class="pulse-dot"></span>
+          <span data-i18n="hero_status">Disponibile per opportunità & collaborazioni</span>
+        </div>
+
+        <div class="hero-title-greeting" data-i18n="hero_greeting">Ciao, sono</div>
+        <h1 class="hero-name gradient-text" data-i18n="hero_name">Alessio Curcio</h1>
+        
+        <!-- Dynamic Typewriter -->
+        <div class="hero-roles-container">
+          <span id="typewriter-text"></span><span class="typed-cursor"></span>
+        </div>
+
+        <p class="hero-bio" data-i18n="hero_bio">
+          Studente magistrale in Artificial Intelligence and Robotics (AIRO) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) presso Sapienza Università di Roma. Technical focus su sistemi multi-agente, privacy-first local LLMs, computer vision real-time e controllo robotico concorrente.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-laptop-code"></i> <span data-i18n="hero_btn_projects">Esplora Progetti</span>
+          </a>
+          <a href="assets/docs/Alessio_Curcio_CV.pdf" download class="btn btn-outline">
+            <i class="fas fa-download"></i> <span data-i18n="hero_btn_cv">Scarica CV (PDF)</span>
+          </a>
+          <button class="btn btn-outline open-cv-modal">
+            <i class="fas fa-eye"></i> <span data-i18n="hero_btn_cv_preview">Anteprima CV</span>
+          </button>
+        </div>
+
+        <!-- Social Badges -->
+        <div class="hero-socials">
+          <a href="https://github.com/Crucio104" target="_blank" rel="noopener noreferrer" class="social-badge-link">
+            <i class="fab fa-github"></i> <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/alessio-curcio-7787b935a/" target="_blank" rel="noopener noreferrer" class="social-badge-link">
+            <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+          </a>
+          <a href="mailto:alessio.curcio04@gmail.com" class="social-badge-link">
+            <i class="fas fa-envelope"></i> <span>Email</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Profile Image Card -->
+      <div class="hero-image-wrapper">
+        <div class="profile-card">
+          <div class="profile-img-container">
+            <img src="assets/img/profile.png" alt="Alessio Curcio" class="profile-img">
+          </div>
+          <div class="profile-badge-overlay">
+            <span class="sapienza-seal">🏛️</span>
+            <div>
+              <div style="font-weight: 700;">Sapienza Università</div>
+              <div style="font-size: 0.75rem; color: var(--accent-cyan);">M.Sc. AIRO • B.Sc. ACSAI</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Stats Counter Section -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">18+</div>
+        <div class="stat-label" data-i18n="stat_repos">Progetti GitHub</div>
+        <div class="stat-sub" data-i18n="stat_repos_sub">Repository pubbliche attive</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">30 & 30L</div>
+        <div class="stat-label" data-i18n="stat_grade">Esami Programmazione</div>
+        <div class="stat-sub" data-i18n="stat_grade_sub">Python e Java a Sapienza</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">TOP RANK</div>
+        <div class="stat-label" data-i18n="stat_olympiad">Olimpiadi & TeraBebras</div>
+        <div class="stat-sub" data-i18n="stat_olympiad_sub">Punteggio max & Fasi Nazionali</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100% EN</div>
+        <div class="stat-label" data-i18n="stat_english">Corso in Inglese</div>
+        <div class="stat-sub" data-i18n="stat_english_sub">B2 Certificato + Oxford</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag" data-i18n="about_badge">Profilo</div>
+        <h2 class="section-title" data-i18n="about_title">Percorso Accademico & Visione Tecnologica</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="about_p1">
+            Sono un ingegnere software e ricercatore accademico orientato all'Intelligenza Artificiale e alla Robotica. Ho conseguito la Laurea Triennale in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> presso l'<strong>Università La Sapienza di Roma</strong> — un percorso accademico d'eccellenza erogato interamente in lingua inglese.
+          </p>
+          <p data-i18n="about_p2">
+            Attualmente frequento il Corso di Laurea Magistrale in <strong>Artificial Intelligence and Robotics (AIRO)</strong> presso lo stesso ateneo. La mia passione risiede nella convergenza tra <em>sistemi autonomi multi-agente</em>, <em>modelli linguistici eseguiti in locale (Local LLMs)</em> per la tutela della privacy, <em>computer vision real-time</em> e programmazione concorrente di basso livello per il controllo robotico.
+          </p>
+          <p data-i18n="about_p3">
+            Parallelamente agli studi, ho collaborato a laboratori e progetti con giganti dell'industria come <strong>IBM</strong> ed <strong>Ericsson</strong>, e ho consolidato solide basi logico-matematiche partecipando con successo a competizioni nazionali di problem solving, informatica e matematica.
+          </p>
+          
+          <div style="margin-top: 2rem;">
+            <a href="#contact" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> <span data-i18n="hero_btn_contact">Mettiti in Contatto</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-cards-column">
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div class="feature-info">
+              <h4 data-i18n="about_card1_title">Laurea Magistrale AIRO</h4>
+              <p data-i18n="about_card1_desc">Sapienza Università di Roma — Multi-Agent Systems, Reinforcement Learning, Robot Programming, Deep Learning.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="feature-info">
+              <h4 data-i18n="about_card2_title">Laurea Triennale ACSAI</h4>
+              <p data-i18n="about_card2_desc">Interamente in lingua inglese. Voto massimo (30 e 30 e lode) negli esami di programmazione Python e Java.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fas fa-school"></i>
+            </div>
+            <div class="feature-info">
+              <h4 data-i18n="about_card3_title">Maturità Scientifica</h4>
+              <p data-i18n="about_card3_desc">Liceo Scientifico 'Vito Volterra' (Scienze Applicate) diplomato nel 2023 con <strong>98/100</strong>.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon-box">
+              <i class="fas fa-trophy"></i>
+            </div>
+            <div class="feature-info">
+              <h4 data-i18n="about_card4_title">Problem Solving Competitivo</h4>
+              <p data-i18n="about_card4_desc">Punteggio massimo nella gara TeraBebras; fasi regionali e nazionali alle Olimpiadi di Matematica e Informatica.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience & Competitions Section -->
+  <section id="experience" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag" data-i18n="exp_badge">Esperienza & Gare</div>
+        <h2 class="section-title" data-i18n="exp_title">Collaborazioni Tecniche & Traguardi</h2>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Item 1: IBM -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title" data-i18n="exp_ibm_title">Collaborazioni Tecniche & Big Data Research</div>
+              <div class="timeline-badge" data-i18n="exp_ibm_period">Attività Accademica & Progetti</div>
+            </div>
+            <div class="timeline-org" data-i18n="exp_ibm_org">IBM & Sapienza University</div>
+            <p class="timeline-desc" data-i18n="exp_ibm_desc">
+              Attività di ricerca sull'utilizzo di Big Data Analytics per la profilazione psicologica basata su dati di figure pubbliche. Sviluppo di agenti conversazionali e chatbot per il customer service avvalendosi dei servizi IBM Cloud e Watson.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 2: Ericsson & Mondo Digitale -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title" data-i18n="exp_ericsson_title">Digital Labs & Software Engineering</div>
+              <div class="timeline-badge" data-i18n="exp_ericsson_period">Laboratori Tecnologici</div>
+            </div>
+            <div class="timeline-org" data-i18n="exp_ericsson_org">Ericsson & Fondazione Mondo Digitale</div>
+            <p class="timeline-desc" data-i18n="exp_ericsson_desc">
+              Partecipazione attiva a laboratori di accelerazione delle competenze digitali e sfide ingegneristiche nel campo delle telecomunicazioni, robotica e programmazione avanzata ad oggetti.
+            </p>
+          </div>
+        </div>
+
+        <!-- Item 3: Competitions & Olympiads -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title" data-i18n="exp_comp_title">Olimpiadi Nazionali & Gare di Algoritmica</div>
+              <div class="timeline-badge" data-i18n="exp_comp_period">Piazzamenti d'Eccellenza</div>
+            </div>
+            <div class="timeline-org" data-i18n="exp_comp_org">Olimpiadi di Informatica, Matematica & Bebras</div>
+            <p class="timeline-desc" data-i18n="exp_comp_desc">
+              Fasi regionali e nazionali delle Olimpiadi di Informatica, Matematica e Problem Solving; qualificazione alle fasi nazionali dei Giochi Matematici dell'Università Bocconi; conseguimento del punteggio massimo nella prestigiosa competizione internazionale TeraBebras.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag" data-i18n="edu_badge">Formazione</div>
+        <h2 class="section-title" data-i18n="edu_title">Curriculum Studi</h2>
+      </div>
+
+      <div class="timeline-container">
+        <!-- MSc AIRO -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title" data-i18n="edu_msc_title">Master of Science in Artificial Intelligence and Robotics (AIRO)</div>
+              <div class="timeline-badge" data-i18n="edu_msc_status">In corso</div>
+            </div>
+            <div class="timeline-org" data-i18n="edu_msc_inst">Sapienza Università di Roma</div>
+            <p class="timeline-desc" data-i18n="edu_msc_desc">
+              Corso internazionale avanzato incentrato su Robotica Autonoma, Visione Artificiale, Sistemi Multi-Agente, Machine Learning e Controllo Intelligente.
+            </p>
+          </div>
+        </div>
+
+        <!-- BSc ACSAI -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title" data-i18n="edu_bsc_title">Bachelor of Science in Applied Computer Science and Artificial Intelligence (ACSAI)</div>
+              <div class="timeline-badge" data-i18n="edu_bsc_status">Laureato</div>
+            </div>
+            <div class="timeline-org" data-i18n="edu_bsc_inst">Sapienza Università di Roma</div>
+            <p class="timeline-desc" data-i18n="edu_bsc_desc">
+              Corso triennale tenuto al 100% in lingua inglese. Riconoscimento di 30 e 30 e lode nei corsi di programmazione (Python, Java). Corsi cardine: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Web & Software Architecture, Reti, Intelligenza Artificiale, Programmazione Multicore.
+            </p>
+          </div>
+        </div>
+
+        <!-- High School -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="timeline-title" data-i18n="edu_hs_title">Diploma di Maturità Scientifica — Scienze Applicate</div>
+              <div class="timeline-badge" data-i18n="edu_hs_status">Voto: 98/100</div>
+            </div>
+            <div class="timeline-org" data-i18n="edu_hs_inst">Liceo Scientifico Statale 'Vito Volterra'</div>
+            <p class="timeline-desc" data-i18n="edu_hs_desc">
+              Curriculum di informatica, matematica avanzata e fisica. Forte orientamento alle scienze computazionali e agli algoritmi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Technologies -->
+  <section id="skills" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag" data-i18n="skills_badge">Stack Tecnologico</div>
+        <h2 class="section-title" data-i18n="skills_title">Competenze & Strumenti</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- AI & Vision -->
+        <div class="skill-category-card">
+          <div class="skill-cat-title">
+            <i class="fas fa-brain skill-cat-icon"></i>
+            <span data-i18n="skills_cat_ai">Intelligenza Artificiale & Visione</span>
+          </div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-tag"><i class="fas fa-fire" style="color: #ee4c2c;"></i> PyTorch</span>
+            <span class="skill-tag"><i class="fas fa-cube" style="color: #ff6f00;"></i> TensorFlow & Keras</span>
+            <span class="skill-tag"><i class="fas fa-eye" style="color: #10b981;"></i> YOLOv11 & Computer Vision</span>
+            <span class="skill-tag"><i class="fas fa-camera" style="color: #06b6d4;"></i> OpenCV</span>
+            <span class="skill-tag"><i class="fas fa-microchip" style="color: #8b5cf6;"></i> LM Studio (Local LLMs)</span>
+            <span class="skill-tag"><i class="fas fa-robot" style="color: #ec4899;"></i> Multi-Agent Orchestration</span>
+            <span class="skill-tag"><i class="fas fa-wave-square" style="color: #3b82f6;"></i> Qwen3-TTS & Speech AI</span>
+            <span class="skill-tag"><i class="fas fa-chart-line" style="color: #f59e0b;"></i> Scikit-Learn</span>
+            <span class="skill-tag"><i class="fas fa-network-wired" style="color: #14b8a6;"></i> Reinforcement Learning</span>
+          </div>
+        </div>
+
+        <!-- Programming Languages -->
+        <div class="skill-category-card">
+          <div class="skill-cat-title">
+            <i class="fas fa-code skill-cat-icon"></i>
+            <span data-i18n="skills_cat_lang">Linguaggi di Programmazione</span>
+          </div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-tag"><i class="fab fa-python" style="color: #38bdf8;"></i> Python (Main / Expert)</span>
+            <span class="skill-tag"><i class="fab fa-java" style="color: #ef4444;"></i> Java (30L Honor Exam)</span>
+            <span class="skill-tag"><i class="fas fa-terminal" style="color: #60a5fa;"></i> C / C++</span>
+            <span class="skill-tag"><i class="fab fa-golang" style="color: #00add8;"></i> Go (Golang)</span>
+            <span class="skill-tag"><i class="fab fa-js" style="color: #f7df1e;"></i> TypeScript & JavaScript</span>
+            <span class="skill-tag"><i class="fas fa-database" style="color: #336791;"></i> SQL & PostgreSQL</span>
+            <span class="skill-tag"><i class="fas fa-terminal" style="color: #4ade80;"></i> Bash / Shell Scripting</span>
+            <span class="skill-tag"><i class="fas fa-chart-pie" style="color: #276dc3;"></i> R</span>
+          </div>
+        </div>
+
+        <!-- Frontend & UI -->
+        <div class="skill-category-card">
+          <div class="skill-cat-title">
+            <i class="fas fa-laptop-code skill-cat-icon"></i>
+            <span data-i18n="skills_cat_front">Frontend & Interfacce</span>
+          </div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-tag"><i class="fab fa-react" style="color: #61dafb;"></i> React</span>
+            <span class="skill-tag"><i class="fab fa-vuejs" style="color: #42b883;"></i> Vue.js</span>
+            <span class="skill-tag"><i class="fab fa-html5" style="color: #e34f26;"></i> HTML5 & Semantic Web</span>
+            <span class="skill-tag"><i class="fab fa-css3-alt" style="color: #1572b6;"></i> CSS3 & Modern Layouts</span>
+            <span class="skill-tag"><i class="fas fa-wind" style="color: #38bdf8;"></i> TailwindCSS</span>
+            <span class="skill-tag"><i class="fas fa-desktop" style="color: #41cd52;"></i> PyQt5 Desktop GUI</span>
+            <span class="skill-tag"><i class="fas fa-window-maximize" style="color: #f59e0b;"></i> Tkinter</span>
+            <span class="skill-tag"><i class="fas fa-layer-group" style="color: #0284c7;"></i> Flet (Flutter/Python)</span>
+          </div>
+        </div>
+
+        <!-- Backend, Systems & Tools -->
+        <div class="skill-category-card">
+          <div class="skill-cat-title">
+            <i class="fas fa-server skill-cat-icon"></i>
+            <span data-i18n="skills_cat_back">Backend, Sistemi & Cloud</span>
+          </div>
+          <div class="skill-tags-wrapper">
+            <span class="skill-tag"><i class="fab fa-docker" style="color: #2496ed;"></i> Docker & Docker Compose</span>
+            <span class="skill-tag"><i class="fab fa-node-js" style="color: #68a063;"></i> Node.js & Express</span>
+            <span class="skill-tag"><i class="fas fa-plug" style="color: #ec4899;"></i> WebSockets & Real-Time APIs</span>
+            <span class="skill-tag"><i class="fab fa-linux" style="color: #facc15;"></i> Linux Environments</span>
+            <span class="skill-tag"><i class="fab fa-git-alt" style="color: #f05032;"></i> Git & GitHub Workflow</span>
+            <span class="skill-tag"><i class="fas fa-file-alt" style="color: #a855f7;"></i> Tesseract OCR Engine</span>
+            <span class="skill-tag"><i class="fas fa-sliders-h" style="color: #ff4b4b;"></i> Streamlit Dashboards</span>
+            <span class="skill-tag"><i class="fas fa-cloud" style="color: #0284c7;"></i> IBM Cloud & Watson AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag" data-i18n="proj_badge">Portfolio Progetti</div>
+        <h2 class="section-title" data-i18n="proj_title">Lavori Selezionati & Repository</h2>
+      </div>
+
+      <!-- Filters -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all" data-i18n="proj_filter_all">Tutti</button>
+        <button class="filter-btn" data-filter="ai" data-i18n="proj_filter_ai">AI & Multi-Agente</button>
+        <button class="filter-btn" data-filter="vision" data-i18n="proj_filter_vision">Computer Vision & Robotica</button>
+        <button class="filter-btn" data-filter="web" data-i18n="proj_filter_web">Web & Sistemi Distribuiti</button>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="projects-grid">
+        
+        <!-- P1: OpenSyntax -->
+        <div class="project-card" data-category="ai web">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-network-wired project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/OpenSyntax-AI-coding-workspace" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/OpenSyntax-AI-coding-workspace" target="_blank" rel="noopener noreferrer" data-i18n="p1_title">
+                OpenSyntax AI Coding Workspace
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p1_desc">
+              Workspace avanzato che sfrutta un'orchestrazione multi-agente per lo sviluppo software autonomo. Supporta compilazione real-time per Python, C/C++, Java, Go, Rust con terminale incorporato e integrazione flessibile tra LLM locali e OpenAI.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">TypeScript</span>
+            <span class="project-tech-pill">Multi-Agent</span>
+            <span class="project-tech-pill">React</span>
+            <span class="project-tech-pill">Local LLMs</span>
+          </div>
+        </div>
+
+        <!-- P2: Email-Ai-Agent -->
+        <div class="project-card" data-category="ai">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-envelope-open-text project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Email-Ai-Agent" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Email-Ai-Agent" target="_blank" rel="noopener noreferrer" data-i18n="p2_title">
+                Local LLM Email Agent
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p2_desc">
+              Assistente per la gestione inbox privacy-first che opera completamente offline con modelli linguistici locali (via LM Studio). Analizza e categorizza email, genera riassunti e alert intelligenti con interfaccia grafica elegante.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">Python</span>
+            <span class="project-tech-pill">LM Studio</span>
+            <span class="project-tech-pill">Privacy AI</span>
+            <span class="project-tech-pill">GUI</span>
+          </div>
+        </div>
+
+        <!-- P3: Echo-messaging-system -->
+        <div class="project-card" data-category="web">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-comments project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Echo-messaging-system" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Echo-messaging-system" target="_blank" rel="noopener noreferrer" data-i18n="p3_title">
+                Echo Messaging System
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p3_desc">
+              Piattaforma di messaggistica real-time con architettura moderna ad alte prestazioni per il corso di Web & Software Architecture di Sapienza. Supporta messaggi diretti, stanze di gruppo, protocolli WebSocket, backend in Go, frontend Vue.js e deploy con Docker Compose.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">Go</span>
+            <span class="project-tech-pill">Vue.js</span>
+            <span class="project-tech-pill">WebSockets</span>
+            <span class="project-tech-pill">Docker Compose</span>
+          </div>
+        </div>
+
+        <!-- P4: Lol-farming-bot -->
+        <div class="project-card" data-category="vision ai">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-crosshairs project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Lol-farming-bot" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Lol-farming-bot" target="_blank" rel="noopener noreferrer" data-i18n="p4_title">
+                LoL Farming Bot con YOLOv11
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p4_desc">
+              Bot autonomo per League of Legends basato su visione artificiale in tempo reale tramite YOLOv11. Rileva e calcola le priorità sui minion, gestisce lo skillshot, il level-up e monitora il perimetro di sicurezza delle torri.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">Python</span>
+            <span class="project-tech-pill">YOLOv11</span>
+            <span class="project-tech-pill">Computer Vision</span>
+            <span class="project-tech-pill">PyTorch</span>
+          </div>
+        </div>
+
+        <!-- P5: Voice-Cloning-Qwen3-TTS -->
+        <div class="project-card" data-category="ai web">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-microphone-alt project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Voice-Cloning-Qwen3-TTS" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Voice-Cloning-Qwen3-TTS" target="_blank" rel="noopener noreferrer" data-i18n="p5_title">
+                Voice Cloning Qwen3-TTS
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p5_desc">
+              Interfaccia web moderna per Qwen3-TTS che abilita il text-to-speech ad altissima fedeltà e la clonazione vocale zero-shot. Interfaccia ultra-reattiva in React, supporto multilingua e containerizzazione completa Docker.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">TypeScript</span>
+            <span class="project-tech-pill">React</span>
+            <span class="project-tech-pill">Docker</span>
+            <span class="project-tech-pill">Audio AI</span>
+          </div>
+        </div>
+
+        <!-- P6: Stock-market-predictor -->
+        <div class="project-card" data-category="ai">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-chart-line project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Stock-market-predictor" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Stock-market-predictor" target="_blank" rel="noopener noreferrer" data-i18n="p6_title">
+                Stock Market Predictor (LSTM)
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p6_desc">
+              Applicazione di previsione delle serie storiche finanziarie tramite reti neurali ricorrenti LSTM. Integra il recupero dati real-time con Yahoo Finance API, calcolo di medie mobili e dashboard interattiva creata con Streamlit.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">Python</span>
+            <span class="project-tech-pill">LSTM</span>
+            <span class="project-tech-pill">Streamlit</span>
+            <span class="project-tech-pill">Yahoo Finance</span>
+          </div>
+        </div>
+
+        <!-- P7: PDF_File_Extractor -->
+        <div class="project-card" data-category="vision">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-file-pdf project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/PDF_File_Extractor" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/PDF_File_Extractor" target="_blank" rel="noopener noreferrer" data-i18n="p7_title">
+                PDF File Extractor con OCR
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p7_desc">
+              Applicazione desktop professionale per l'estrazione e conversione di testi da documenti PDF e scansioni raster tramite motore OCR Tesseract. Interfaccia dark-mode in PyQt5 ed esportazione formattata verso DOCX e TXT.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">Python</span>
+            <span class="project-tech-pill">PyQt5</span>
+            <span class="project-tech-pill">Tesseract OCR</span>
+            <span class="project-tech-pill">DOCX Export</span>
+          </div>
+        </div>
+
+        <!-- P8: Multicore-Programming -->
+        <div class="project-card" data-category="vision web">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-microchip project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Multicore-Programming" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Multicore-Programming" target="_blank" rel="noopener noreferrer" data-i18n="p8_title">
+                Multicore & Robotic Systems
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p8_desc">
+              Implementazioni approfondite di programmazione concorrente, sincronizzazione thread-safe (mutex, semafori), allocazione di memoria efficiente e algoritmi di controllo per cinetismi robotici in C e C++.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">C</span>
+            <span class="project-tech-pill">C++</span>
+            <span class="project-tech-pill">Multithreading</span>
+            <span class="project-tech-pill">Robotics</span>
+          </div>
+        </div>
+
+        <!-- P9: Quest-for-Valentine -->
+        <div class="project-card" data-category="web">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-gamepad project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Quest-for-Valentine" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Quest-for-Valentine" target="_blank" rel="noopener noreferrer" data-i18n="p9_title">
+                Quest for Valentine
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p9_desc">
+              Browser game narrativo a bivi con estetica retro in pixel art, gestione degli stati di dialogo, motore particellare dinamico e finali multipli scritto in puro Vanilla JavaScript.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">JavaScript</span>
+            <span class="project-tech-pill">HTML5 Canvas</span>
+            <span class="project-tech-pill">Game Design</span>
+            <span class="project-tech-pill">Pixel Art</span>
+          </div>
+        </div>
+
+        <!-- P10: Site (Flet) -->
+        <div class="project-card" data-category="web">
+          <div>
+            <div class="project-header">
+              <i class="fas fa-mobile-alt project-folder-icon"></i>
+              <div class="project-links">
+                <a href="https://github.com/Crucio104/Site" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://alessiocurciocv.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="Old Live Site">
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">
+              <a href="https://github.com/Crucio104/Site" target="_blank" rel="noopener noreferrer" data-i18n="p10_title">
+                Cross-Platform Portfolio (Flet)
+              </a>
+            </h3>
+            <p class="project-desc" data-i18n="p10_desc">
+              Il precedente sito web e portfolio multipiattaforma sviluppato interamente in Python tramite il framework Flet (Flutter engine), deployato su Vercel.
+            </p>
+          </div>
+          <div class="project-tech-list">
+            <span class="project-tech-pill">Python</span>
+            <span class="project-tech-pill">Flet</span>
+            <span class="project-tech-pill">Flutter Engine</span>
+            <span class="project-tech-pill">Vercel</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Banner / CTA -->
+  <section class="resume-banner-section">
+    <div class="container">
+      <div class="resume-banner-card">
+        <div class="resume-banner-info">
+          <div class="badge-tag" data-i18n="modal_title">Curriculum Vitae — Alessio Curcio</div>
+          <h3 data-i18n="modal_download">Scarica o visualizza il CV completo in PDF</h3>
+          <p data-i18n="hero_bio">
+            Include il dettaglio accademico, l'elenco esami di Sapienza, certificazioni linguistiche B2, premi alle olimpiadi e dettagli di contatto.
+          </p>
+        </div>
+        <div class="resume-banner-actions">
+          <a href="assets/docs/Alessio_Curcio_CV.pdf" download class="btn btn-primary">
+            <i class="fas fa-download"></i> <span data-i18n="modal_download">Scarica PDF</span>
+          </a>
+          <button class="btn btn-outline open-cv-modal">
+            <i class="fas fa-eye"></i> <span data-i18n="hero_btn_cv_preview">Anteprima CV</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag" data-i18n="contact_badge">Contattami</div>
+        <h2 class="section-title" data-i18n="contact_title">Parliamo di Nuove Opportunità</h2>
+        <p class="section-subtitle" data-i18n="contact_p">
+          Sono sempre aperto a discutere progetti di ricerca accademica, posizioni ingegneristiche in ambito AI/Robotica e collaborazioni innovative.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info Cards -->
+        <div class="contact-info-column">
+          <div class="contact-info-list">
+            
+            <!-- Email -->
+            <div class="contact-card-item">
+              <div class="contact-card-content">
+                <div class="contact-card-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-card-labels">
+                  <h5 data-i18n="contact_email_label">Email Diretta</h5>
+                  <a href="mailto:alessio.curcio04@gmail.com">alessio.curcio04@gmail.com</a>
+                </div>
+              </div>
+              <button class="copy-btn" data-copy="alessio.curcio04@gmail.com" title="Copia email">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Phone -->
+            <div class="contact-card-item">
+              <div class="contact-card-content">
+                <div class="contact-card-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-card-labels">
+                  <h5 data-i18n="contact_phone_label">Telefono / WhatsApp</h5>
+                  <a href="tel:+393711712524">+39 371 171 2524</a>
+                </div>
+              </div>
+              <button class="copy-btn" data-copy="+393711712524" title="Copia numero">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-card-item">
+              <div class="contact-card-content">
+                <div class="contact-card-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-card-labels">
+                  <h5 data-i18n="contact_location_label">Posizione</h5>
+                  <p data-i18n="contact_location_val">Roma / Ciampino, Italia</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Social Links Card -->
+            <div class="contact-card-item">
+              <div class="contact-card-content">
+                <div class="contact-card-icon">
+                  <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="contact-card-labels">
+                  <h5 data-i18n="contact_social_label">Profili Professionali</h5>
+                  <div style="display: flex; gap: 1rem; margin-top: 0.25rem;">
+                    <a href="https://www.linkedin.com/in/alessio-curcio-7787b935a/" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/Crucio104" target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-github"></i> GitHub
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Contact Message Form -->
+        <div class="contact-form-column">
+          <form class="contact-form" id="contact-form">
+            <div class="form-group">
+              <label for="form-name" data-i18n="form_name">Il tuo Nome</label>
+              <input type="text" id="form-name" class="form-control" placeholder="Es. Mario Rossi" required data-i18n-placeholder="form_name">
+            </div>
+
+            <div class="form-group">
+              <label for="form-email" data-i18n="form_email">La tua Email</label>
+              <input type="email" id="form-email" class="form-control" placeholder="nome@example.com" required data-i18n-placeholder="form_email">
+            </div>
+
+            <div class="form-group">
+              <label for="form-subject" data-i18n="form_subject">Oggetto</label>
+              <input type="text" id="form-subject" class="form-control" placeholder="Opportunità di tesi / Posizione software" required data-i18n-placeholder="form_subject">
+            </div>
+
+            <div class="form-group">
+              <label for="form-message" data-i18n="form_message">Il tuo Messaggio</label>
+              <textarea id="form-message" class="form-control" rows="4" placeholder="Scrivi qui i dettagli del messaggio..." required data-i18n-placeholder="form_message"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <i class="fas fa-paper-plane"></i> <span data-i18n="form_submit">Invia Messaggio</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-socials">
+        <a href="https://github.com/Crucio104" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/alessio-curcio-7787b935a/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:alessio.curcio04@gmail.com" class="footer-social-link" title="Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="tel:+393711712524" class="footer-social-link" title="Telefono">
+          <i class="fas fa-phone"></i>
+        </a>
+      </div>
+      <p data-i18n="footer_text">
+        Progettato & Sviluppato per Alessio Curcio. Basato sul profilo GitHub, esperienze accademico-industriali e CV.
+      </p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+        &copy; 2026 Alessio Curcio. <span data-i18n="footer_rights">Tutti i diritti riservati.</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal for CV Preview -->
+  <div class="modal-backdrop" id="cv-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 data-i18n="modal_title">Curriculum Vitae — Alessio Curcio</h4>
+        <button class="icon-btn" id="cv-modal-close" aria-label="Chiudi Modal">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="assets/docs/Alessio_Curcio_CV.pdf" title="Alessio Curcio CV"></iframe>
+      </div>
+      <div class="modal-footer">
+        <a href="assets/docs/Alessio_Curcio_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          <i class="fas fa-external-link-alt"></i> <span data-i18n="modal_open_tab">Apri in una nuova scheda</span>
+        </a>
+        <a href="assets/docs/Alessio_Curcio_CV.pdf" download class="btn btn-primary btn-sm">
+          <i class="fas fa-download"></i> <span data-i18n="modal_download">Scarica PDF</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Pop-up -->
+  <div class="toast" id="toast">Copiato negli appunti!</div>
+
+  <!-- Scripts -->
+  <script src="assets/js/canvas.js"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
