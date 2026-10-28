@@ -1,6 +1,6 @@
 # Sito Personale & CV — Alessio Curcio
 
-Un sito personale moderno, ad alte prestazioni, bilingue (Italiano 🇮🇹 / Inglese 🇬🇧) e completamente responsive sviluppato per presentare il profilo accademico, i progetti e il Curriculum Vitae di **Alessio Curcio** (M.Sc. AIRO Student & B.Sc. ACSAI Graduate @ Sapienza Università di Roma).
+Un sito personale moderno, ad alte prestazioni, bilingue (Italiano 🇮🇹 / Inglese 🇬🇧) e completamente responsive sviluppato per presentare il profilo accademico, i progetti e il Curriculum Vitae di **Alessio Curcio** (M.Sc. AIRO Student & B.Sc. ACSAI Graduate — Sapienza Università di Roma).
 
 ---
 

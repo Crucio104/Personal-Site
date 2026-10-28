@@ -20,9 +20,9 @@ const translations = {
     hero_greeting: "Ciao, sono",
     hero_name: "Alessio Curcio",
     hero_roles: [
-      "M.Sc. AIRO Student (2026) @ Sapienza",
-      "Laurea ACSAI (110/110) @ Sapienza",
-      "Tirocinio Ricerca Software @ INGV",
+      "M.Sc. AIRO Student (2026) — Sapienza",
+      "Laurea ACSAI (110/110) — Sapienza",
+      "Tirocinio Ricerca Software — INGV",
       "Sistemi Multi-Agente & LLM",
       "Computer Vision & Robotica"
     ],
@@ -214,9 +214,9 @@ const translations = {
     hero_greeting: "Hi, I'm",
     hero_name: "Alessio Curcio",
     hero_roles: [
-      "M.Sc. AIRO Student (2026) @ Sapienza",
-      "B.Sc. ACSAI Graduate (110/110) @ Sapienza",
-      "Software Research Intern @ INGV",
+      "M.Sc. AIRO Student (2026) — Sapienza",
+      "B.Sc. ACSAI Graduate (110/110) — Sapienza",
+      "Software Research Intern — INGV",
       "Multi-Agent Systems & LLMs",
       "Computer Vision & Robotics"
     ],

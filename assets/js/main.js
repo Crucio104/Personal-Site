@@ -113,8 +113,8 @@
     if (!typewriterText) return;
 
     const roles = translations[currentLang]?.hero_roles || [
-      "M.Sc. AIRO Student @ Sapienza",
-      "B.Sc. ACSAI Graduate @ Sapienza"
+      "M.Sc. AIRO Student — Sapienza",
+      "B.Sc. ACSAI Graduate — Sapienza"
     ];
 
     const currentRole = roles[roleIndex % roles.length];
