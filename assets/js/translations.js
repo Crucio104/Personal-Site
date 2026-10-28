@@ -35,12 +35,12 @@ const translations = {
     // Quick Stats (Exactly 4 High-Impact Blocks)
     stat_grade: "110 / 110",
     stat_grade_sub: "Laurea ACSAI Sapienza",
+    stat_msc: "AI & Robotica",
+    stat_msc_sub: "Sapienza Università (2026)",
     stat_ingv: "Tirocinio INGV",
     stat_ingv_sub: "Seismic Viewer 4D & Tesi",
     stat_repos: "Progetti GitHub",
     stat_repos_sub: ">18 Repository pubbliche",
-    stat_olympiad: "TeraBebras & Gare",
-    stat_olympiad_sub: "Punteggio Max & Nazionali",
 
     // About Section
     about_badge: "Profilo",
@@ -229,12 +229,12 @@ const translations = {
     // Quick Stats (Exactly 4 High-Impact Blocks)
     stat_grade: "110 / 110",
     stat_grade_sub: "B.Sc. ACSAI Sapienza",
+    stat_msc: "AI & Robotics",
+    stat_msc_sub: "Sapienza University (2026)",
     stat_ingv: "INGV Internship",
     stat_ingv_sub: "Seismic Viewer 4D & Thesis",
     stat_repos: "GitHub Projects",
     stat_repos_sub: ">18 Active Repositories",
-    stat_olympiad: "TeraBebras & Contests",
-    stat_olympiad_sub: "Top Score & National Stages",
 
     // About Section
     about_badge: "Profile",
