@@ -240,7 +240,7 @@ def build_cv(output_path):
     edu_acsai = [
         [
             Paragraph("<b>Bachelor of Science (B.Sc.) in Applied Computer Science and AI (ACSAI)</b>", item_title_style),
-            Paragraph("<b>Graduated: 110 / 110</b>", ParagraphStyle('R3', parent=item_title_style, alignment=2))
+            Paragraph("<b>Grade: 110 / 110</b>", ParagraphStyle('R3', parent=item_title_style, alignment=2))
         ],
         [
             Paragraph("Sapienza University of Rome — Degree Program Taught 100% in English", item_subtitle_style),

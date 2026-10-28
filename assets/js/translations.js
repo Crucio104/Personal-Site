@@ -96,16 +96,16 @@ const translations = {
     edu_bsc_title: "Applied Computer Science and Artificial Intelligence (ACSAI)",
     edu_bsc_name: "Applied Computer Science and Artificial Intelligence (ACSAI)",
     edu_bsc_inst: "Sapienza Università di Roma",
-    edu_bsc_grade: "110 / 110",
-    edu_bsc_status: "110 / 110",
+    edu_bsc_grade: "Grade: 110 / 110",
+    edu_bsc_status: "Grade: 110 / 110",
     edu_bsc_desc: "Corso triennale tenuto interamente in lingua inglese (2023 – 2026). Votazione finale di 110/110. Votazione di 30 e 30 e lode negli esami di programmazione Python e Java. Tesi di laurea e tirocinio svolti presso l'INGV con il progetto Seismic Viewer. Corsi: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Architetture Software, Reti, Intelligenza Artificiale, Programmazione Concorrente.",
 
     edu_hs_lead: "Diploma di Maturità Scientifica",
     edu_hs_title: "Scienze Applicate",
     edu_hs_name: "Scienze Applicate",
     edu_hs_inst: "Liceo Scientifico Statale 'Vito Volterra'",
-    edu_hs_grade: "98 / 100",
-    edu_hs_status: "98 / 100",
+    edu_hs_grade: "Grade: 98 / 100",
+    edu_hs_status: "Grade: 98 / 100",
     edu_hs_desc: "Curriculum di informatica, matematica e fisica (2018 – 2023).",
 
     // Skills Section
@@ -294,16 +294,16 @@ const translations = {
     edu_bsc_title: "Applied Computer Science and Artificial Intelligence (ACSAI)",
     edu_bsc_name: "Applied Computer Science and Artificial Intelligence (ACSAI)",
     edu_bsc_inst: "Sapienza University of Rome",
-    edu_bsc_grade: "110 / 110",
-    edu_bsc_status: "110 / 110",
+    edu_bsc_grade: "Grade: 110 / 110",
+    edu_bsc_status: "Grade: 110 / 110",
     edu_bsc_desc: "Undergraduate degree taught entirely in English (2023 – 2026). Final graduation grade: 110/110. Grades of 30 and 30 cum laude in Python and Java programming. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.",
 
     edu_hs_lead: "Scientific High School Diploma",
     edu_hs_title: "Applied Sciences Curriculum",
     edu_hs_name: "Applied Sciences Curriculum",
     edu_hs_inst: "Liceo Scientifico Statale 'Vito Volterra'",
-    edu_hs_grade: "98 / 100",
-    edu_hs_status: "98 / 100",
+    edu_hs_grade: "Grade: 98 / 100",
+    edu_hs_status: "Grade: 98 / 100",
     edu_hs_desc: "Curriculum focused on computer science, mathematics, and physics (2018 – 2023).",
 
     // Skills Section
