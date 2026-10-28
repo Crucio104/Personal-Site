@@ -43,6 +43,11 @@
       themeToggleBtn.setAttribute('title', theme === 'dark' ? 'Light Mode' : 'Dark Mode');
       themeToggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Light Mode' : 'Dark Mode');
     }
+
+    const themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#151113' : '#FAF6F0');
+    }
   }
 
   if (themeToggleBtn) {
@@ -83,6 +88,12 @@
         : '<span class="flag-icon">🇮🇹</span>';
       langToggleBtn.setAttribute('title', lang === 'it' ? 'Switch to English' : 'Passa all\'Italiano');
       langToggleBtn.setAttribute('aria-label', lang === 'it' ? 'Switch to English' : 'Passa all\'Italiano');
+    }
+
+    const btt = document.getElementById('back-to-top');
+    if (btt) {
+      btt.setAttribute('title', lang === 'it' ? 'Torna in cima' : 'Scroll to top');
+      btt.setAttribute('aria-label', lang === 'it' ? 'Torna in cima' : 'Scroll to top');
     }
 
     // Reset Typewriter with new language roles
@@ -483,6 +494,25 @@
           }, 2500);
         }
       }
+    });
+  }
+
+  // --- Back to Top Button ---
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   }
 

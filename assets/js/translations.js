@@ -54,10 +54,10 @@ const translations = {
     about_card1_desc: "Sapienza Università di Roma (2026 – In corso) — Sistemi Multi-Agente, Reinforcement Learning, Robot Programming e Deep Learning.",
     about_card2_title: "Laurea Triennale ACSAI (110/110)",
     about_card2_desc: "Sapienza Università di Roma (2023 – 2026). Corso in lingua inglese. Voto finale 110/110.",
-    about_card_ingv_title: "Tirocinio Ricerca INGV",
-    about_card_ingv_desc: "Sviluppo di Seismic Viewer 4D: clustering sismico, stima di faglie e streaming binario compresso (-80%).",
-    about_card4_title: "Maturità (98/100) & Gare",
-    about_card4_desc: "Liceo Scientifico 'Vito Volterra' (Scienze Applicate, 2023). Punteggio massimo nella gara TeraBebras e fasi nazionali alle Olimpiadi di Matematica e Informatica.",
+    about_card_ingv_title: "Tirocinio di Ricerca INGV",
+    about_card_ingv_desc: "Tirocinio curriculare e ricerca software presso l'Istituto Nazionale di Geofisica e Vulcanologia.",
+    about_card4_title: "Seismic Viewer 4D & Tesi",
+    about_card4_desc: "Visualizzazione spatio-temporale, clustering sismico, stima di faglie geologiche e streaming binario compresso (-80%).",
 
     // Experience Section
     exp_badge: "Esperienza & Ricerca",
@@ -275,9 +275,9 @@ const translations = {
     about_card2_title: "B.Sc. in ACSAI (110/110)",
     about_card2_desc: "Sapienza University of Rome (2023 – 2026). Taught in English. Final grade: 110/110.",
     about_card_ingv_title: "INGV Research Internship",
-    about_card_ingv_desc: "Engineered Seismic Viewer 4D for seismic clustering, fault plane estimation, and compressed binary streaming (-80%).",
-    about_card4_title: "High School (98/100) & Contests",
-    about_card4_desc: "Liceo Scientifico 'Vito Volterra' (Applied Sciences, 2023). Maximum score in TeraBebras competition; national stages in Math & Informatics Olympiads.",
+    about_card_ingv_desc: "Curricular research internship at the National Institute of Geophysics and Volcanology focusing on seismic systems.",
+    about_card4_title: "Seismic Viewer 4D & Thesis",
+    about_card4_desc: "Interactive 4D visualization, spatial clustering, automated geological fault estimation, and -80% binary streaming.",
 
     // Experience Section
     exp_badge: "Experience & Research",

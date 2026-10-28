@@ -1370,6 +1370,54 @@ textarea.form-control {
   opacity: 1;
 }
 
+/* --- Floating Back to Top Button --- */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card-elevated);
+  border: 1.5px solid var(--border-color);
+  color: var(--accent-beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: var(--transition);
+  z-index: 990;
+  box-shadow: var(--shadow-md);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .back-to-top {
+  color: var(--accent-bordeaux);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  border-color: var(--accent-bordeaux);
+  color: #ffffff !important;
+  background: linear-gradient(135deg, var(--accent-bordeaux), var(--accent-bordeaux-bright));
+  box-shadow: 0 6px 18px var(--glow-bordeaux);
+  transform: translateY(-3px);
+}
+
+.back-to-top:active {
+  transform: translateY(0);
+}
+
 /* --- Modal for CV --- */
 .modal-backdrop {
   position: fixed;
@@ -1891,6 +1939,14 @@ textarea.form-control {
     left: 1rem;
     text-align: center;
     max-width: calc(100% - 2rem);
+  }
+
+  .back-to-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
   }
 
   /* Modals */
