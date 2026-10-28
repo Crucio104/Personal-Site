@@ -102,6 +102,16 @@ def build_cv(output_path):
         alignment=0
     )
 
+    contact_right_style = ParagraphStyle(
+        'ContactTextRight',
+        parent=styles['Normal'],
+        fontName='Helvetica',
+        fontSize=8.5,
+        leading=12,
+        textColor=CHARCOAL,
+        alignment=2
+    )
+
     section_heading_style = ParagraphStyle(
         'SectionHeading',
         parent=styles['Normal'],
@@ -168,22 +178,23 @@ def build_cv(output_path):
     header_data = [
         [
             Paragraph("<b>ALESSIO CURCIO</b>", title_style),
-            Paragraph("<b>Rome, Italy</b><br/>alessio.curcio04@gmail.com | +39 371 171 2524", contact_style)
+            Paragraph("<b>Rome, Italy</b><br/>alessio.curcio04@gmail.com | +39 371 171 2524", contact_right_style)
         ],
         [
-            Paragraph("<b>Artificial Intelligence & Robotics Engineer</b> | M.Sc. Student @ Sapienza University of Rome", subtitle_style),
-            Paragraph("<a href='https://linkedin.com/in/alessio-curcio-7787b935a'><b>linkedin.com/in/alessio-curcio</b></a><br/><a href='https://github.com/Crucio104'><b>github.com/Crucio104</b></a>", contact_style)
+            Paragraph("<b>Artificial Intelligence & Robotics Engineer</b>", subtitle_style),
+            Paragraph("<a href='https://linkedin.com/in/alessio-curcio-7787b935a'><b>linkedin.com/in/alessio-curcio</b></a><br/><a href='https://github.com/Crucio104'><b>github.com/Crucio104</b></a>", contact_right_style)
         ]
     ]
 
-    header_table = Table(header_data, colWidths=[360, 180])
+    header_table = Table(header_data, colWidths=[310, 230])
     header_table.setStyle(TableStyle([
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('ALIGN', (1, 0), (1, -1), 'RIGHT'),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
         ('TOPPADDING', (0, 0), (-1, -1), 0),
-        ('LEFTPADDING', (0, 0), (-1, -1), 0),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+        ('LEFTPADDING', (0, 0), (0, -1), 0),
+        ('RIGHTPADDING', (0, 0), (0, -1), 15),
+        ('LEFTPADDING', (1, 0), (1, -1), 10),
+        ('RIGHTPADDING', (1, 0), (1, -1), 0),
     ]))
     story.append(header_table)
     story.append(Spacer(1, 4))
