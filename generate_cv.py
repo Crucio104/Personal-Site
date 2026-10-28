@@ -228,9 +228,11 @@ def build_cv(output_path):
         ('TOPPADDING', (0, 0), (-1, -1), 0),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
     ]))
-    story.append(t_airo)
-    story.append(Paragraph("• <b>Curriculum:</b> Autonomous Robotics, Computer Vision, Multi-Agent Systems, Reinforcement Learning, Robot Programming.", bullet_style))
-    story.append(Spacer(1, 4))
+    story.append(KeepTogether([
+        t_airo,
+        Paragraph("• <b>Curriculum:</b> Autonomous Robotics, Computer Vision, Multi-Agent Systems, Reinforcement Learning, Robot Programming.", bullet_style),
+        Spacer(1, 4)
+    ]))
 
     # Bachelor ACSAI
     edu_acsai = [
@@ -251,10 +253,12 @@ def build_cv(output_path):
         ('TOPPADDING', (0, 0), (-1, -1), 0),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
     ]))
-    story.append(t_acsai)
-    story.append(Paragraph("• <b>Academic Honors:</b> Scored 30 and 30 cum laude in University Programming Examinations (Python and Java).", bullet_style))
-    story.append(Paragraph("• <b>Coursework:</b> Data Structures & Algorithms, Operating Systems, Databases, Web & Software Architecture, Computer Networks, Artificial Intelligence, Concurrent & Multicore Programming.", bullet_style))
-    story.append(Spacer(1, 4))
+    story.append(KeepTogether([
+        t_acsai,
+        Paragraph("• <b>Academic Honors:</b> Scored 30 and 30 cum laude in University Programming Examinations (Python and Java).", bullet_style),
+        Paragraph("• <b>Coursework:</b> Data Structures & Algorithms, Operating Systems, Databases, Web & Software Architecture, Computer Networks, Artificial Intelligence, Concurrent & Multicore Programming.", bullet_style),
+        Spacer(1, 4)
+    ]))
 
     # High School
     edu_hs = [
@@ -275,8 +279,7 @@ def build_cv(output_path):
         ('TOPPADDING', (0, 0), (-1, -1), 0),
         ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
     ]))
-    story.append(t_hs)
-    story.append(Spacer(1, 4))
+    story.append(KeepTogether([t_hs, Spacer(1, 4)]))
 
     # ==========================
     # 4. TECHNICAL SKILLS
@@ -405,10 +408,12 @@ def build_cv(output_path):
             ('TOPPADDING', (0, 0), (-1, -1), 1),
             ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
         ]))
-        story.append(t_proj)
+        
+        proj_flowables = [t_proj]
         for b in p_bullets:
-            story.append(Paragraph(f"• {b}", bullet_style))
-        story.append(Spacer(1, 3))
+            proj_flowables.append(Paragraph(f"• {b}", bullet_style))
+        proj_flowables.append(Spacer(1, 3))
+        story.append(KeepTogether(proj_flowables))
 
     # ==========================
     # 6. INDUSTRY & RESEARCH COLLABORATIONS
@@ -450,10 +455,11 @@ def build_cv(output_path):
             ('TOPPADDING', (0, 0), (-1, -1), 1),
             ('BOTTOMPADDING', (0, 0), (-1, -1), 1)
         ]))
-        story.append(t_exp)
+        exp_flowables = [t_exp]
         for b in bullets:
-            story.append(Paragraph(f"• {b}", bullet_style))
-        story.append(Spacer(1, 3))
+            exp_flowables.append(Paragraph(f"• {b}", bullet_style))
+        exp_flowables.append(Spacer(1, 3))
+        story.append(KeepTogether(exp_flowables))
 
     # ==========================
     # 7. COMPETITIONS & CERTIFICATIONS
@@ -468,8 +474,10 @@ def build_cv(output_path):
         "<b>Languages & International Experience:</b> <b>Italian</b> (Native), <b>English</b> (CEFR B2 Certification, Academic English B.Sc. degree, Oxford study abroad program)."
     ]
 
+    honors_flowables = []
     for h in honors:
-        story.append(Paragraph(f"• {h}", bullet_style))
+        honors_flowables.append(Paragraph(f"• {h}", bullet_style))
+    story.append(KeepTogether(honors_flowables))
 
     # Build PDF
     doc.build(story, canvasmaker=NumberedCanvas)

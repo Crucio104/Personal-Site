@@ -35,6 +35,7 @@
         ? '<i class="fas fa-sun"></i>' 
         : '<i class="fas fa-moon"></i>';
       themeToggleBtn.setAttribute('title', theme === 'dark' ? 'Light Mode' : 'Dark Mode');
+      themeToggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Light Mode' : 'Dark Mode');
     }
   }
 
@@ -49,13 +50,14 @@
     if (!translations[lang]) return;
     currentLang = lang;
     localStorage.setItem('site_lang', lang);
+    document.documentElement.setAttribute('lang', lang);
 
     const t = translations[lang];
 
     // Update all elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
-      if (t[key]) {
+      if (t[key] && typeof t[key] === 'string') {
         el.innerHTML = t[key];
       }
     });
@@ -63,7 +65,7 @@
     // Update placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
       const key = el.getAttribute('data-i18n-placeholder');
-      if (t[key]) {
+      if (t[key] && typeof t[key] === 'string') {
         el.setAttribute('placeholder', t[key]);
       }
     });
@@ -88,20 +90,28 @@
   }
 
   // --- Typewriter Effect ---
-  let typewriterTimeout;
+  let typewriterTimeout = null;
   let roleIndex = 0;
   let charIndex = 0;
   let isDeleting = false;
 
   function initTypewriter() {
-    clearTimeout(typewriterTimeout);
+    if (typewriterTimeout) {
+      clearTimeout(typewriterTimeout);
+      typewriterTimeout = null;
+    }
     roleIndex = 0;
     charIndex = 0;
     isDeleting = false;
+    if (typewriterText) {
+      typewriterText.textContent = '';
+    }
     typeRole();
   }
 
   function typeRole() {
+    if (!typewriterText) return;
+
     const roles = translations[currentLang]?.hero_roles || [
       "M.Sc. AIRO Student @ Sapienza",
       "B.Sc. ACSAI Graduate @ Sapienza"
@@ -132,37 +142,64 @@
   }
 
   // --- Toast Notification ---
-  let toastTimer;
+  let toastTimer = null;
   function showToast(message) {
     if (!toast) return;
     toast.textContent = message;
     toast.classList.add('show');
-    clearTimeout(toastTimer);
+    if (toastTimer) clearTimeout(toastTimer);
     toastTimer = setTimeout(() => {
       toast.classList.remove('show');
     }, 3200);
   }
 
-  // --- Copy to Clipboard Buttons ---
+  // --- Copy to Clipboard Buttons with Robust Fallback ---
   document.querySelectorAll('.copy-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const textToCopy = btn.getAttribute('data-copy');
       if (!textToCopy) return;
 
-      navigator.clipboard.writeText(textToCopy).then(() => {
+      const successFeedback = () => {
         const msg = translations[currentLang]?.contact_copied || 'Copiato negli appunti!';
         showToast(msg);
-
-        const originalText = btn.innerHTML;
+        const originalHtml = btn.innerHTML;
         btn.innerHTML = '<i class="fas fa-check"></i>';
         setTimeout(() => {
-          btn.innerHTML = originalText;
+          btn.innerHTML = originalHtml;
         }, 2000);
-      }).catch(() => {
-        window.prompt('Copy to clipboard:', textToCopy);
-      });
+      };
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(textToCopy)
+          .then(successFeedback)
+          .catch(() => fallbackCopy(textToCopy, successFeedback));
+      } else {
+        fallbackCopy(textToCopy, successFeedback);
+      }
     });
   });
+
+  function fallbackCopy(text, callback) {
+    try {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.left = '-9999px';
+      textarea.style.top = '0';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textarea);
+      if (successful) {
+        callback();
+      } else {
+        window.prompt('Copy to clipboard:', text);
+      }
+    } catch (e) {
+      window.prompt('Copy to clipboard:', text);
+    }
+  }
 
   // --- CV Modal ---
   openCvModalBtns.forEach((btn) => {
@@ -193,33 +230,61 @@
   }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && cvModal?.classList.contains('active')) {
-      closeCvModal();
+    if (e.key === 'Escape') {
+      if (cvModal && cvModal.classList.contains('active')) {
+        closeCvModal();
+      }
+      if (navLinks && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
     }
   });
 
   // --- Mobile Navigation ---
   if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       navLinks.classList.toggle('open');
       const isOpen = navLinks.classList.contains('open');
       mobileMenuBtn.innerHTML = isOpen 
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        }
+      }
     });
   }
 
   // --- Active Link on Scroll ---
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
-    const scrollY = window.pageYOffset + 120;
+    const scrollY = window.scrollY + 140;
+    const isAtBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60);
+
+    if (isAtBottom) {
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      const contactLink = document.querySelector('.nav-link[href="#contact"]');
+      if (contactLink) contactLink.classList.add('active');
+      return;
+    }
+
     sections.forEach((sec) => {
       const top = sec.offsetTop;
       const height = sec.offsetHeight;
@@ -236,7 +301,7 @@
     });
   });
 
-  // --- Project Filter Tabs ---
+  // --- Project Filter Tabs (No setTimeout Race Conditions) ---
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
       filterBtns.forEach((b) => b.classList.remove('active'));
@@ -246,18 +311,12 @@
 
       projectCards.forEach((card) => {
         const category = card.getAttribute('data-category') || '';
-        if (filter === 'all' || category.includes(filter)) {
-          card.style.display = 'flex';
-          setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          }, 10);
+        const match = filter === 'all' || category.split(' ').includes(filter);
+
+        if (match) {
+          card.classList.remove('card-hidden');
         } else {
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(15px)';
-          setTimeout(() => {
-            card.style.display = 'none';
-          }, 200);
+          card.classList.add('card-hidden');
         }
       });
     });
@@ -267,10 +326,10 @@
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('form-name')?.value || '';
-      const email = document.getElementById('form-email')?.value || '';
-      const subject = document.getElementById('form-subject')?.value || 'Nuovo Messaggio da Portfolio';
-      const message = document.getElementById('form-message')?.value || '';
+      const name = document.getElementById('form-name')?.value.trim() || '';
+      const email = document.getElementById('form-email')?.value.trim() || '';
+      const subject = document.getElementById('form-subject')?.value.trim() || 'Nuovo Messaggio da Portfolio';
+      const message = document.getElementById('form-message')?.value.trim() || '';
 
       const mailtoUrl = `mailto:alessio.curcio04@gmail.com?subject=${encodeURIComponent(
         `[Personal Site] ${subject} - da ${name}`
@@ -284,7 +343,7 @@
 
       setTimeout(() => {
         window.location.href = mailtoUrl;
-      }, 600);
+      }, 500);
     });
   }
 

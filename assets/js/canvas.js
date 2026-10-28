@@ -1,7 +1,7 @@
 /**
  * Neural Network / Constellation Interactive Canvas Background
  * Styled for Beige & Bordeaux Palette
- * High performance, responsive, respects dark/light theme
+ * High performance, Retina/High-DPI sharp, responsive, respects dark/light theme
  */
 (function() {
   const canvas = document.getElementById('bg-canvas');
@@ -10,12 +10,23 @@
 
   let width = 0;
   let height = 0;
+  let dpr = 1;
   let particles = [];
   const mouse = { x: null, y: null, radius: 140 };
+  let animationFrameId = null;
 
   function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
     initParticles();
   }
 
@@ -23,7 +34,7 @@
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     return {
       particle: isLight ? 'rgba(123, 30, 43, 0.45)' : 'rgba(212, 185, 150, 0.55)',
-      line: isLight ? 'rgba(184, 150, 110, ' : 'rgba(194, 65, 83, '
+      linePrefix: isLight ? 'rgba(184, 150, 110, ' : 'rgba(194, 65, 83, '
     };
   }
 
@@ -51,7 +62,7 @@
         const dx = mouse.x - this.x;
         const dy = mouse.y - this.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < mouse.radius) {
+        if (dist < mouse.radius && dist > 0) {
           const force = (mouse.radius - dist) / mouse.radius;
           this.x -= (dx / dist) * force * 2.2;
           this.y -= (dy / dist) * force * 2.2;
@@ -75,8 +86,6 @@
     }
   }
 
-  let animationFrameId;
-
   function animate() {
     ctx.clearRect(0, 0, width, height);
     const colors = getColors();
@@ -97,7 +106,7 @@
           ctx.beginPath();
           ctx.moveTo(particles[i].x, particles[i].y);
           ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = colors.line + alpha + ')';
+          ctx.strokeStyle = colors.linePrefix + alpha + ')';
           ctx.lineWidth = 0.8;
           ctx.stroke();
         }
@@ -107,8 +116,10 @@
     animationFrameId = requestAnimationFrame(animate);
   }
 
+  let resizeTimer;
   window.addEventListener('resize', () => {
-    resize();
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resize, 100);
   });
 
   window.addEventListener('mousemove', (e) => {
@@ -122,9 +133,11 @@
   });
 
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
+    if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
-    } else {
+      animationFrameId = null;
+    }
+    if (!document.hidden) {
       animate();
     }
   });

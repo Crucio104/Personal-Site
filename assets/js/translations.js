@@ -150,7 +150,10 @@ const translations = {
     p10_desc: "Il precedente sito web e portfolio multipiattaforma sviluppato interamente in Python tramite il framework Flet (Flutter engine), deployato su Vercel.",
     p10_tech: ["Python", "Flet", "Flutter Engine", "Vercel"],
 
-    // Resume Modal
+    // Resume Banner & Modal
+    resume_banner_badge: "Curriculum Vitae — Alessio Curcio",
+    resume_banner_title: "Scarica o visualizza il CV completo in PDF",
+    resume_banner_desc: "Curriculum Vitae ottimizzato per recruiter e sistemi ATS: include riassunto professionale, formazione a Sapienza, progetti cardine, competenze tecniche e certificazioni.",
     modal_title: "Curriculum Vitae — Alessio Curcio",
     modal_close: "Chiudi",
     modal_download: "Scarica PDF",
@@ -326,7 +329,10 @@ const translations = {
     p10_desc: "Previous cross-platform CV & portfolio application built entirely in Python using the Flet framework (Flutter engine), originally deployed on Vercel.",
     p10_tech: ["Python", "Flet", "Flutter Engine", "Vercel"],
 
-    // Resume Modal
+    // Resume Banner & Modal
+    resume_banner_badge: "Curriculum Vitae — Alessio Curcio",
+    resume_banner_title: "Download or preview the full CV in PDF",
+    resume_banner_desc: "Recruiter and ATS-optimized CV: includes professional summary, education at Sapienza, featured projects, technical skills, and certifications.",
     modal_title: "Curriculum Vitae — Alessio Curcio",
     modal_close: "Close",
     modal_download: "Download PDF",
@@ -355,4 +361,3 @@ const translations = {
     footer_rights: "All rights reserved."
   }
 };
-
