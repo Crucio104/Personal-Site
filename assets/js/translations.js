@@ -1,7 +1,8 @@
 /**
  * Multilingual Translations Dictionary (Italian & English)
  * Accurate, concise, professional tone without unnecessary fluff.
- * Highlights B.Sc. ACSAI graduation with 110/110 at Sapienza and INGV Research Internship.
+ * Highlights B.Sc. ACSAI graduation with 110/110 at Sapienza, INGV Research Internship,
+ * and M.Sc. in AIRO starting in 2026.
  */
 const translations = {
   it: {
@@ -19,47 +20,44 @@ const translations = {
     hero_greeting: "Ciao, sono",
     hero_name: "Alessio Curcio",
     hero_roles: [
-      "M.Sc. AIRO Student @ Sapienza",
+      "M.Sc. AIRO Student (2026) @ Sapienza",
       "Laurea ACSAI (110/110) @ Sapienza",
       "Tirocinio Ricerca Software @ INGV",
       "Sistemi Multi-Agente & LLM",
       "Computer Vision & Robotica"
     ],
-    hero_bio: "Studente magistrale in Artificial Intelligence and Robotics (AIRO) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) con <strong>110/110</strong> presso Sapienza Università di Roma. Ho svolto il tirocinio curriculare e tesi triennale presso l'<strong>INGV</strong> (Istituto Nazionale di Geofisica e Vulcanologia) sviluppando un sistema desktop 4D per l'analisi di dati sismici. Mi occupo di sistemi multi-agente, modelli linguistici locali (Local LLMs), computer vision e programmazione robotica.",
+    hero_bio: "Studente magistrale in Artificial Intelligence and Robotics (AIRO, immatricolato 2026) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) con <strong>110/110</strong> presso Sapienza Università di Roma. Ho svolto il tirocinio curriculare e tesi triennale presso l'<strong>INGV</strong> (Istituto Nazionale di Geofisica e Vulcanologia) sviluppando un sistema desktop 4D per l'analisi di dati sismici. Mi occupo di sistemi multi-agente, modelli linguistici locali (Local LLMs), computer vision e robotica.",
     hero_btn_projects: "Progetti",
     hero_btn_contact: "Contattami",
     hero_btn_cv: "Scarica CV (PDF)",
     hero_btn_cv_preview: "Anteprima CV",
 
-    // Quick Stats
-    stat_repos: "Progetti GitHub",
-    stat_repos_sub: "18+ Repository pubbliche",
+    // Quick Stats (Exactly 4 High-Impact Blocks)
     stat_grade: "110 / 110",
     stat_grade_sub: "Laurea ACSAI Sapienza",
     stat_ingv: "Tirocinio INGV",
     stat_ingv_sub: "Seismic Viewer 4D & Tesi",
+    stat_repos: "Progetti GitHub",
+    stat_repos_sub: "18+ Repository pubbliche",
     stat_honors: "30 e 30L Programmazione",
     stat_honors_sub: "Esami Python e Java",
-    stat_olympiad: "TeraBebras & Gare",
-    stat_olympiad_sub: "Punteggio massimo e fasi nazionali",
 
     // About Section
     about_badge: "Profilo",
     about_title: "Percorso Accademico & Tecnologie",
     about_p1: "Ho conseguito la Laurea Triennale in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> presso <strong>Sapienza Università di Roma</strong> con votazione di <strong>110/110</strong>, completando un corso di studi tenuto interamente in lingua inglese.",
-    about_p2: "Ho svolto il tirocinio curriculare e tesi di laurea presso l'<strong>INGV (Istituto Nazionale di Geofisica e Vulcanologia)</strong>, realizzando <strong>Seismic Viewer</strong>: un'applicazione desktop per la visualizzazione 4D spazio-temporale di dati sismici, clustering geologico e stima automatica dei piani di faglia con fit PCA e RANSAC (errore angolare &lt; 1.0°).",
-    about_p3: "Attualmente frequento la Laurea Magistrale in <strong>Artificial Intelligence and Robotics (AIRO)</strong> presso Sapienza. Mi concentro su sistemi multi-agente, modelli linguistici eseguiti in locale (Local LLMs), computer vision con YOLO e programmazione concorrente per sistemi robotici. Ho inoltre completato laboratori tecnici con <strong>IBM</strong> ed <strong>Ericsson</strong> e ottenuto il punteggio massimo nella competizione TeraBebras.",
+    about_p2: "Ho svolto il tirocinio curriculare e tesi di laurea presso l'<strong>INGV (Istituto Nazionale di Geofisica e Vulcanologia)</strong>, realizzando <strong>Seismic Viewer</strong>: un'applicazione desktop per la visualizzazione 4D spazio-temporale di dati sismici, clustering geologico e stima automatica dei piani di faglia.",
+    about_p3: "Attualmente frequento la Laurea Magistrale in <strong>Artificial Intelligence and Robotics (AIRO)</strong> presso Sapienza (avviata nel 2026). Mi concentro su sistemi multi-agente, modelli linguistici eseguiti in locale (Local LLMs), computer vision con YOLO e programmazione robotica. Ho inoltre completato laboratori tecnici con <strong>IBM</strong> ed <strong>Ericsson</strong> e ottenuto il punteggio massimo nella competizione TeraBebras.",
     
+    // Exactly 4 About Feature Cards
     about_card1_title: "Laurea Magistrale AIRO",
-    about_card1_desc: "Sapienza Università di Roma — Sistemi Multi-Agente, Reinforcement Learning, Robot Programming e Deep Learning.",
+    about_card1_desc: "Sapienza Università di Roma (2026 – In corso) — Sistemi Multi-Agente, Reinforcement Learning, Robot Programming e Deep Learning.",
     about_card2_title: "Laurea Triennale ACSAI (110/110)",
-    about_card2_desc: "Corso in lingua inglese. Votazione finale 110/110. Voto di 30 e 30 e lode negli esami di programmazione in Python e Java.",
+    about_card2_desc: "Sapienza Università di Roma (2023 – 2026). Corso in lingua inglese. Voto finale 110/110. Voto di 30 e 30 e lode in programmazione Python e Java.",
     about_card_ingv_title: "Tirocinio Ricerca INGV",
-    about_card_ingv_desc: "Sviluppo di Seismic Viewer 4D: clustering sismico, stima di faglie (PCA/RANSAC) e streaming binario compresso (-80%).",
-    about_card3_title: "Maturità Scientifica (98/100)",
-    about_card3_desc: "Liceo Scientifico 'Vito Volterra' (Scienze Applicate), diplomato nel 2023 con 98/100.",
-    about_card4_title: "Problem Solving & Gare",
-    about_card4_desc: "Punteggio massimo nella gara TeraBebras; fasi regionali e nazionali alle Olimpiadi di Matematica e Informatica.",
+    about_card_ingv_desc: "Sviluppo di Seismic Viewer 4D: clustering sismico, stima di faglie e streaming binario compresso (-80%).",
+    about_card4_title: "Maturità (98/100) & Gare",
+    about_card4_desc: "Liceo Scientifico 'Vito Volterra' (Scienze Applicate, 2023). Punteggio massimo nella gara TeraBebras e fasi nazionali alle Olimpiadi di Matematica e Informatica.",
 
     // Experience Section
     exp_badge: "Esperienza & Ricerca",
@@ -67,7 +65,7 @@ const translations = {
     exp_ingv_title: "Tirocinio di Ricerca Software — Seismic Viewer 4D",
     exp_ingv_org: "INGV (Istituto Nazionale di Geofisica e Vulcanologia) & Sapienza",
     exp_ingv_period: "Tirocinio & Tesi",
-    exp_ingv_desc: "Progettazione e sviluppo di Seismic Viewer, applicazione desktop interattiva per la visualizzazione 4D spazio-temporale di dati sismici. Backend scientifico in Python per clustering spaziale e stima automatica di piani di faglia con fit PCA/RANSAC (errore angolare medio &lt; 1.0°). Frontend 3D in WebGL con protocollo di streaming binario ad alte prestazioni (riduzione dati dell'80% rispetto a JSON) per mantenere framerate interattivi su grandi dataset sismici (Campi Flegrei). Integrazione con le API GOSSIP di INGV, dati di sollevamento del suolo GNSS e tomografia sismica.",
+    exp_ingv_desc: "Progettazione e sviluppo di Seismic Viewer, applicazione desktop interattiva per la visualizzazione 4D spazio-temporale di dati sismici. Backend scientifico in Python per clustering spaziale e stima automatica dei piani di faglia geologici. Frontend 3D in WebGL con protocollo di streaming binario ad alte prestazioni (riduzione dati dell'80% rispetto a JSON) per mantenere framerate interattivi su grandi dataset sismici (Campi Flegrei). Integrazione con le API GOSSIP di INGV, dati di sollevamento del suolo GNSS e tomografia sismica.",
     
     exp_ibm_title: "Analisi Dati & Chatbot",
     exp_ibm_org: "IBM & Sapienza University",
@@ -91,7 +89,7 @@ const translations = {
     edu_msc_title: "Artificial Intelligence and Robotics (AIRO)",
     edu_msc_name: "Artificial Intelligence and Robotics (AIRO)",
     edu_msc_inst: "Sapienza Università di Roma",
-    edu_msc_status: "In corso",
+    edu_msc_status: "2026 – In corso",
     edu_msc_desc: "Corso in lingua inglese su Robotica Autonoma, Visione Artificiale, Sistemi Multi-Agente, Machine Learning e Controllo.",
     
     edu_bsc_lead: "Bachelor of Science (B.Sc.) in",
@@ -100,7 +98,7 @@ const translations = {
     edu_bsc_inst: "Sapienza Università di Roma",
     edu_bsc_grade: "110 / 110",
     edu_bsc_status: "110 / 110",
-    edu_bsc_desc: "Corso triennale tenuto interamente in lingua inglese. Votazione finale di 110/110. Votazione di 30 e 30 e lode negli esami di programmazione Python e Java. Tesi di laurea e tirocinio svolti presso l'INGV con il progetto Seismic Viewer. Corsi: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Architetture Software, Reti, Intelligenza Artificiale, Programmazione Multicore.",
+    edu_bsc_desc: "Corso triennale tenuto interamente in lingua inglese (2023 – 2026). Votazione finale di 110/110. Votazione di 30 e 30 e lode negli esami di programmazione Python e Java. Tesi di laurea e tirocinio svolti presso l'INGV con il progetto Seismic Viewer. Corsi: Strutture Dati e Algoritmi, Sistemi Operativi, Basi di Dati, Architetture Software, Reti, Intelligenza Artificiale, Programmazione Concorrente.",
 
     edu_hs_lead: "Diploma di Maturità Scientifica",
     edu_hs_title: "Scienze Applicate",
@@ -108,7 +106,7 @@ const translations = {
     edu_hs_inst: "Liceo Scientifico Statale 'Vito Volterra'",
     edu_hs_grade: "98 / 100",
     edu_hs_status: "98 / 100",
-    edu_hs_desc: "Curriculum di informatica, matematica e fisica.",
+    edu_hs_desc: "Curriculum di informatica, matematica e fisica (2018 – 2023).",
 
     // Skills Section
     skills_badge: "Competenze",
@@ -130,8 +128,8 @@ const translations = {
 
     // Project Details
     p0_title: "Seismic Viewer 4D (INGV)",
-    p0_desc: "Applicazione desktop interattiva 4D per la visualizzazione spazio-temporale di dati sismici e faglie geologiche, sviluppata per il tirocinio e tesi con l'INGV. Backend in Python per clustering spaziale e fit dei piani con PCA/RANSAC (errore &lt; 1.0°); frontend WebGL con protocollo binario compresso (-80% payload) e integrazione API GOSSIP.",
-    p0_tech: ["Python", "WebGL", "3D/4D Visualization", "PCA / RANSAC", "INGV API"],
+    p0_desc: "Applicazione desktop interattiva 4D per la visualizzazione spazio-temporale di dati sismici e faglie geologiche, sviluppata per il tirocinio e tesi con l'INGV. Backend in Python per clustering spaziale e stima automatica dei piani di faglia; frontend WebGL con protocollo binario compresso (-80% payload) e integrazione API GOSSIP.",
+    p0_tech: ["Python", "WebGL", "3D/4D Visualization", "Fault Estimation", "INGV API"],
 
     p1_title: "OpenSyntax AI Coding Workspace",
     p1_desc: "Workspace con orchestrazione multi-agente per lo sviluppo software. Supporta compilazione per Python, C/C++, Java, Go e Rust, con terminale integrato e supporto a LLM locali (LM Studio) e OpenAI.",
@@ -176,7 +174,7 @@ const translations = {
     // Resume Banner & Modal
     resume_banner_badge: "Curriculum Vitae",
     resume_banner_title: "Scarica il CV in formato PDF",
-    resume_banner_desc: "CV per recruiter e sistemi ATS: include formazione (Laurea ACSAI 110/110, tesi INGV, magistrale AIRO), progetti, competenze tecniche e contatti.",
+    resume_banner_desc: "CV per recruiter e sistemi ATS: include formazione (Laurea ACSAI 110/110, tesi INGV, magistrale AIRO dal 2026), progetti, competenze tecniche e contatti.",
     modal_title: "Curriculum Vitae — Alessio Curcio",
     modal_close: "Chiudi",
     modal_download: "Scarica PDF",
@@ -220,47 +218,44 @@ const translations = {
     hero_greeting: "Hi, I'm",
     hero_name: "Alessio Curcio",
     hero_roles: [
-      "M.Sc. AIRO Student @ Sapienza",
+      "M.Sc. AIRO Student (2026) @ Sapienza",
       "B.Sc. ACSAI Graduate (110/110) @ Sapienza",
       "Software Research Intern @ INGV",
       "Multi-Agent Systems & LLMs",
       "Computer Vision & Robotics"
     ],
-    hero_bio: "Master's student in Artificial Intelligence and Robotics (AIRO) and Bachelor's graduate in Applied Computer Science and Artificial Intelligence (ACSAI) with <strong>110/110</strong> at Sapienza University of Rome. Completed a research software engineering internship at <strong>INGV</strong> (National Institute of Geophysics and Volcanology) developing an interactive 4D seismic analysis system. Working on multi-agent systems, local LLMs, computer vision, and robotics.",
+    hero_bio: "Master's student in Artificial Intelligence and Robotics (AIRO, enrolled 2026) and Bachelor's graduate in Applied Computer Science and Artificial Intelligence (ACSAI) with <strong>110/110</strong> at Sapienza University of Rome. Completed a research software engineering internship at <strong>INGV</strong> (National Institute of Geophysics and Volcanology) developing an interactive 4D seismic analysis system. Working on multi-agent systems, local LLMs, computer vision, and robotics.",
     hero_btn_projects: "Projects",
     hero_btn_contact: "Contact Me",
     hero_btn_cv: "Download CV (PDF)",
     hero_btn_cv_preview: "Preview CV",
 
-    // Quick Stats
-    stat_repos: "GitHub Projects",
-    stat_repos_sub: "18+ Active Repositories",
+    // Quick Stats (Exactly 4 High-Impact Blocks)
     stat_grade: "110 / 110",
     stat_grade_sub: "B.Sc. ACSAI Sapienza",
     stat_ingv: "INGV Internship",
     stat_ingv_sub: "Seismic Viewer 4D & Thesis",
+    stat_repos: "GitHub Projects",
+    stat_repos_sub: "18+ Active Repositories",
     stat_honors: "30 & 30L Programming",
     stat_honors_sub: "Python & Java Exams",
-    stat_olympiad: "TeraBebras & Contests",
-    stat_olympiad_sub: "Top Score & National Stages",
 
     // About Section
     about_badge: "Profile",
     about_title: "Academic Background & Focus",
     about_p1: "I graduated with a Bachelor's degree in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> from <strong>Sapienza University of Rome</strong> with a final grade of <strong>110/110</strong>, completing an undergraduate curriculum taught entirely in English.",
-    about_p2: "I completed my curricular internship and bachelor's thesis at the <strong>National Institute of Geophysics and Volcanology (INGV)</strong>, engineering <strong>Seismic Viewer</strong>: an interactive 4D desktop application for spatio-temporal seismic catalogue visualization, spatial clustering, and automated geological fault plane estimation via PCA/RANSAC fitting (&lt; 1.0° mean angular error).",
-    about_p3: "I am currently pursuing my Master of Science in <strong>Artificial Intelligence and Robotics (AIRO)</strong> at Sapienza, focusing on multi-agent systems, local LLMs, computer vision with YOLO, and concurrent robotic control. I also completed technical programs with <strong>IBM</strong> and <strong>Ericsson</strong>, and achieved the top score in the TeraBebras competition.",
+    about_p2: "I completed my curricular internship and bachelor's thesis at the <strong>National Institute of Geophysics and Volcanology (INGV)</strong>, engineering <strong>Seismic Viewer</strong>: an interactive 4D desktop application for spatio-temporal seismic catalogue visualization, spatial clustering, and automated geological fault plane estimation.",
+    about_p3: "I am currently pursuing my Master of Science in <strong>Artificial Intelligence and Robotics (AIRO)</strong> at Sapienza (started in 2026), focusing on multi-agent systems, local LLMs, computer vision with YOLO, and concurrent robotic control. I also completed technical programs with <strong>IBM</strong> and <strong>Ericsson</strong>, and achieved the top score in the TeraBebras competition.",
     
+    // Exactly 4 About Feature Cards
     about_card1_title: "M.Sc. in AIRO",
-    about_card1_desc: "Sapienza University of Rome — Multi-Agent Systems, Reinforcement Learning, Robot Programming, Deep Learning.",
+    about_card1_desc: "Sapienza University of Rome (2026 – Present) — Multi-Agent Systems, Reinforcement Learning, Robot Programming, Deep Learning.",
     about_card2_title: "B.Sc. in ACSAI (110/110)",
-    about_card2_desc: "Taught in English. Final grade: 110/110. Scored 30 and 30 cum laude in Python and Java programming examinations.",
+    about_card2_desc: "Sapienza University of Rome (2023 – 2026). Taught in English. Final grade: 110/110. Scored 30 and 30 cum laude in Python and Java examinations.",
     about_card_ingv_title: "INGV Research Internship",
-    about_card_ingv_desc: "Engineered Seismic Viewer 4D for seismic clustering, fault plane estimation (PCA/RANSAC), and compressed binary streaming (-80%).",
-    about_card3_title: "Scientific High School (98/100)",
-    about_card3_desc: "Liceo Scientifico 'Vito Volterra' (Applied Sciences), graduated in 2023 with 98/100.",
-    about_card4_title: "Competitions & Problem Solving",
-    about_card4_desc: "Max score in the TeraBebras competition; regional & national stages in Math & Informatics Olympiads.",
+    about_card_ingv_desc: "Engineered Seismic Viewer 4D for seismic clustering, fault plane estimation, and compressed binary streaming (-80%).",
+    about_card4_title: "High School (98/100) & Contests",
+    about_card4_desc: "Liceo Scientifico 'Vito Volterra' (Applied Sciences, 2023). Maximum score in TeraBebras competition; national stages in Math & Informatics Olympiads.",
 
     // Experience Section
     exp_badge: "Experience & Research",
@@ -268,7 +263,7 @@ const translations = {
     exp_ingv_title: "Software Engineering Research Intern — Seismic Viewer 4D",
     exp_ingv_org: "INGV (National Institute of Geophysics and Volcanology) & Sapienza",
     exp_ingv_period: "Thesis & Internship",
-    exp_ingv_desc: "Designed and engineered Seismic Viewer, an interactive 4D desktop application for spatio-temporal seismic data visualization. Developed a Python scientific backend for spatial clustering and automated fault plane estimation via PCA and RANSAC fitting (&lt; 1.0° mean angular error). Built a high-performance WebGL 3D rendering frontend with a custom binary streaming protocol achieving an 80% data reduction compared to JSON for fluid framerates on large seismic datasets (Campi Flegrei). Integrated INGV GOSSIP API, GNSS ground uplift, and 3D seismic tomography.",
+    exp_ingv_desc: "Designed and engineered Seismic Viewer, an interactive 4D desktop application for spatio-temporal seismic data visualization. Developed a Python scientific backend for spatial clustering and automated geological fault plane estimation. Built a high-performance WebGL 3D rendering frontend with a custom binary streaming protocol achieving an 80% data reduction compared to JSON for fluid framerates on large seismic datasets (Campi Flegrei). Integrated INGV GOSSIP API, GNSS ground uplift, and 3D seismic tomography.",
     
     exp_ibm_title: "Data Analysis & Chatbots",
     exp_ibm_org: "IBM & Sapienza University",
@@ -292,7 +287,7 @@ const translations = {
     edu_msc_title: "Artificial Intelligence and Robotics (AIRO)",
     edu_msc_name: "Artificial Intelligence and Robotics (AIRO)",
     edu_msc_inst: "Sapienza University of Rome",
-    edu_msc_status: "Currently Enrolled",
+    edu_msc_status: "2026 – Present",
     edu_msc_desc: "English-taught program covering Autonomous Robotics, Computer Vision, Multi-Agent Systems, Machine Learning, and Control.",
     
     edu_bsc_lead: "Bachelor of Science (B.Sc.) in",
@@ -301,7 +296,7 @@ const translations = {
     edu_bsc_inst: "Sapienza University of Rome",
     edu_bsc_grade: "110 / 110",
     edu_bsc_status: "110 / 110",
-    edu_bsc_desc: "Undergraduate degree taught entirely in English. Final graduation grade: 110/110. Grades of 30 and 30 cum laude in Python and Java programming. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.",
+    edu_bsc_desc: "Undergraduate degree taught entirely in English (2023 – 2026). Final graduation grade: 110/110. Grades of 30 and 30 cum laude in Python and Java programming. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.",
 
     edu_hs_lead: "Scientific High School Diploma",
     edu_hs_title: "Applied Sciences Curriculum",
@@ -309,7 +304,7 @@ const translations = {
     edu_hs_inst: "Liceo Scientifico Statale 'Vito Volterra'",
     edu_hs_grade: "98 / 100",
     edu_hs_status: "98 / 100",
-    edu_hs_desc: "Curriculum focused on computer science, mathematics, and physics.",
+    edu_hs_desc: "Curriculum focused on computer science, mathematics, and physics (2018 – 2023).",
 
     // Skills Section
     skills_badge: "Tech Stack",
@@ -331,8 +326,8 @@ const translations = {
 
     // Project Details
     p0_title: "Seismic Viewer 4D (INGV)",
-    p0_desc: "Interactive 4D desktop application for spatio-temporal seismic data visualization and fault plane analysis developed for my INGV research internship and B.Sc. thesis. Features Python backend for spatial clustering and PCA/RANSAC plane fitting (&lt; 1.0° error), WebGL frontend with compressed binary protocol (-80% payload), and INGV GOSSIP API integration.",
-    p0_tech: ["Python", "WebGL", "3D/4D Visualization", "PCA / RANSAC", "INGV API"],
+    p0_desc: "Interactive 4D desktop application for spatio-temporal seismic data visualization and fault plane analysis developed for my INGV research internship and B.Sc. thesis. Features Python backend for spatial clustering and automated fault plane estimation, WebGL frontend with compressed binary protocol (-80% payload), and INGV GOSSIP API integration.",
+    p0_tech: ["Python", "WebGL", "3D/4D Visualization", "Fault Estimation", "INGV API"],
 
     p1_title: "OpenSyntax AI Coding Workspace",
     p1_desc: "AI workspace featuring multi-agent orchestration for software development. Supports compilation for Python, C/C++, Java, Go, and Rust with an integrated terminal and support for local LLMs (LM Studio) and OpenAI.",
@@ -377,7 +372,7 @@ const translations = {
     // Resume Banner & Modal
     resume_banner_badge: "Curriculum Vitae",
     resume_banner_title: "Download CV in PDF format",
-    resume_banner_desc: "Recruiter and ATS-friendly CV: includes education (B.Sc. ACSAI 110/110, INGV thesis, M.Sc. AIRO), projects, technical skills, and contact details.",
+    resume_banner_desc: "Recruiter and ATS-friendly CV: includes education (B.Sc. ACSAI 110/110, INGV thesis, M.Sc. AIRO starting 2026), projects, technical skills, and contact details.",
     modal_title: "Curriculum Vitae — Alessio Curcio",
     modal_close: "Close",
     modal_download: "Download PDF",

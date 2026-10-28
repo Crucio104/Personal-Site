@@ -215,7 +215,7 @@ def build_cv(output_path):
     edu_airo = [
         [
             Paragraph("<b>Master of Science (M.Sc.) in Artificial Intelligence and Robotics</b>", item_title_style),
-            Paragraph("<b>2024 – Present</b>", ParagraphStyle('R', parent=item_title_style, alignment=2))
+            Paragraph("<b>2026 – Present</b>", ParagraphStyle('R', parent=item_title_style, alignment=2))
         ],
         [
             Paragraph("Sapienza University of Rome — Faculty of Information Engineering, Informatics and Statistics", item_subtitle_style),
@@ -431,7 +431,7 @@ def build_cv(output_path):
             "Curricular Internship & Thesis",
             [
                 "Designed and developed <b>Seismic Viewer</b>, an interactive 4D desktop application for spatio-temporal seismic data visualization.",
-                "Engineered Python scientific backend for spatial clustering and automated fault plane estimation via PCA/RANSAC fitting (angular error &lt; 1.0°).",
+                "Engineered Python scientific backend for spatial clustering and automated geological fault plane estimation.",
                 "Built WebGL 3D rendering frontend with binary streaming protocol achieving an 80% data reduction vs. JSON, sustaining interactive framerates.",
                 "Integrated real-time INGV GOSSIP API, GNSS ground uplift measurements, and 3D seismic tomography."
             ]

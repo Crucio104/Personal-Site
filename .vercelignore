@@ -1,0 +1,8 @@
+.git
+.gitignore
+.DS_Store
+generate_cv.py
+serve.py
+__pycache__
+*.pyc
+*.pyo
