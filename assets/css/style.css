@@ -964,11 +964,16 @@ section {
   transition: var(--transition);
 }
 
-.filter-btn:hover, .filter-btn.active {
-  background: linear-gradient(135deg, var(--accent-bordeaux) 0%, var(--accent-bordeaux-bright) 60%, var(--accent-beige) 100%);
+.filter-btn:hover {
+  border-color: var(--accent-bordeaux);
+  color: var(--text-primary);
+}
+
+.filter-btn.active {
+  background: var(--accent-bordeaux);
   color: #ffffff !important;
-  border-color: transparent;
-  box-shadow: 0 4px 12px var(--glow-bordeaux);
+  border-color: var(--accent-bordeaux);
+  box-shadow: 0 4px 14px var(--glow-bordeaux);
 }
 
 .projects-grid {
@@ -1359,7 +1364,7 @@ textarea.form-control {
 
 .transcript-highlights-box {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-bottom: 1.25rem;
 }
@@ -1514,25 +1519,18 @@ textarea.form-control {
   white-space: nowrap;
 }
 
-.grade-honors {
+.grade-honors,
+.grade-top {
   background: rgba(196, 65, 84, 0.22);
   color: var(--accent-beige);
   border: 1px solid var(--accent-bordeaux-bright);
 }
 
-[data-theme="light"] .grade-honors {
-  background: rgba(123, 30, 43, 0.12);
-  color: var(--accent-bordeaux);
-}
-
-.grade-top {
-  background: rgba(123, 30, 43, 0.12);
-  color: var(--accent-beige);
-  border: 1px solid rgba(123, 30, 43, 0.3);
-}
-
+[data-theme="light"] .grade-honors,
 [data-theme="light"] .grade-top {
+  background: rgba(123, 30, 43, 0.12);
   color: var(--accent-bordeaux);
+  border: 1px solid var(--accent-bordeaux);
 }
 
 .grade-standard {
@@ -1553,7 +1551,8 @@ textarea.form-control {
 
 @media (max-width: 768px) {
   .transcript-highlights-box {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
   .modal-transcript-content {
     height: 94vh;
