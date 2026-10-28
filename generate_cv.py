@@ -197,9 +197,10 @@ def build_cv(output_path):
         "Software Engineer and M.Sc. student in <b>Artificial Intelligence & Robotics (AIRO)</b> at "
         "<b>Sapienza University of Rome</b>, holding a Bachelor's degree in <b>Applied Computer Science and "
         "Artificial Intelligence (ACSAI)</b> graduated with <b>110 / 110</b> (taught entirely in English). "
-        "Scored 30 and 30 cum laude in university programming examinations (Python and Java). Technical focus on "
-        "<b>Multi-Agent Orchestration</b>, <b>Local LLMs</b>, <b>Computer Vision (YOLO)</b>, "
-        "and <b>Concurrent Robotic Systems</b>. Problem-solving background across national "
+        "Completed a research software engineering internship at <b>INGV</b> (National Institute of Geophysics and Volcanology) "
+        "developing <i>Seismic Viewer 4D</i>. Scored 30 and 30 cum laude in university programming examinations (Python and Java). "
+        "Technical focus on <b>Multi-Agent Systems</b>, <b>Local LLMs</b>, <b>Computer Vision (YOLO)</b>, "
+        "and <b>Concurrent Robotic Control</b>. Problem-solving background across national "
         "Mathematics and Informatics Olympiads and maximum score in the TeraBebras competition."
     )
     story.append(Paragraph(summary_text, body_style))
@@ -239,7 +240,7 @@ def build_cv(output_path):
     edu_acsai = [
         [
             Paragraph("<b>Bachelor of Science (B.Sc.) in Applied Computer Science and AI (ACSAI)</b>", item_title_style),
-            Paragraph("<b>Graduated: 110 / 110</b>", ParagraphStyle('R3', parent=item_title_style, alignment=2, textColor=BORDEAUX))
+            Paragraph("<b>Graduated: 110 / 110</b>", ParagraphStyle('R3', parent=item_title_style, alignment=2))
         ],
         [
             Paragraph("Sapienza University of Rome — Degree Program Taught 100% in English", item_subtitle_style),
@@ -257,6 +258,7 @@ def build_cv(output_path):
     story.append(KeepTogether([
         t_acsai,
         Paragraph("• <b>Final Graduation Grade:</b> 110 / 110.", bullet_style),
+        Paragraph("• <b>B.Sc. Thesis & Internship:</b> INGV (Istituto Nazionale di Geofisica e Vulcanologia) — <i>Seismic Viewer 4D</i>.", bullet_style),
         Paragraph("• <b>Honors:</b> Maximum grades (30 and 30 cum laude) in University Programming Examinations (Python and Java).", bullet_style),
         Paragraph("• <b>Coursework:</b> Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Concurrent Programming.", bullet_style),
         Spacer(1, 4)
@@ -418,18 +420,28 @@ def build_cv(output_path):
         story.append(KeepTogether(proj_flowables))
 
     # ==========================
-    # 6. INDUSTRY & RESEARCH COLLABORATIONS
+    # 6. RESEARCH & INDUSTRY EXPERIENCE
     # ==========================
-    story.extend(section_header("Industrial Collaborations & Labs"))
+    story.extend(section_header("Research & Industry Experience"))
 
     exp_data = [
+        (
+            "Software Engineering Research Intern — Seismic Viewer 4D",
+            "INGV (Istituto Nazionale di Geofisica e Vulcanologia)",
+            "Curricular Internship & Thesis",
+            [
+                "Designed and developed <b>Seismic Viewer</b>, an interactive 4D desktop application for spatio-temporal seismic data visualization.",
+                "Engineered Python scientific backend for spatial clustering and automated fault plane estimation via PCA/RANSAC fitting (angular error &lt; 1.0°).",
+                "Built WebGL 3D rendering frontend with binary streaming protocol achieving an 80% data reduction vs. JSON, sustaining interactive framerates.",
+                "Integrated real-time INGV GOSSIP API, GNSS ground uplift measurements, and 3D seismic tomography."
+            ]
+        ),
         (
             "Data Analytics & Conversational AI",
             "IBM & Sapienza University",
             "Academic Project",
             [
-                "Big Data analytics for profiling models from public data streams.",
-                "Customer support conversational chatbots built with IBM Cloud and Watson services."
+                "Big Data analytics for profiling models from public data streams; built customer support chatbots with IBM Cloud and Watson services."
             ]
         ),
         (
@@ -437,7 +449,7 @@ def build_cv(output_path):
             "Ericsson & Fondazione Mondo Digitale",
             "Technical Program",
             [
-                "Technical problem solving in telecommunications, object-oriented design, and robotics."
+                "Technical problem solving in telecommunications, applied object-oriented software design, and robotics."
             ]
         )
     ]

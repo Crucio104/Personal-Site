@@ -7,7 +7,7 @@
   'use strict';
 
   // --- State ---
-  let currentLang = localStorage.getItem('site_lang') || 'it';
+  let currentLang = localStorage.getItem('site_lang') || 'en';
   let currentTheme = localStorage.getItem('site_theme') || 'dark';
 
   // Elements
@@ -347,7 +347,20 @@
     });
   }
 
+  // --- Force Dynamic Favicon Cache Busting ---
+  function refreshFavicon() {
+    const timestamp = Date.now();
+    document.querySelectorAll('link[rel*="icon"]').forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href) {
+        const cleanHref = href.split('?')[0];
+        link.setAttribute('href', `${cleanHref}?t=${timestamp}`);
+      }
+    });
+  }
+
   // --- Initialization ---
+  refreshFavicon();
   applyTheme(currentTheme);
   applyLanguage(currentLang);
 })();
