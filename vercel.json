@@ -1,6 +1,12 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/assets/img/Profile.png",
+      "destination": "/assets/img/profile.png"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
