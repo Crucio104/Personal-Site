@@ -2227,7 +2227,219 @@ textarea.form-control {
   font-weight: 600;
 }
 
-/* Gallery Showcase */
+/* --- Seismic Viewer Interactive Module Showcase --- */
+.thesis-showcase-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.thesis-showcase-nav-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 0.25rem;
+}
+
+.thesis-showcase-nav-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.thesis-showcase-nav {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  background: var(--bg-secondary);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.thesis-showcase-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.75rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.thesis-showcase-nav-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.thesis-showcase-nav-btn.active {
+  background: linear-gradient(135deg, var(--accent-bordeaux) 0%, var(--accent-bordeaux-bright) 100%);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] .thesis-showcase-nav-btn.active {
+  background: var(--accent-bordeaux);
+  color: #ffffff;
+}
+
+.thesis-showcase-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.25s ease;
+}
+
+.thesis-showcase-img-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 480px;
+  background: #0d0a0b;
+  overflow: hidden;
+}
+
+.thesis-showcase-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.22s ease-in-out, transform 0.35s ease;
+}
+
+.thesis-showcase-zoom-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(18, 12, 15, 0.75);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--accent-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.thesis-showcase-zoom-btn:hover {
+  background: var(--accent-bordeaux);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.thesis-showcase-content {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* PDF Toolbar & Mobile Card */
+.thesis-pdf-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+}
+
+.thesis-pdf-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.thesis-pdf-meta i {
+  color: var(--accent-bordeaux-bright);
+  font-size: 1.2rem;
+}
+
+.thesis-pdf-mobile-card {
+  display: none;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.thesis-pdf-mobile-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(123, 30, 43, 0.3) 0%, rgba(196, 65, 84, 0.15) 100%);
+  border: 1px solid rgba(196, 65, 84, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--accent-bordeaux-bright);
+}
+
+.thesis-pdf-mobile-info h5 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.thesis-pdf-mobile-info p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.thesis-pdf-mobile-tags {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.thesis-pdf-mobile-tags span {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--accent-cream);
+}
+
+.thesis-pdf-mobile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+/* Gallery Showcase Fallback */
 .thesis-gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -3002,9 +3214,28 @@ textarea.form-control {
     gap: 0.5rem;
   }
 
-  .thesis-gallery-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  /* Reworked Seismic Viewer Showcase on Mobile */
+  .thesis-showcase-nav {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: max-content;
+    min-width: 100%;
+    scrollbar-width: none;
+  }
+
+  .thesis-showcase-nav-btn {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.76rem;
+    flex-shrink: 0;
+  }
+
+  .thesis-showcase-content {
+    padding: 0.85rem 1rem;
+  }
+
+  .thesis-showcase-img-box {
+    aspect-ratio: 16 / 10;
   }
 
   .thesis-info-cards-grid {
@@ -3012,8 +3243,17 @@ textarea.form-control {
     gap: 0.75rem;
   }
 
+  /* Show dedicated mobile PDF card instead of broken mobile iframe */
   .thesis-pdf-frame {
-    height: 440px;
+    display: none;
+  }
+
+  .thesis-pdf-mobile-card {
+    display: flex;
+  }
+
+  .thesis-pdf-toolbar {
+    display: none;
   }
 }
 

@@ -105,6 +105,11 @@
 
     // Reset Typewriter with new language roles
     initTypewriter();
+
+    // Re-render active Seismic Viewer showcase module
+    if (typeof renderShowcaseModule === 'function') {
+      renderShowcaseModule(currentShowcaseIdx);
+    }
   }
 
   if (langToggleBtn) {
@@ -367,6 +372,107 @@
         const dataSrc = thesisIframe.getAttribute('data-src');
         if (dataSrc) thesisIframe.src = dataSrc;
       }
+    });
+  });
+
+  // --- Seismic Viewer Interactive Module Showcase ---
+  const showcaseModules = [
+    {
+      img: 'assets/img/thesis/seismic-4d-planes.webp',
+      alt: '4D Cylinder Partitioning & Structural Fault Planes',
+      badge_i18n: 'thesis_fig1_badge',
+      title_i18n: 'thesis_fig1_title',
+      desc_i18n: 'thesis_fig1_desc',
+      counter_it: 'Modulo 1 di 4',
+      counter_en: 'Module 1 of 4',
+      tags: ['RANSAC', 'SVD Refinement', '4D Time Scrubbing', 'Campi Flegrei']
+    },
+    {
+      img: 'assets/img/thesis/seismic-cluster-analysis.webp',
+      alt: '3D Spatial Clustering & Convex Hulls',
+      badge_i18n: 'thesis_fig2_badge',
+      title_i18n: 'thesis_fig2_title',
+      desc_i18n: 'thesis_fig2_desc',
+      counter_it: 'Modulo 2 di 4',
+      counter_en: 'Module 2 of 4',
+      tags: ['DBSCAN', 'MiniBatchKMeans', 'Global Label Matching', 'Convex Hulls']
+    },
+    {
+      img: 'assets/img/thesis/seismic-3d-hypocentres.webp',
+      alt: '3D Subsurface Hypocentral Point Cloud',
+      badge_i18n: 'thesis_fig3_badge',
+      title_i18n: 'thesis_fig3_title',
+      desc_i18n: 'thesis_fig3_desc',
+      counter_it: 'Modulo 3 di 4',
+      counter_en: 'Module 3 of 4',
+      tags: ['WebGL', 'Plotly.js', 'Latitude Scaling', '60 FPS GPU']
+    },
+    {
+      img: 'assets/img/thesis/seismic-2d-geospatial.webp',
+      alt: '2D Geospatial Map View & Tomography',
+      badge_i18n: 'thesis_fig4_badge',
+      title_i18n: 'thesis_fig4_title',
+      desc_i18n: 'thesis_fig4_desc',
+      counter_it: 'Modulo 4 di 4',
+      counter_en: 'Module 4 of 4',
+      tags: ['INGV GOSSIP API', 'GNSS Uplift', 'Tomography Vp/Vs', 'FastAPI']
+    }
+  ];
+
+  let currentShowcaseIdx = 0;
+  const showcaseNavBtns = document.querySelectorAll('.thesis-showcase-nav-btn');
+  const showcaseImg = document.getElementById('showcase-img');
+  const showcaseBadge = document.getElementById('showcase-badge');
+  const showcaseTitle = document.getElementById('showcase-title');
+  const showcaseDesc = document.getElementById('showcase-desc');
+  const showcaseTags = document.getElementById('showcase-tags');
+  const showcaseZoomLink = document.getElementById('showcase-zoom-link');
+  const showcaseCounter = document.getElementById('showcase-counter');
+
+  function renderShowcaseModule(idx) {
+    if (!showcaseModules[idx]) return;
+    currentShowcaseIdx = idx;
+    const m = showcaseModules[idx];
+    const t = translations[currentLang] || translations.en;
+
+    showcaseNavBtns.forEach((b) => {
+      b.classList.toggle('active', parseInt(b.getAttribute('data-idx'), 10) === idx);
+    });
+
+    if (showcaseImg) {
+      showcaseImg.style.opacity = '0.25';
+      setTimeout(() => {
+        showcaseImg.src = m.img;
+        showcaseImg.alt = m.alt;
+        showcaseImg.style.opacity = '1';
+      }, 120);
+    }
+
+    if (showcaseZoomLink) showcaseZoomLink.href = m.img;
+    if (showcaseBadge) {
+      showcaseBadge.setAttribute('data-i18n', m.badge_i18n);
+      showcaseBadge.textContent = t[m.badge_i18n] || '';
+    }
+    if (showcaseTitle) {
+      showcaseTitle.setAttribute('data-i18n', m.title_i18n);
+      showcaseTitle.textContent = t[m.title_i18n] || '';
+    }
+    if (showcaseDesc) {
+      showcaseDesc.setAttribute('data-i18n', m.desc_i18n);
+      showcaseDesc.textContent = t[m.desc_i18n] || '';
+    }
+    if (showcaseCounter) {
+      showcaseCounter.textContent = currentLang === 'it' ? m.counter_it : m.counter_en;
+    }
+    if (showcaseTags) {
+      showcaseTags.innerHTML = m.tags.map((tag) => `<span class="thesis-gallery-tag">${tag}</span>`).join('');
+    }
+  }
+
+  showcaseNavBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.getAttribute('data-idx'), 10);
+      renderShowcaseModule(idx);
     });
   });
 

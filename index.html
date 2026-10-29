@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029_06">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029_07">
 </head>
 <body>
 
@@ -364,14 +364,14 @@
             </div>
             <div class="timeline-org" data-i18n="edu_bsc_inst">Sapienza University of Rome</div>
             <p class="timeline-desc" data-i18n="edu_bsc_desc">
-              Undergraduate degree taught entirely in English. Final graduation grade: 110/110. Bachelor's thesis and internship completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.
+              Undergraduate degree taught entirely in English. Final graduation grade: 110/110. Curricular research internship and final report completed at INGV on the Seismic Viewer project. Coursework: Data Structures & Algorithms, Operating Systems, Databases, Software Architecture, Networks, AI, Multicore Programming.
             </p>
-            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.65rem;">
               <button class="btn btn-outline btn-sm open-transcript-modal" id="open-transcript-btn">
-                <i class="fas fa-graduation-cap"></i> <span data-i18n="edu_btn_transcript">View Exam Transcript & Degree</span>
+                <i class="fas fa-graduation-cap"></i> <span data-i18n="edu_btn_transcript">B.Sc. Exams &amp; Coursework</span>
               </button>
-              <button class="btn btn-outline btn-sm open-thesis-modal">
-                <i class="fas fa-book-open"></i> <span data-i18n="edu_btn_thesis">Thesis & 4D Viewer</span>
+              <button class="btn btn-primary btn-sm open-thesis-modal" id="open-internship-btn">
+                <i class="fas fa-file-lines"></i> <span data-i18n="edu_btn_internship">Internship Report</span>
               </button>
             </div>
           </div>
@@ -736,7 +736,7 @@
           <div class="badge-tag" data-i18n="resume_banner_badge">Curriculum Vitae</div>
           <h3 data-i18n="resume_banner_title">Download CV in PDF format</h3>
           <p data-i18n="resume_banner_desc">
-            Recruiter and ATS-friendly CV: includes education (B.Sc. ACSAI, INGV thesis, M.Sc. AIRO), projects, technical skills, and contact details.
+            Recruiter and ATS-friendly CV: includes education (B.Sc. ACSAI, INGV internship report, M.Sc. AIRO), projects, technical skills, and contact details.
           </p>
         </div>
         <div class="resume-banner-actions">
@@ -943,30 +943,32 @@
         </button>
       </div>
 
-      <!-- Segmented Navigation Picker: Exams vs Degree & Thesis -->
-      <div class="transcript-nav-tabs-wrapper">
-        <div class="transcript-nav-tabs">
-          <button class="transcript-nav-tab-btn active" data-ttab="exams" data-i18n="transcript_tab_exams">
-            📚 All Exams (23)
-          </button>
-          <button class="transcript-nav-tab-btn" data-ttab="degree" data-i18n="transcript_tab_degree">
-            🎓 Degree & Thesis
-          </button>
-        </div>
-      </div>
-
       <div class="modal-body modal-transcript-body">
-        <!-- Tab Pane 1: Exams (Active by Default) -->
-        <div class="transcript-tab-pane active" id="ttab-pane-exams">
-          <!-- Category Filters (iOS Segmented Control) -->
-          <div class="transcript-filters-wrapper">
-            <div class="transcript-filters">
-              <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
-              <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision & HCI</button>
-              <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software & Systems</button>
-              <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math & Statistics</button>
-            </div>
+        <!-- Highlights Header Box (GPA, Credits, Final Grade) -->
+        <div class="transcript-highlights-box" style="margin-bottom: 1.25rem;">
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">27.3 / 30</span>
+            <span class="transcript-metric-label" data-i18n="transcript_metric_gpa">Weighted GPA</span>
           </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">180 CFU</span>
+            <span class="transcript-metric-label" data-i18n="transcript_total_credits">Total Credits (23 Exams)</span>
+          </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">110 / 110</span>
+            <span class="transcript-metric-label" data-i18n="transcript_final_grade">Final Grade</span>
+          </div>
+        </div>
+
+        <!-- Category Filters (iOS Segmented Control) -->
+        <div class="transcript-filters-wrapper">
+          <div class="transcript-filters">
+            <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
+            <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision &amp; Data</button>
+            <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software &amp; Systems</button>
+            <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math &amp; Statistics</button>
+          </div>
+        </div>
 
           <!-- Table of Exams -->
           <div class="transcript-table-wrapper">
@@ -1129,7 +1131,7 @@
                 <td style="text-align: right;"><span class="grade-badge grade-honors">30 / 30</span></td>
               </tr>
               <tr data-category="ai">
-                <td><strong>Final Exam (Bachelor's Thesis Defense)</strong></td>
+                <td><strong>Final Exam (Bachelor's Degree Defense)</strong></td>
                 <td><code>AAF2011 (-)</code></td>
                 <td style="text-align: center;">6 CFU</td>
                 <td style="text-align: center; color: var(--text-secondary);">23/10/2026</td>
@@ -1145,65 +1147,22 @@
             </tbody>
           </table>
         </div>
-      </div>
 
-      <!-- Tab Pane 2: Degree & Thesis Details -->
-      <div class="transcript-tab-pane" id="ttab-pane-degree">
-        <!-- Highlights Header Box (3 Blocks) -->
-        <div class="transcript-highlights-box">
-          <div class="transcript-metric">
-            <span class="transcript-metric-num">110 / 110</span>
-            <span class="transcript-metric-label" data-i18n="transcript_final_grade">Final Grade</span>
+        <!-- Official Degree & Internship Notice Card -->
+        <div class="transcript-degree-info-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.15rem 1.25rem; margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+          <div>
+            <div style="font-size: 0.92rem; font-weight: 700; color: var(--accent-beige); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.45rem;">
+              <i class="fas fa-award"></i> <span>Sapienza University of Rome — B.Sc. in ACSAI</span>
+            </div>
+            <p style="font-size: 0.83rem; color: var(--text-secondary); line-height: 1.45; margin: 0;">
+              Program delivered 100% in English. Research software internship and report completed at INGV.
+            </p>
           </div>
-          <div class="transcript-metric">
-            <span class="transcript-metric-num">180 CFU</span>
-            <span class="transcript-metric-label" data-i18n="transcript_total_credits">Total Credits</span>
-          </div>
-          <div class="transcript-metric">
-            <span class="transcript-metric-num">23 / 23</span>
-            <span class="transcript-metric-label" data-i18n="transcript_passed_exams">Passed Exams</span>
-          </div>
-        </div>
-
-        <!-- Official Thesis Box -->
-        <div class="transcript-thesis-card">
-          <div class="transcript-thesis-badge">
-            <i class="fas fa-scroll"></i> <span data-i18n="transcript_thesis_badge">B.Sc. Thesis & Internship</span>
-          </div>
-          <h5 class="transcript-thesis-title">
-            "Seismic Viewer: Design, Implementation and Evaluation of an Interactive 4D Spatio-Temporal Visualisation System for Seismological Data"
-          </h5>
-          <div class="transcript-thesis-meta">
-            <span><strong data-i18n="transcript_advisor">Advisor: Prof. Danilo Avola</strong></span>
-            <span>•</span>
-            <span><strong data-i18n="transcript_partner">Research Host: INGV</strong></span>
-            <span>•</span>
-            <span><strong data-i18n="transcript_date">Graduation Date: 23/10/2026</strong></span>
-          </div>
-          <div class="transcript-thesis-actions" style="margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <button class="btn btn-primary btn-sm open-thesis-modal">
-              <i class="fas fa-eye"></i> <span data-i18n="thesis_card_btn_preview">Explore Thesis & 4D Preview</span>
-            </button>
-            <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_BSc_Thesis_INGV.pdf" class="btn btn-outline btn-sm">
-              <i class="fas fa-file-pdf"></i> <span data-i18n="thesis_card_btn_pdf">Download Thesis (PDF • 20 MB)</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Official Degree Details Card -->
-        <div class="transcript-degree-info-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-top: 0.5rem;">
-          <div style="font-size: 0.92rem; font-weight: 700; color: var(--accent-beige); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.45rem;">
-            <i class="fas fa-award"></i> <span>Sapienza University of Rome — Degree Summary</span>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.6rem;">
-            Bachelor's Degree in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong>, Faculty of Information Engineering, Informatics and Statistics. Program delivered 100% in English.
-          </p>
-          <div style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted); padding-top: 0.5rem; border-top: 1px dashed var(--border-color);" data-i18n="transcript_verified_note">
-            Official Sapienza University Certificate (L-31 L-270 Ordin. 2021) • UID: 5883130
-          </div>
+          <button class="btn btn-primary btn-sm open-thesis-modal">
+            <i class="fas fa-satellite-dish"></i> <span data-i18n="thesis_card_btn_preview">Open Seismic Viewer &amp; Report</span>
+          </button>
         </div>
       </div>
-    </div>
 
       <div class="modal-footer" style="justify-content: space-between; align-items: center;">
         <span style="font-size: 0.8rem; color: var(--text-secondary);" data-i18n="transcript_verified_note">
@@ -1216,15 +1175,20 @@
     </div>
   </div>
 
-  <!-- Modal for Thesis & 4D Seismic Viewer Preview -->
+  <!-- Modal for Seismic Viewer & Internship Report -->
   <div class="modal-backdrop" id="thesis-modal">
     <div class="modal-content modal-thesis-content">
       <div class="ios-sheet-handle"></div>
       <div class="modal-header">
         <div>
-          <h4 data-i18n="thesis_modal_title" style="margin-bottom: 0.2rem;">B.Sc. Thesis & Seismic Viewer 4D System</h4>
+          <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.2rem; flex-wrap: wrap;">
+            <h4 data-i18n="thesis_modal_title" style="margin: 0; font-size: 1.3rem; font-weight: 700;">Seismic Viewer</h4>
+            <span class="badge-tag" data-i18n="thesis_modal_badge" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; background: var(--accent-bordeaux-glow); color: var(--accent-beige); border-color: rgba(194, 65, 83, 0.4);">
+              <i class="fas fa-satellite-dish"></i> Internship Report
+            </span>
+          </div>
           <p class="modal-subtitle" data-i18n="thesis_modal_sub" style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">
-            Sapienza University of Rome — INGV (National Institute of Geophysics and Volcanology)
+            INGV (National Institute of Geophysics and Volcanology) • Sapienza University of Rome
           </p>
         </div>
         <button class="icon-btn" id="thesis-modal-close" aria-label="Close Modal">
@@ -1232,22 +1196,22 @@
         </button>
       </div>
 
-      <!-- Segmented Picker Tabs for Thesis Modal -->
+      <!-- Segmented Picker Tabs for Internship Report Modal -->
       <div class="thesis-tabs-wrapper">
         <div class="thesis-tabs">
-          <button class="thesis-tab-btn active" data-tab="gallery" data-i18n="thesis_tab_system">🖥️ 4D Viewer & Screenshots</button>
-          <button class="thesis-tab-btn" data-tab="pdf" data-i18n="thesis_tab_pdf">📄 Read Full Thesis (64p PDF)</button>
-          <button class="thesis-tab-btn" data-tab="abstract" data-i18n="thesis_tab_abstract">📋 Abstract & Architecture</button>
+          <button class="thesis-tab-btn active" data-tab="gallery" data-i18n="thesis_tab_system">🖥️ 4D System</button>
+          <button class="thesis-tab-btn" data-tab="abstract" data-i18n="thesis_tab_abstract">📋 Report & Architecture</button>
+          <button class="thesis-tab-btn" data-tab="pdf" data-i18n="thesis_tab_pdf">📄 PDF Document</button>
         </div>
       </div>
 
       <div class="modal-body thesis-modal-body">
-        <!-- Tab 1: Gallery / Screenshots & 4D System Showcase -->
+        <!-- Tab 1: 4D System Showcase & Interactive Modules -->
         <div class="thesis-tab-pane active" id="pane-gallery">
-          <div class="thesis-hero-banner">
-            <h5 class="thesis-hero-banner-title" data-i18n="thesis_hero_banner_title">Seismic Viewer 4D — Spatio-Temporal Visualisation System</h5>
+          <div class="thesis-hero-banner" style="margin-bottom: 1.25rem;">
+            <h5 class="thesis-hero-banner-title" data-i18n="thesis_hero_banner_title">Seismic Viewer — Spatio-Temporal Visualisation System</h5>
             <p class="thesis-hero-banner-desc" data-i18n="thesis_hero_banner_desc">
-              Design, implementation and quantitative validation developed during research internship at INGV in collaboration with Sapienza University of Rome.
+              Interactive desktop application engineered during the research software internship at the National Institute of Geophysics and Volcanology (INGV) in collaboration with Sapienza University of Rome.
             </p>
             <div class="thesis-metrics-grid">
               <div class="thesis-metric-box">
@@ -1269,22 +1233,44 @@
             </div>
           </div>
 
-          <!-- Gallery Grid -->
-          <div class="thesis-gallery-grid">
-            <!-- Card 1: 4D Cylinder Planes -->
-            <div class="thesis-gallery-card">
-              <div class="thesis-gallery-img-box">
-                <img src="assets/img/thesis/seismic-4d-planes.webp" alt="4D Cylinder Partitioning & Structural Fault Planes" loading="lazy">
-                <span class="thesis-gallery-badge" data-i18n="thesis_fig1_badge">Dynamic Fault Fitting</span>
+          <!-- Interactive Module Showcase Player -->
+          <div class="thesis-showcase-container">
+            <!-- iOS Segmented Module Selector -->
+            <div class="thesis-showcase-nav-wrapper">
+              <div class="thesis-showcase-nav" id="showcase-nav">
+                <button class="thesis-showcase-nav-btn active" data-idx="0">
+                  <i class="fas fa-layer-group"></i> <span>4D Fault Fitting</span>
+                </button>
+                <button class="thesis-showcase-nav-btn" data-idx="1">
+                  <i class="fas fa-project-diagram"></i> <span>3D Clustering</span>
+                </button>
+                <button class="thesis-showcase-nav-btn" data-idx="2">
+                  <i class="fas fa-cubes"></i> <span>3D Hypocentres</span>
+                </button>
+                <button class="thesis-showcase-nav-btn" data-idx="3">
+                  <i class="fas fa-map-location-dot"></i> <span>2D Map & Tomography</span>
+                </button>
               </div>
-              <div class="thesis-gallery-info">
-                <div>
-                  <h6 class="thesis-gallery-title" data-i18n="thesis_fig1_title">Cylinder Partitioning & 4D Fault Plane Estimation</h6>
-                  <p class="thesis-gallery-desc" data-i18n="thesis_fig1_desc">
-                    RANSAC algorithm combined with SVD refinement to dynamically compute spatial fault plane orientation (strike and dip mean error &lt; 1.0°) during 4D temporal evolution.
-                  </p>
+            </div>
+
+            <!-- Featured Active Viewport Card -->
+            <div class="thesis-showcase-card" id="showcase-card">
+              <div class="thesis-showcase-img-box">
+                <img id="showcase-img" src="assets/img/thesis/seismic-4d-planes.webp" alt="4D Cylinder Partitioning & Structural Fault Planes">
+                <span class="thesis-gallery-badge" id="showcase-badge" data-i18n="thesis_fig1_badge">Dynamic Fault Fitting</span>
+                <a id="showcase-zoom-link" href="assets/img/thesis/seismic-4d-planes.webp" target="_blank" rel="noopener noreferrer" class="thesis-showcase-zoom-btn" title="Open full resolution">
+                  <i class="fas fa-expand"></i>
+                </a>
+              </div>
+              <div class="thesis-showcase-content">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.35rem;">
+                  <h6 class="thesis-gallery-title" id="showcase-title" style="margin: 0;" data-i18n="thesis_fig1_title">Cylinder Partitioning & 4D Fault Plane Estimation</h6>
+                  <span id="showcase-counter" style="font-size: 0.75rem; color: var(--text-secondary); font-family: var(--font-mono);">Module 1 of 4</span>
                 </div>
-                <div class="thesis-gallery-tags">
+                <p class="thesis-gallery-desc" id="showcase-desc" data-i18n="thesis_fig1_desc">
+                  RANSAC algorithm combined with SVD refinement to dynamically compute spatial fault plane orientation (strike and dip mean error &lt; 1.0°) during 4D temporal evolution.
+                </p>
+                <div class="thesis-gallery-tags" id="showcase-tags">
                   <span class="thesis-gallery-tag">RANSAC</span>
                   <span class="thesis-gallery-tag">SVD Refinement</span>
                   <span class="thesis-gallery-tag">4D Time Scrubbing</span>
@@ -1292,90 +1278,46 @@
                 </div>
               </div>
             </div>
-
-            <!-- Card 2: 3D Spatial Clustering -->
-            <div class="thesis-gallery-card">
-              <div class="thesis-gallery-img-box">
-                <img src="assets/img/thesis/seismic-cluster-analysis.webp" alt="3D Spatial Clustering & Convex Hulls" loading="lazy">
-                <span class="thesis-gallery-badge" data-i18n="thesis_fig2_badge">Spatial Machine Learning</span>
-              </div>
-              <div class="thesis-gallery-info">
-                <div>
-                  <h6 class="thesis-gallery-title" data-i18n="thesis_fig2_title">3D Spatial Clustering & Convex Hulls (DBSCAN)</h6>
-                  <p class="thesis-gallery-desc" data-i18n="thesis_fig2_desc">
-                    Unsupervised identification of seismic swarms with automated parameter tuning and temporal color stability via Global Label Matching.
-                  </p>
-                </div>
-                <div class="thesis-gallery-tags">
-                  <span class="thesis-gallery-tag">DBSCAN</span>
-                  <span class="thesis-gallery-tag">MiniBatchKMeans</span>
-                  <span class="thesis-gallery-tag">Global Label Matching</span>
-                  <span class="thesis-gallery-tag">Convex Hulls</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3: 3D Subsurface Hypocentres -->
-            <div class="thesis-gallery-card">
-              <div class="thesis-gallery-img-box">
-                <img src="assets/img/thesis/seismic-3d-hypocentres.webp" alt="3D Subsurface Hypocentral Point Cloud" loading="lazy">
-                <span class="thesis-gallery-badge" data-i18n="thesis_fig3_badge">3D WebGL Rendering</span>
-              </div>
-              <div class="thesis-gallery-info">
-                <div>
-                  <h6 class="thesis-gallery-title" data-i18n="thesis_fig3_title">3D Subsurface Hypocentral Point Cloud</h6>
-                  <p class="thesis-gallery-desc" data-i18n="thesis_fig3_desc">
-                    Georeferenced 3D point cloud beneath the geographic terrain surface with spherical latitude scaling and fluid GPU-accelerated 60 FPS rendering.
-                  </p>
-                </div>
-                <div class="thesis-gallery-tags">
-                  <span class="thesis-gallery-tag">WebGL</span>
-                  <span class="thesis-gallery-tag">Plotly.js</span>
-                  <span class="thesis-gallery-tag">Latitude Scaling</span>
-                  <span class="thesis-gallery-tag">60 FPS</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4: 2D Geospatial Map View -->
-            <div class="thesis-gallery-card">
-              <div class="thesis-gallery-img-box">
-                <img src="assets/img/thesis/seismic-2d-geospatial.webp" alt="2D Geospatial Map View & Tomography" loading="lazy">
-                <span class="thesis-gallery-badge" data-i18n="thesis_fig4_badge">Geophysical Integration</span>
-              </div>
-              <div class="thesis-gallery-info">
-                <div>
-                  <h6 class="thesis-gallery-title" data-i18n="thesis_fig4_title">2D Geospatial Map View & Seismic Tomography</h6>
-                  <p class="thesis-gallery-desc" data-i18n="thesis_fig4_desc">
-                    Temporal, magnitude, and depth filtering coupled with crustal Vp/Vs tomographic velocity slices and GNSS ground deformation measurements (bradyseism).
-                  </p>
-                </div>
-                <div class="thesis-gallery-tags">
-                  <span class="thesis-gallery-tag">INGV GOSSIP API</span>
-                  <span class="thesis-gallery-tag">GNSS Uplift</span>
-                  <span class="thesis-gallery-tag">Tomography Vp/Vs</span>
-                  <span class="thesis-gallery-tag">FastAPI</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        <!-- Tab 2: Full PDF Reader -->
-        <div class="thesis-tab-pane" id="pane-pdf">
-          <iframe id="thesis-iframe" class="thesis-pdf-frame" data-src="assets/docs/L31_Curcio_internship.pdf?v=20261029" title="Alessio Curcio B.Sc. Thesis Report — INGV"></iframe>
-        </div>
-
-        <!-- Tab 3: Abstract & Architecture Details -->
+        <!-- Tab 2: Report & Technical Architecture Details -->
         <div class="thesis-tab-pane" id="pane-abstract">
           <div class="thesis-abstract-container">
             <div class="thesis-abstract-quote-card">
               <h5 class="thesis-abstract-quote-title">
-                <i class="fas fa-quote-left"></i> <span data-i18n="thesis_abstract_heading">Official Thesis Abstract</span>
+                <i class="fas fa-quote-left"></i> <span data-i18n="thesis_abstract_heading">Official Internship Report Abstract</span>
               </h5>
               <p class="thesis-abstract-quote-text" data-i18n="thesis_abstract_body">
                 This internship report presents the design, implementation, and evaluation of Seismic Viewer, an interactive desktop application for the spatial and temporal visualisation of seismic data. The system was developed during an internship at the INGV to address a limitation of existing tools: the lack of software capable of displaying large earthquake datasets while integrating spatial clustering and geological plane estimation. Seismic Viewer combines a Python backend for data processing with a WebGL frontend for 3D graphics in an interactive desktop window. The binary streaming protocol achieved an 80% size reduction compared to JSON, and the plane fitting pipeline estimated strike and dip angles with a mean error below 1.0° under realistic noise conditions on Campi Flegrei seismic swarms.
               </p>
+            </div>
+
+            <!-- Architecture Grid: Scientific Backend vs 3D Frontend -->
+            <div class="thesis-arch-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-bottom: 1.25rem;">
+              <div class="thesis-info-card" style="margin: 0;">
+                <h6 class="thesis-info-card-title">
+                  <i class="fas fa-server"></i> <span>Scientific Backend & Algorithms (Python)</span>
+                </h6>
+                <ul class="thesis-info-card-list">
+                  <li><strong>Core Engine:</strong> Python 3.11, FastAPI, NumPy, SciPy, Scikit-learn</li>
+                  <li><strong>Fault Fitting:</strong> RANSAC with Singular Value Decomposition (SVD) refinement (&lt; 1.0° error)</li>
+                  <li><strong>Clustering:</strong> DBSCAN & MiniBatchKMeans with Global Label Matching for temporal color consistency</li>
+                  <li><strong>Binary Streaming:</strong> Custom binary buffer reducing JSON payload by 80%</li>
+                </ul>
+              </div>
+
+              <div class="thesis-info-card" style="margin: 0;">
+                <h6 class="thesis-info-card-title">
+                  <i class="fas fa-desktop"></i> <span>3D Interactive Frontend & GIS</span>
+                </h6>
+                <ul class="thesis-info-card-list">
+                  <li><strong>Rendering:</strong> Hardware-accelerated WebGL with Plotly.js at constant 60 FPS</li>
+                  <li><strong>Georeferencing:</strong> Spherical latitude scaling correction below the terrain</li>
+                  <li><strong>4D Scrubbing:</strong> Fluid interactive temporal playback with depth/magnitude filters</li>
+                  <li><strong>Geophysics:</strong> INGV GOSSIP API, crustal Vp/Vs tomography, GNSS ground uplift</li>
+                </ul>
+              </div>
             </div>
 
             <div class="thesis-info-cards-grid">
@@ -1392,23 +1334,68 @@
 
               <div class="thesis-info-card">
                 <h6 class="thesis-info-card-title">
-                  <i class="fas fa-graduation-cap"></i> <span>Degree & Institution</span>
+                  <i class="fas fa-graduation-cap"></i> <span>Degree & Document Specs</span>
                 </h6>
                 <ul class="thesis-info-card-list">
                   <li data-i18n="thesis_degree_info"><strong>Degree:</strong> Bachelor's in Applied Computer Science and Artificial Intelligence (ACSAI)</li>
-                  <li><strong>Faculty:</strong> Information Engineering, Computer Science and Statistics</li>
+                  <li><strong>Institution:</strong> Sapienza University of Rome &amp; INGV</li>
                   <li><strong>Format:</strong> 64 pages • Typeset in LaTeX with Sapthesis class</li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Tab 3: Full PDF Document & Direct Download -->
+        <div class="thesis-tab-pane" id="pane-pdf">
+          <div class="thesis-pdf-toolbar">
+            <div class="thesis-pdf-meta">
+              <i class="fas fa-file-pdf"></i>
+              <span><strong>Alessio_Curcio_Internship_Report_INGV.pdf</strong> • 64 Pages • 20 MB</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+              <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_Internship_Report_INGV.pdf" class="btn btn-primary btn-sm">
+                <i class="fas fa-download"></i> <span data-i18n="thesis_btn_download">Download Full Report (PDF • 20 MB)</span>
+              </a>
+              <a href="assets/docs/L31_Curcio_internship.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <i class="fas fa-external-link-alt"></i> <span data-i18n="modal_open_tab">Open in New Tab</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Document Card -->
+          <div class="thesis-pdf-mobile-card">
+            <div class="thesis-pdf-mobile-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="thesis-pdf-mobile-info">
+              <h5>Relazione di Tirocinio: Seismic Viewer</h5>
+              <p>Alessio Curcio • Sapienza Università di Roma &amp; INGV</p>
+              <div class="thesis-pdf-mobile-tags">
+                <span>64 Pagine</span>
+                <span>PDF • 20 MB</span>
+                <span>Sapthesis LaTeX</span>
+              </div>
+            </div>
+            <div class="thesis-pdf-mobile-actions">
+              <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_Internship_Report_INGV.pdf" class="btn btn-primary btn-sm">
+                <i class="fas fa-download"></i> <span>Scarica PDF Completo</span>
+              </a>
+              <a href="assets/docs/L31_Curcio_internship.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+                <i class="fas fa-external-link-alt"></i> <span>Apri nel Browser</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Embedded Desktop PDF Frame -->
+          <iframe id="thesis-iframe" class="thesis-pdf-frame" data-src="assets/docs/L31_Curcio_internship.pdf?v=20261029" title="Alessio Curcio Internship Report — INGV"></iframe>
+        </div>
       </div>
 
-      <div class="modal-footer" style="justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div class="modal-footer" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
         <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_BSc_Thesis_INGV.pdf" class="btn btn-primary btn-sm">
-            <i class="fas fa-download"></i> <span data-i18n="thesis_btn_download">Download Full Thesis (PDF • 20 MB)</span>
+          <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_Internship_Report_INGV.pdf" class="btn btn-primary btn-sm">
+            <i class="fas fa-download"></i> <span data-i18n="thesis_btn_download">Download Full Report (PDF • 20 MB)</span>
           </a>
           <a href="assets/docs/L31_Curcio_internship.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
             <i class="fas fa-external-link-alt"></i> <span data-i18n="modal_open_tab">Open in New Tab</span>
@@ -1431,7 +1418,7 @@
 
   <!-- Scripts with cache busters -->
   <script src="assets/js/canvas.js?v=20261029_02"></script>
-  <script src="assets/js/translations.js?v=20261029_06"></script>
-  <script src="assets/js/main.js?v=20261029_06"></script>
+  <script src="assets/js/translations.js?v=20261029_07"></script>
+  <script src="assets/js/main.js?v=20261029_07"></script>
 </body>
 </html>
