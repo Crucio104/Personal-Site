@@ -24,6 +24,13 @@
   const transcriptModalClose = document.getElementById('transcript-modal-close');
   const transcriptModalCloseBtn = document.getElementById('transcript-modal-close-btn');
   const openTranscriptBtns = document.querySelectorAll('.open-transcript-modal');
+  const thesisModal = document.getElementById('thesis-modal');
+  const thesisModalClose = document.getElementById('thesis-modal-close');
+  const thesisModalCloseBtn = document.getElementById('thesis-modal-close-btn');
+  const openThesisBtns = document.querySelectorAll('.open-thesis-modal');
+  const thesisTabBtns = document.querySelectorAll('.thesis-tab-btn');
+  const thesisPanes = document.querySelectorAll('.thesis-tab-pane');
+  const thesisIframe = document.getElementById('thesis-iframe');
   const tFilterBtns = document.querySelectorAll('.transcript-filter-btn');
   const tRows = document.querySelectorAll('#transcript-table tbody tr');
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -296,6 +303,57 @@
     });
   });
 
+  // --- Thesis & 4D Viewer Modal ---
+  openThesisBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (thesisModal) {
+        thesisModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  function closeThesisModal() {
+    if (thesisModal) {
+      thesisModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (thesisModalClose) {
+    thesisModalClose.addEventListener('click', closeThesisModal);
+  }
+
+  if (thesisModalCloseBtn) {
+    thesisModalCloseBtn.addEventListener('click', closeThesisModal);
+  }
+
+  if (thesisModal) {
+    thesisModal.addEventListener('click', (e) => {
+      if (e.target === thesisModal) closeThesisModal();
+    });
+  }
+
+  // Thesis segmented tab switching & lazy loading of 20MB PDF
+  thesisTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      thesisTabBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const targetTab = btn.getAttribute('data-tab');
+
+      thesisPanes.forEach((pane) => pane.classList.remove('active'));
+      const activePane = document.getElementById('pane-' + targetTab);
+      if (activePane) activePane.classList.add('active');
+
+      // Lazy-load PDF on tab switch to avoid heavy initial 20MB download
+      if (targetTab === 'pdf' && thesisIframe && !thesisIframe.src) {
+        const dataSrc = thesisIframe.getAttribute('data-src');
+        if (dataSrc) thesisIframe.src = dataSrc;
+      }
+    });
+  });
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (cvModal && cvModal.classList.contains('active')) {
@@ -303,6 +361,9 @@
       }
       if (transcriptModal && transcriptModal.classList.contains('active')) {
         closeTranscriptModal();
+      }
+      if (thesisModal && thesisModal.classList.contains('active')) {
+        closeThesisModal();
       }
       if (navLinks && navLinks.classList.contains('open')) {
         navLinks.classList.remove('open');
