@@ -23,6 +23,11 @@
   <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg?v=20261028">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png?v=20261028">
 
+  <!-- iOS / Apple Web App Capabilities -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Alessio Curcio">
+
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029_02">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029_03">
 </head>
 <body>
 
@@ -472,12 +477,14 @@
         <h2 class="section-title" data-i18n="proj_title">Selected Repositories</h2>
       </div>
 
-      <!-- Category Filter Tabs -->
-      <div class="project-filters">
-        <button class="filter-btn active" data-filter="all" data-i18n="proj_filter_all">All</button>
-        <button class="filter-btn" data-filter="ai" data-i18n="proj_filter_ai">AI & Multi-Agent</button>
-        <button class="filter-btn" data-filter="vision" data-i18n="proj_filter_vision">Computer Vision & Robotics</button>
-        <button class="filter-btn" data-filter="web" data-i18n="proj_filter_web">Web & Distributed</button>
+      <!-- Category Filter Tabs (iOS Segmented Control) -->
+      <div class="project-filters-wrapper">
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all" data-i18n="proj_filter_all">All</button>
+          <button class="filter-btn" data-filter="ai" data-i18n="proj_filter_ai">AI & Multi-Agent</button>
+          <button class="filter-btn" data-filter="vision" data-i18n="proj_filter_vision">Computer Vision & Robotics</button>
+          <button class="filter-btn" data-filter="web" data-i18n="proj_filter_web">Web & Distributed</button>
+        </div>
       </div>
 
       <!-- Project Cards Grid -->
@@ -890,6 +897,7 @@
   <!-- Modal for CV Preview -->
   <div class="modal-backdrop" id="cv-modal">
     <div class="modal-content">
+      <div class="ios-sheet-handle"></div>
       <div class="modal-header">
         <h4 data-i18n="modal_title">Curriculum Vitae — Alessio Curcio</h4>
         <button class="icon-btn" id="cv-modal-close" aria-label="Close Modal">
@@ -913,6 +921,7 @@
   <!-- Modal for Transcript & Exams -->
   <div class="modal-backdrop" id="transcript-modal">
     <div class="modal-content modal-transcript-content">
+      <div class="ios-sheet-handle"></div>
       <div class="modal-header">
         <div>
           <h4 data-i18n="transcript_modal_title" style="margin-bottom: 0.2rem;">Academic Degree Certificate & Profit Exams</h4>
@@ -959,12 +968,14 @@
           </div>
         </div>
 
-        <!-- Category Filters -->
-        <div class="transcript-filters">
-          <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
-          <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision & HCI</button>
-          <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software & Systems</button>
-          <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math & Statistics</button>
+        <!-- Category Filters (iOS Segmented Control) -->
+        <div class="transcript-filters-wrapper">
+          <div class="transcript-filters">
+            <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
+            <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision & HCI</button>
+            <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software & Systems</button>
+            <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math & Statistics</button>
+          </div>
         </div>
 
         <!-- Table of Exams -->
