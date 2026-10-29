@@ -26,7 +26,7 @@ const translations = {
       "Sistemi Multi-Agente & LLM",
       "Computer Vision & Robotica"
     ],
-    hero_bio: "Studente magistrale in Artificial Intelligence and Robotics (AIRO, immatricolato 2026) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) presso Sapienza Università di Roma. Ho svolto il tirocinio curriculare e tesi triennale presso l'<strong>INGV</strong> (Istituto Nazionale di Geofisica e Vulcanologia) sviluppando un sistema desktop 4D per l'analisi di dati sismici. Mi occupo di sistemi multi-agente, modelli linguistici locali (Local LLMs), computer vision e robotica.",
+    hero_bio: "Studente magistrale in Artificial Intelligence and Robotics (AIRO, immatricolato 2026) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) presso Sapienza Università di Roma. Ho svolto il tirocinio curriculare di ricerca (Internship Report) presso l'<strong>INGV</strong> (Istituto Nazionale di Geofisica e Vulcanologia) sviluppando un sistema desktop 4D per l'analisi di dati sismici. Mi occupo di sistemi multi-agente, modelli linguistici locali (Local LLMs), computer vision e robotica.",
     hero_btn_projects: "Progetti",
     hero_btn_contact: "Contattami",
     hero_btn_cv: "Scarica CV (PDF)",
