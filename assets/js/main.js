@@ -934,7 +934,7 @@
 
   // --- Card Spotlight Mouse-Following Glowing Border ---
   const spotlightCards = document.querySelectorAll(
-    '.project-card, .feature-card, .timeline-card, .skill-category-card, .stat-item, .thesis-showcase-card, .profile-card'
+    '.project-card, .feature-card, .timeline-card, .skill-category-card, .stat-item, .thesis-showcase-card'
   );
   
   spotlightCards.forEach((card) => {

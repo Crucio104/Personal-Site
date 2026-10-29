@@ -792,12 +792,6 @@ section {
   }
 }
 
-.hero-image-wrapper:hover .profile-card-aura {
-  transform: translate(-50%, -50%) scale(1.15);
-  opacity: 1;
-  filter: blur(46px);
-}
-
 .profile-card {
   position: relative;
   z-index: 1;
@@ -814,8 +808,9 @@ section {
 }
 
 .profile-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 20px 40px var(--glow-bordeaux);
+  /* No scale, no colored line on hover */
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-lg);
 }
 
 .profile-img-container {
@@ -833,11 +828,12 @@ section {
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
-  transition: transform 0.5s ease;
+  transform: none !important;
+  transition: none;
 }
 
 .profile-card:hover .profile-img {
-  transform: scale(1.03);
+  transform: none !important;
 }
 
 .profile-badge-overlay {
@@ -1266,7 +1262,15 @@ section {
   display: flex;
   justify-content: center;
   width: 100%;
+  max-width: 100%;
   margin-bottom: 2.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.project-filters-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 .project-filters {
@@ -3016,6 +3020,11 @@ body.modal-open {
     padding-top: 6rem;
     padding-bottom: 3.5rem;
     min-height: auto;
+  }
+
+  .project-filters-wrapper {
+    justify-content: flex-start;
+    padding: 0.25rem 0 0.5rem;
   }
 
   .projects-grid {
