@@ -317,15 +317,22 @@ section {
   color: var(--accent-bordeaux);
 }
 
-/* Flag-only Switcher Button */
+/* Flag / Language Switcher Button */
 .flag-btn {
-  font-size: 1.35rem;
+  font-size: 0.88rem;
   line-height: 1;
 }
 
-.flag-btn .flag-icon {
-  display: inline-block;
-  transform: translateY(1px);
+.lang-badge {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-beige);
+}
+
+[data-theme="light"] .lang-badge {
+  color: var(--accent-bordeaux);
 }
 
 .mobile-menu-btn {
@@ -1257,6 +1264,34 @@ section {
   overflow-wrap: anywhere;
 }
 
+.contact-phone-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+}
+
+.whatsapp-direct-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #25D366 !important;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.28);
+  padding: 0.22rem 0.65rem;
+  border-radius: var(--radius-full);
+  width: fit-content;
+  transition: var(--transition);
+}
+
+.whatsapp-direct-badge:hover {
+  background: rgba(37, 211, 102, 0.22);
+  border-color: #25D366;
+  transform: translateY(-1px);
+}
+
 .contact-card-labels a:hover {
   color: var(--accent-bordeaux-bright) !important;
 }
@@ -1832,11 +1867,33 @@ textarea.form-control {
     display: inline;
   }
 
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .hero-content {
+    display: contents;
+  }
+
+  .status-pill {
+    order: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-title-greeting {
+    order: 2;
+    margin-bottom: 0;
+  }
+
   .hero-name {
+    order: 3;
     font-size: clamp(2.15rem, 8vw, 2.75rem);
     line-height: 1.18;
     color: var(--text-primary) !important;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    margin-bottom: 0.25rem;
   }
 
   [data-theme="light"] .hero-name {
@@ -1845,8 +1902,42 @@ textarea.form-control {
   }
 
   .hero-roles-container {
+    order: 4;
     font-size: 1.15rem;
-    min-height: 2.8rem;
+    min-height: 3.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-image-wrapper {
+    order: 5;
+    margin: 0.5rem auto 1.25rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-card {
+    max-width: 275px;
+    padding: 0.85rem;
+  }
+
+  .hero-bio {
+    order: 6;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-cta-group {
+    order: 7;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-socials {
+    order: 8;
+  }
+
+  /* Hide CV Preview modal button on mobile to avoid broken iframe issues on iOS/Android */
+  .open-cv-modal {
+    display: none !important;
   }
 
   .hero-section {
@@ -2081,7 +2172,12 @@ textarea.form-control {
   }
 
   .flag-btn {
-    font-size: 1.15rem;
+    font-size: 0.85rem;
+  }
+
+  .profile-card {
+    max-width: 255px;
+    padding: 0.75rem;
   }
 
   .hero-cta-group {

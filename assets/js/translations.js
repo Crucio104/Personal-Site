@@ -66,6 +66,7 @@ const translations = {
     exp_ingv_org: "INGV (Istituto Nazionale di Geofisica e Vulcanologia) & Sapienza",
     exp_ingv_period: "Tirocinio & Tesi",
     exp_ingv_desc: "Progettazione e sviluppo di Seismic Viewer, applicazione desktop interattiva per la visualizzazione 4D spazio-temporale di dati sismici. Backend scientifico in Python per clustering spaziale e stima automatica dei piani di faglia geologici. Frontend 3D in WebGL con protocollo di streaming binario ad alte prestazioni (riduzione dati dell'80% rispetto a JSON) per mantenere framerate interattivi su grandi dataset sismici (Campi Flegrei). Integrazione con le API GOSSIP di INGV, dati di sollevamento del suolo GNSS e tomografia sismica.",
+    exp_ingv_btn_thesis: "Tesi & Registro Esami",
     
     exp_ibm_title: "Analisi Dati & Chatbot",
     exp_ibm_org: "IBM & Sapienza University",
@@ -183,6 +184,7 @@ const translations = {
     contact_p: "Disponibile per opportunità ingegneristiche in ambito AI e Robotica, progetti di ricerca e collaborazioni software.",
     contact_email_label: "Email",
     contact_phone_label: "Telefono / WhatsApp",
+    contact_chat_wa: "Chatta su WhatsApp",
     contact_location_label: "Posizione",
     contact_location_val: "Roma / Ciampino, Italia",
     contact_social_label: "Profili",
@@ -286,6 +288,7 @@ const translations = {
     exp_ingv_org: "INGV (National Institute of Geophysics and Volcanology) & Sapienza",
     exp_ingv_period: "Thesis & Internship",
     exp_ingv_desc: "Designed and engineered Seismic Viewer, an interactive 4D desktop application for spatio-temporal seismic data visualization. Developed a Python scientific backend for spatial clustering and automated geological fault plane estimation. Built a high-performance WebGL 3D rendering frontend with a custom binary streaming protocol achieving an 80% data reduction compared to JSON for fluid framerates on large seismic datasets (Campi Flegrei). Integrated INGV GOSSIP API, GNSS ground uplift, and 3D seismic tomography.",
+    exp_ingv_btn_thesis: "Thesis & Exam Record",
     
     exp_ibm_title: "Data Analysis & Chatbots",
     exp_ibm_org: "IBM & Sapienza University",
@@ -403,6 +406,7 @@ const translations = {
     contact_p: "Open to software engineering and AI/Robotics opportunities, academic research projects, and collaborations.",
     contact_email_label: "Email",
     contact_phone_label: "Phone / WhatsApp",
+    contact_chat_wa: "Chat on WhatsApp",
     contact_location_label: "Location",
     contact_location_val: "Rome / Ciampino, Italy",
     contact_social_label: "Profiles",

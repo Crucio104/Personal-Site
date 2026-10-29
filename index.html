@@ -32,7 +32,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029_01">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029_02">
 </head>
 <body>
 
@@ -57,9 +57,9 @@
       </ul>
 
       <div class="nav-actions">
-        <!-- Language Switcher: FLAG ONLY (Defaults to EN, displays IT flag to switch) -->
+        <!-- Language Switcher: Text Badge (Defaults to EN, displays IT to switch) -->
         <button id="lang-toggle" class="icon-btn flag-btn" title="Passa all'Italiano" aria-label="Passa all'Italiano">
-          <span class="flag-icon">🇮🇹</span>
+          <span class="lang-badge">IT</span>
         </button>
 
         <!-- Theme Switcher -->
@@ -261,6 +261,11 @@
             <p class="timeline-desc" data-i18n="exp_ingv_desc">
               Designed and engineered Seismic Viewer, an interactive 4D desktop application for spatio-temporal seismic data visualization. Developed a Python scientific backend for spatial clustering and automated geological fault plane estimation. Built a high-performance WebGL 3D rendering frontend with a custom binary streaming protocol achieving an 80% data reduction compared to JSON for fluid framerates on large seismic datasets (Campi Flegrei). Integrated INGV GOSSIP API, GNSS ground uplift, and 3D seismic tomography.
             </p>
+            <div style="margin-top: 1rem;">
+              <button class="btn btn-outline btn-sm open-transcript-modal">
+                <i class="fas fa-scroll"></i> <span data-i18n="exp_ingv_btn_thesis">Thesis & Academic Record</span>
+              </button>
+            </div>
           </div>
         </div>
 
@@ -702,33 +707,6 @@
           </div>
         </div>
 
-        <!-- P9: Quest-for-Valentine -->
-        <div class="project-card" data-category="web">
-          <div>
-            <div class="project-header">
-              <i class="fas fa-gamepad project-folder-icon"></i>
-              <div class="project-links">
-                <a href="https://github.com/Crucio104/Quest-for-Valentine" target="_blank" rel="noopener noreferrer" class="project-icon-link" title="GitHub Repository">
-                  <i class="fab fa-github"></i>
-                </a>
-              </div>
-            </div>
-            <h3 class="project-title">
-              <a href="https://github.com/Crucio104/Quest-for-Valentine" target="_blank" rel="noopener noreferrer" data-i18n="p9_title">
-                Quest for Valentine
-              </a>
-            </h3>
-            <p class="project-desc" data-i18n="p9_desc">
-              Branching narrative browser game in Vanilla JavaScript with pixel art, dialogue state management, and Canvas particle effects.
-            </p>
-          </div>
-          <div class="project-tech-list">
-            <span class="project-tech-pill">JavaScript</span>
-            <span class="project-tech-pill">HTML5 Canvas</span>
-            <span class="project-tech-pill">Game Design</span>
-            <span class="project-tech-pill">Pixel Art</span>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -789,15 +767,20 @@
               </button>
             </div>
 
-            <!-- Phone -->
+            <!-- Phone / WhatsApp -->
             <div class="contact-card-item">
               <div class="contact-card-content">
                 <div class="contact-card-icon">
-                  <i class="fas fa-phone-alt"></i>
+                  <i class="fab fa-whatsapp"></i>
                 </div>
                 <div class="contact-card-labels">
                   <h5 data-i18n="contact_phone_label">Phone / WhatsApp</h5>
-                  <a href="tel:+393711712524">+39 371 171 2524</a>
+                  <div class="contact-phone-links">
+                    <a href="tel:+393711712524" class="contact-link-main">+39 371 171 2524</a>
+                    <a href="https://wa.me/393711712524" target="_blank" rel="noopener noreferrer" class="whatsapp-direct-badge" title="Chat on WhatsApp">
+                      <i class="fab fa-whatsapp"></i> <span data-i18n="contact_chat_wa">Chat on WhatsApp</span>
+                    </a>
+                  </div>
                 </div>
               </div>
               <button class="copy-btn" data-copy="+393711712524" title="Copy phone">
@@ -1183,8 +1166,8 @@
   <div class="toast" id="toast">Copied to clipboard!</div>
 
   <!-- Scripts with cache busters -->
-  <script src="assets/js/canvas.js?v=20261029_01"></script>
-  <script src="assets/js/translations.js?v=20261029_01"></script>
-  <script src="assets/js/main.js?v=20261029_01"></script>
+  <script src="assets/js/canvas.js?v=20261029_02"></script>
+  <script src="assets/js/translations.js?v=20261029_02"></script>
+  <script src="assets/js/main.js?v=20261029_02"></script>
 </body>
 </html>

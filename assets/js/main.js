@@ -81,11 +81,11 @@
       }
     });
 
-    // Update toggle button: ONLY FLAG EMOJI
+    // Update toggle button: Clean text badge
     if (langToggleBtn) {
       langToggleBtn.innerHTML = lang === 'it' 
-        ? '<span class="flag-icon">🇬🇧</span>' 
-        : '<span class="flag-icon">🇮🇹</span>';
+        ? '<span class="lang-badge">EN</span>' 
+        : '<span class="lang-badge">IT</span>';
       langToggleBtn.setAttribute('title', lang === 'it' ? 'Switch to English' : 'Passa all\'Italiano');
       langToggleBtn.setAttribute('aria-label', lang === 'it' ? 'Switch to English' : 'Passa all\'Italiano');
     }
