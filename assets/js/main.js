@@ -790,19 +790,62 @@
     });
   }
 
-  // --- Dynamic Navbar Blur Progression ---
+  // --- Dynamic Smart Navbar (Auto-hide on scroll down, reveal on scroll up + Reading Progress) ---
   const navbar = document.getElementById('navbar');
-  function updateNavbarBlur() {
+  const navbarProgress = document.getElementById('navbar-progress');
+  let lastScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+  const scrollDeltaThreshold = 8;
+
+  function updateNavbar() {
     if (!navbar) return;
-    const isScrolled = (window.pageYOffset || document.documentElement.scrollTop || 0) > 20;
+    const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    // 1. Reading progress indicator
+    if (navbarProgress && maxScroll > 0) {
+      const progress = Math.min(100, Math.max(0, (currentScrollY / maxScroll) * 100));
+      navbarProgress.style.width = `${progress}%`;
+    }
+
     const isMobileMenuOpen = navLinks && navLinks.classList.contains('open');
-    if (isScrolled || isMobileMenuOpen) {
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbar.classList.remove('navbar-scrolled');
+    const isModalOpen = document.documentElement.classList.contains('modal-open');
+
+    // Never hide navbar if mobile menu or a modal is active
+    if (isMobileMenuOpen || isModalOpen) {
+      navbar.classList.remove('navbar-hidden');
+      navbar.classList.add('navbar-visible', 'navbar-scrolled');
+      return;
+    }
+
+    // Top of page: transparent hero navbar
+    if (currentScrollY <= 20) {
+      navbar.classList.remove('navbar-hidden', 'navbar-scrolled');
+      navbar.classList.add('navbar-visible');
+      lastScrollY = currentScrollY;
+      return;
+    }
+
+    // Scrolled past 20px: apply frosted glass
+    navbar.classList.add('navbar-scrolled');
+
+    // Detect scroll direction
+    const delta = currentScrollY - lastScrollY;
+
+    if (Math.abs(delta) > scrollDeltaThreshold) {
+      if (delta > 0 && currentScrollY > 100) {
+        // Scrolling DOWN -> Slide UP & Hide
+        navbar.classList.add('navbar-hidden');
+        navbar.classList.remove('navbar-visible');
+      } else if (delta < 0) {
+        // Scrolling UP -> Slide DOWN & Reveal with frosted glass
+        navbar.classList.remove('navbar-hidden');
+        navbar.classList.add('navbar-visible');
+      }
+      lastScrollY = currentScrollY;
     }
   }
-  window.addEventListener('scroll', updateNavbarBlur, { passive: true });
+
+  window.addEventListener('scroll', updateNavbar, { passive: true });
 
   // --- Card Spotlight Mouse-Following Glowing Border ---
   const spotlightCards = document.querySelectorAll(
@@ -833,23 +876,32 @@
     }, { passive: true });
   });
 
-  // --- iOS Spring Stagger Scroll Reveal ---
-  const staggerContainers = document.querySelectorAll(
-    '.stats-grid, .projects-grid, .skills-grid, .about-cards-column, .timeline-container'
+  // --- Bi-Directional iOS Spring Scroll Reveal (Always active when scrolling UP & DOWN) ---
+  const revealElements = document.querySelectorAll(
+    '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item, .section-header'
   );
 
+  revealElements.forEach((el) => {
+    el.classList.add('reveal-stagger');
+  });
+
   if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const items = entry.target.querySelectorAll(
-            '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item'
-          );
-          items.forEach((item, idx) => {
-            item.style.transitionDelay = `${idx * 65}ms`;
-            item.classList.add('revealed');
-          });
-          observer.unobserve(entry.target);
+          // Calculate subtle sibling stagger delay
+          const parent = entry.target.parentElement;
+          if (parent) {
+            const siblings = Array.from(parent.children).filter((c) => c.classList.contains('reveal-stagger'));
+            const idx = siblings.indexOf(entry.target);
+            if (idx >= 0) {
+              entry.target.style.transitionDelay = `${(idx % 4) * 60}ms`;
+            }
+          }
+          entry.target.classList.add('revealed');
+        } else {
+          entry.target.style.transitionDelay = '0ms';
+          entry.target.classList.remove('revealed');
         }
       });
     }, {
@@ -857,17 +909,9 @@
       threshold: 0.08
     });
 
-    staggerContainers.forEach((container) => {
-      const items = container.querySelectorAll(
-        '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item'
-      );
-      items.forEach((item) => item.classList.add('reveal-stagger'));
-      revealObserver.observe(container);
-    });
+    revealElements.forEach((el) => revealObserver.observe(el));
   } else {
-    document.querySelectorAll(
-      '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item'
-    ).forEach((item) => item.classList.add('revealed'));
+    revealElements.forEach((item) => item.classList.add('revealed'));
   }
 
   // --- Force Dynamic Favicon Cache Busting ---
@@ -884,7 +928,7 @@
 
   // --- Initialization ---
   refreshFavicon();
-  updateNavbarBlur();
+  updateNavbar();
   applyTheme(currentTheme);
   applyLanguage(currentLang);
 })();

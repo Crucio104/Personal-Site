@@ -273,11 +273,14 @@ section {
   backdrop-filter: blur(0px);
   -webkit-backdrop-filter: blur(0px);
   box-shadow: none;
-  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               -webkit-backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 .navbar.navbar-scrolled {
@@ -290,6 +293,31 @@ section {
 
 [data-theme="light"] .navbar.navbar-scrolled {
   box-shadow: 0 4px 20px rgba(88, 20, 31, 0.06);
+}
+
+.navbar.navbar-hidden {
+  transform: translateY(-100%);
+}
+
+.navbar.navbar-visible {
+  transform: translateY(0);
+}
+
+/* Scroll Reading Progress Indicator at Navbar Base */
+.navbar-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-bordeaux) 0%, var(--accent-bordeaux-bright) 50%, var(--accent-beige) 100%);
+  transition: width 0.08s ease-out;
+  pointer-events: none;
+  z-index: 101;
+}
+
+[data-theme="light"] .navbar-progress {
+  background: linear-gradient(90deg, var(--accent-bordeaux) 0%, var(--accent-bordeaux-bright) 100%);
 }
 
 .nav-container {
@@ -3498,12 +3526,12 @@ body.modal-open {
   );
 }
 
-/* --- iOS Spring Stagger Scroll Reveal --- */
+/* --- Bi-Directional iOS Spring Scroll Reveal (Always fades when scrolling up and down) --- */
 .reveal-stagger {
   opacity: 0;
-  transform: translateY(24px) scale(0.985);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(26px) scale(0.985);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -3518,91 +3546,4 @@ body.modal-open {
     transform: none !important;
     transition: none !important;
   }
-}
-
-/* --- INGV Seismic Micro-Waveform Ticker --- */
-.seismic-live-ticker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-full);
-  background: rgba(194, 65, 83, 0.12);
-  border: 1px solid rgba(194, 65, 83, 0.32);
-  color: var(--accent-bordeaux-bright);
-  font-size: 0.72rem;
-  font-weight: 600;
-  font-family: var(--font-mono);
-  user-select: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.25s ease;
-}
-
-[data-theme="light"] .seismic-live-ticker {
-  background: rgba(123, 30, 43, 0.08);
-  border-color: rgba(123, 30, 43, 0.28);
-  color: var(--accent-bordeaux);
-  box-shadow: 0 2px 6px rgba(88, 20, 31, 0.08);
-}
-
-.seismic-ticker-dot {
-  width: 6.5px;
-  height: 6.5px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-  animation: seismicDotBlink 1.8s infinite ease-in-out;
-}
-
-@keyframes seismicDotBlink {
-  0%, 100% {
-    transform: scale(0.85);
-    opacity: 0.6;
-  }
-  50% {
-    transform: scale(1.3);
-    opacity: 1;
-    box-shadow: 0 0 12px #10b981;
-  }
-}
-
-.seismic-ticker-svg {
-  width: 58px;
-  height: 14px;
-  overflow: visible;
-  color: var(--accent-bordeaux-bright);
-}
-
-[data-theme="light"] .seismic-ticker-svg {
-  color: var(--accent-bordeaux);
-}
-
-.seismic-ticker-path {
-  stroke-dasharray: 120;
-  stroke-dashoffset: 120;
-  animation: seismicWaveTrace 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-}
-
-@keyframes seismicWaveTrace {
-  0% {
-    stroke-dashoffset: 120;
-    opacity: 0.15;
-  }
-  25% {
-    opacity: 1;
-  }
-  65% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-  85%, 100% {
-    stroke-dashoffset: -120;
-    opacity: 0.15;
-  }
-}
-
-.seismic-ticker-lbl {
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
