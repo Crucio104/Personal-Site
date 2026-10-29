@@ -1661,6 +1661,14 @@ textarea.form-control {
   background: rgba(0, 0, 0, 0.2);
 }
 
+/* --- Modal Backdrop & Background Scroll Lock --- */
+html.modal-open,
+body.modal-open {
+  overflow: hidden !important;
+  height: 100% !important;
+  overscroll-behavior: none !important;
+}
+
 .modal-backdrop {
   position: fixed;
   top: 0;
@@ -1676,6 +1684,8 @@ textarea.form-control {
   justify-content: center;
   padding: 1.5rem;
   transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  overscroll-behavior: contain;
+  touch-action: none;
 }
 
 .modal-backdrop.active {
@@ -1693,6 +1703,7 @@ textarea.form-control {
   flex-direction: column;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  overscroll-behavior: contain;
 }
 
 .modal-header {
@@ -1707,6 +1718,8 @@ textarea.form-control {
   flex: 1;
   background: #2a2226;
   position: relative;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-body iframe {
@@ -1819,6 +1832,9 @@ textarea.form-control {
   background: var(--bg-card);
   padding: 1.5rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .transcript-highlights-box {
@@ -2143,6 +2159,9 @@ textarea.form-control {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .thesis-tab-pane {
@@ -2305,17 +2324,24 @@ textarea.form-control {
 .thesis-showcase-img-box {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  max-height: 480px;
-  background: #0d0a0b;
+  background: #080607;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  padding: 0.5rem;
 }
 
 .thesis-showcase-img-box img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.22s ease-in-out, transform 0.35s ease;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  display: block;
+  border-radius: calc(var(--radius-sm) - 2px);
+  transition: opacity 0.22s ease-in-out;
+  cursor: zoom-in;
 }
 
 .thesis-showcase-zoom-btn {
@@ -3235,7 +3261,12 @@ textarea.form-control {
   }
 
   .thesis-showcase-img-box {
-    aspect-ratio: 16 / 10;
+    padding: 0.35rem;
+  }
+
+  .thesis-showcase-img-box img {
+    max-height: 280px;
+    object-fit: contain;
   }
 
   .thesis-info-cards-grid {

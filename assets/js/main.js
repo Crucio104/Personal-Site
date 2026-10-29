@@ -230,22 +230,97 @@
     }
   }
 
+  // --- Unified Modal Background Scroll Lock (Desktop & Mobile iOS/Android) ---
+  let lockedScrollY = 0;
+  let activeModalsCount = 0;
+
+  function lockBodyScroll() {
+    if (activeModalsCount === 0) {
+      lockedScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+      document.documentElement.classList.add('modal-open');
+      document.body.classList.add('modal-open');
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${lockedScrollY}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = `${scrollbarWidth}px`;
+      }
+    }
+    activeModalsCount++;
+  }
+
+  function unlockBodyScroll() {
+    activeModalsCount = Math.max(0, activeModalsCount - 1);
+    if (activeModalsCount === 0) {
+      document.documentElement.classList.remove('modal-open');
+      document.body.classList.remove('modal-open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      window.scrollTo(0, lockedScrollY);
+    }
+  }
+
+  function openModal(modalEl) {
+    if (!modalEl) return;
+    lockBodyScroll();
+    modalEl.classList.add('active');
+  }
+
+  function closeModal(modalEl) {
+    if (!modalEl || !modalEl.classList.contains('active')) return;
+    modalEl.classList.remove('active');
+    unlockBodyScroll();
+  }
+
+  // Prevent scroll propagation and touchmove on backdrops
+  document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
+    backdrop.addEventListener('wheel', (e) => {
+      if (e.target === backdrop) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    backdrop.addEventListener('touchmove', (e) => {
+      if (e.target === backdrop) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  });
+
+  // Tap iOS sheet handle to dismiss modal
+  document.querySelectorAll('.ios-sheet-handle').forEach((handle) => {
+    handle.addEventListener('click', () => {
+      const parentModal = handle.closest('.modal-backdrop');
+      if (parentModal) closeModal(parentModal);
+    });
+  });
+
   // --- CV Modal ---
   openCvModalBtns.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       if (cvModal) {
-        cvModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openModal(cvModal);
+        const iframe = document.getElementById('cv-iframe');
+        if (iframe && iframe.dataset.src && !iframe.src) {
+          iframe.src = iframe.dataset.src;
+        }
       }
     });
   });
 
   function closeCvModal() {
-    if (cvModal) {
-      cvModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    if (cvModal) closeModal(cvModal);
   }
 
   if (cvModalClose) {
@@ -263,17 +338,13 @@
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       if (transcriptModal) {
-        transcriptModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openModal(transcriptModal);
       }
     });
   });
 
   function closeTranscriptModal() {
-    if (transcriptModal) {
-      transcriptModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    if (transcriptModal) closeModal(transcriptModal);
   }
 
   if (transcriptModalClose) {
@@ -329,17 +400,13 @@
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       if (thesisModal) {
-        thesisModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        openModal(thesisModal);
       }
     });
   });
 
   function closeThesisModal() {
-    if (thesisModal) {
-      thesisModal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
+    if (thesisModal) closeModal(thesisModal);
   }
 
   if (thesisModalClose) {
@@ -475,6 +542,14 @@
       renderShowcaseModule(idx);
     });
   });
+
+  if (showcaseImg) {
+    showcaseImg.addEventListener('click', () => {
+      if (showcaseZoomLink && showcaseZoomLink.href) {
+        window.open(showcaseZoomLink.href, '_blank');
+      }
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
