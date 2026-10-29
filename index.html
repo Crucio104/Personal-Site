@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029_12">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029_13">
 </head>
 <body>
 
@@ -132,7 +132,8 @@
 
       <!-- Hero Profile Image Card -->
       <div class="hero-image-wrapper">
-        <div class="profile-card">
+        <div class="profile-card-aura" aria-hidden="true"></div>
+        <div class="profile-card spotlight-card">
           <div class="profile-img-container">
             <img src="assets/img/profile.png" alt="Alessio Curcio" class="profile-img">
           </div>
@@ -151,25 +152,25 @@
   <!-- Quick Stats Counter Section (4 Blocks) -->
   <section class="stats-section">
     <div class="container stats-grid">
-      <div class="stat-item">
-        <div class="stat-number">B.Sc.</div>
-        <div class="stat-label" data-i18n="stat_grade">B.Sc.</div>
-        <div class="stat-sub" data-i18n="stat_grade_sub">ACSAI Graduate (Sapienza)</div>
+      <div class="stat-item spotlight-card">
+        <div class="stat-number count-up-target" data-count="180" data-suffix=" CFU">180 CFU</div>
+        <div class="stat-label" data-i18n="stat_grade">Crediti Formativi</div>
+        <div class="stat-sub" data-i18n="stat_grade_sub">180 CFU Laurea B.Sc. ACSAI</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">M.Sc.</div>
-        <div class="stat-label" data-i18n="stat_msc">AI & Robotics</div>
-        <div class="stat-sub" data-i18n="stat_msc_sub">Sapienza University (2026)</div>
+      <div class="stat-item spotlight-card">
+        <div class="stat-number count-up-target" data-count="23">23</div>
+        <div class="stat-label" data-i18n="stat_msc">Esami Superati</div>
+        <div class="stat-sub" data-i18n="stat_msc_sub">23 Corsi & Idoneità</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">INGV</div>
-        <div class="stat-label" data-i18n="stat_ingv">INGV Internship</div>
-        <div class="stat-sub" data-i18n="stat_ingv_sub">Seismic Viewer</div>
+      <div class="stat-item spotlight-card">
+        <div class="stat-number count-up-target" data-count="1">1</div>
+        <div class="stat-label" data-i18n="stat_ingv">Tirocinio INGV</div>
+        <div class="stat-sub" data-i18n="stat_ingv_sub">Software Seismic Viewer</div>
       </div>
-      <div class="stat-item">
-        <div class="stat-number">>18</div>
-        <div class="stat-label" data-i18n="stat_repos">GitHub Projects</div>
-        <div class="stat-sub" data-i18n="stat_repos_sub">>18 Active Repositories</div>
+      <div class="stat-item spotlight-card">
+        <div class="stat-number count-up-target" data-count="18" data-prefix=">">>18</div>
+        <div class="stat-label" data-i18n="stat_repos">Progetti GitHub</div>
+        <div class="stat-sub" data-i18n="stat_repos_sub">>18 Repository pubbliche</div>
       </div>
     </div>
   </section>
@@ -942,15 +943,15 @@
         <!-- Highlights Header Box (GPA, Credits, Final Grade) -->
         <div class="transcript-highlights-box" style="margin-bottom: 1.25rem;">
           <div class="transcript-metric">
-            <span class="transcript-metric-num">27.3 / 30</span>
+            <span class="transcript-metric-num count-up-target" data-count="27.3" data-decimals="1" data-suffix=" / 30">27.3 / 30</span>
             <span class="transcript-metric-label" data-i18n="transcript_metric_gpa">Weighted GPA</span>
           </div>
           <div class="transcript-metric">
-            <span class="transcript-metric-num">180 CFU</span>
+            <span class="transcript-metric-num count-up-target" data-count="180" data-suffix=" CFU">180 CFU</span>
             <span class="transcript-metric-label" data-i18n="transcript_total_credits">Total Credits (23 Exams)</span>
           </div>
           <div class="transcript-metric">
-            <span class="transcript-metric-num">110 / 110</span>
+            <span class="transcript-metric-num count-up-target" data-count="110" data-suffix=" / 110">110 / 110</span>
             <span class="transcript-metric-label" data-i18n="transcript_final_grade">Final Grade</span>
           </div>
         </div>
@@ -1408,7 +1409,7 @@
 
   <!-- Scripts with cache busters -->
   <script src="assets/js/canvas.js?v=20261029_03"></script>
-  <script src="assets/js/translations.js?v=20261029_12"></script>
-  <script src="assets/js/main.js?v=20261029_12"></script>
+  <script src="assets/js/translations.js?v=20261029_13"></script>
+  <script src="assets/js/main.js?v=20261029_13"></script>
 </body>
 </html>

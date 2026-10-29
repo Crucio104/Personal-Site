@@ -33,12 +33,12 @@ const translations = {
     hero_btn_cv_preview: "Anteprima CV",
 
     // Quick Stats (Exactly 4 High-Impact Blocks)
-    stat_grade: "B.Sc.",
-    stat_grade_sub: "Laurea ACSAI Sapienza",
-    stat_msc: "AI & Robotica",
-    stat_msc_sub: "Sapienza Università (2026)",
+    stat_grade: "Crediti Formativi",
+    stat_grade_sub: "180 CFU Laurea B.Sc. ACSAI",
+    stat_msc: "Esami Superati",
+    stat_msc_sub: "23 Corsi & Idoneità",
     stat_ingv: "Tirocinio INGV",
-    stat_ingv_sub: "Seismic Viewer",
+    stat_ingv_sub: "Software Seismic Viewer",
     stat_repos: "Progetti GitHub",
     stat_repos_sub: ">18 Repository pubbliche",
 
@@ -304,12 +304,12 @@ const translations = {
     hero_btn_cv_preview: "Preview CV",
 
     // Quick Stats (Exactly 4 High-Impact Blocks)
-    stat_grade: "B.Sc.",
-    stat_grade_sub: "ACSAI Graduate (Sapienza)",
-    stat_msc: "AI & Robotics",
-    stat_msc_sub: "Sapienza University (2026)",
+    stat_grade: "Earned Credits",
+    stat_grade_sub: "180 CFU B.Sc. ACSAI Degree",
+    stat_msc: "Exams Passed",
+    stat_msc_sub: "23 Courses & Evaluations",
     stat_ingv: "INGV Internship",
-    stat_ingv_sub: "Seismic Viewer",
+    stat_ingv_sub: "Seismic Viewer Software",
     stat_repos: "GitHub Projects",
     stat_repos_sub: ">18 Active Repositories",
 

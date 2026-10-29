@@ -230,6 +230,41 @@
     }
   }
 
+  // --- Fluid Count-Up Number Animation (Animation 2) ---
+  function animateCounter(el) {
+    if (!el) return;
+    const target = parseFloat(el.getAttribute('data-count'));
+    if (isNaN(target)) return;
+
+    const prefix = el.getAttribute('data-prefix') || '';
+    const suffix = el.getAttribute('data-suffix') || '';
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const duration = parseInt(el.getAttribute('data-duration') || '1250', 10);
+
+    const startTime = performance.now();
+    const startVal = 0;
+
+    function step(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease-out cubic curve
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const current = startVal + (target - startVal) * ease;
+
+      const formatted = decimals > 0 ? current.toFixed(decimals) : Math.round(current).toString();
+      el.textContent = `${prefix}${formatted}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        const finalVal = decimals > 0 ? target.toFixed(decimals) : target.toString();
+        el.textContent = `${prefix}${finalVal}${suffix}`;
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
   // --- Unified Modal Background Scroll Lock ---
   let lockedScrollY = 0;
   let activeModalsCount = 0;
@@ -275,6 +310,14 @@
     if (!modalEl) return;
     lockBodyScroll();
     modalEl.classList.add('active');
+
+    // Trigger smooth count-up animation for counters in this modal
+    const modalCounters = modalEl.querySelectorAll('.count-up-target');
+    if (modalCounters.length > 0) {
+      setTimeout(() => {
+        modalCounters.forEach((target) => animateCounter(target));
+      }, 150);
+    }
   }
 
   function closeModal(modalEl) {
@@ -645,24 +688,66 @@
     });
   });
 
-  // --- Project Filter Tabs (No setTimeout Race Conditions) ---
+  // --- Fluid Project Filter Tabs (Animation 5) ---
+  let isFilteringProjects = false;
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
+      if (btn.classList.contains('active') || isFilteringProjects) return;
+
       filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
 
       const filter = btn.getAttribute('data-filter');
+      isFilteringProjects = true;
+
+      const toHide = [];
+      const toShow = [];
 
       projectCards.forEach((card) => {
         const category = card.getAttribute('data-category') || '';
         const match = filter === 'all' || category.split(' ').includes(filter);
-
         if (match) {
-          card.classList.remove('card-hidden');
+          toShow.push(card);
         } else {
-          card.classList.add('card-hidden');
+          toHide.push(card);
         }
       });
+
+      // Phase 1: Smoothly fade and scale down cards to hide
+      toHide.forEach((card) => {
+        card.classList.add('card-anim-out');
+      });
+
+      setTimeout(() => {
+        toHide.forEach((card) => {
+          card.classList.remove('card-anim-out');
+          card.classList.add('card-hidden');
+        });
+
+        // Phase 2: Setup matching cards with initial state and staggered entry
+        toShow.forEach((card, idx) => {
+          card.classList.remove('card-hidden');
+          card.classList.add('card-anim-in');
+          card.style.transitionDelay = `${(idx % 6) * 45}ms`;
+        });
+
+        // Force browser layout reflow
+        void document.body.offsetHeight;
+
+        requestAnimationFrame(() => {
+          toShow.forEach((card) => {
+            card.classList.remove('card-anim-in');
+            card.classList.add('revealed');
+          });
+
+          setTimeout(() => {
+            toShow.forEach((card) => {
+              card.style.transitionDelay = '';
+            });
+            isFilteringProjects = false;
+          }, toShow.length * 45 + 300);
+        });
+      }, 190);
     });
   });
 
@@ -899,6 +984,15 @@
             }
           }
           entry.target.classList.add('revealed');
+
+          // Trigger fluid count-up if element or children have count-up-target
+          if (entry.target.classList.contains('count-up-target')) {
+            animateCounter(entry.target);
+          }
+          const counters = entry.target.querySelectorAll('.count-up-target');
+          if (counters.length > 0) {
+            counters.forEach((c) => animateCounter(c));
+          }
         } else {
           entry.target.style.transitionDelay = '0ms';
           entry.target.classList.remove('revealed');
