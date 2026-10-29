@@ -268,11 +268,28 @@ section {
   left: 0;
   width: 100%;
   z-index: 100;
+  background: transparent;
+  border-bottom: 0.5px solid transparent;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  box-shadow: none;
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              -webkit-backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar.navbar-scrolled {
   background: var(--bg-nav);
   -webkit-backdrop-filter: blur(25px) saturate(190%);
   backdrop-filter: blur(25px) saturate(190%);
   border-bottom: 0.5px solid var(--border-color);
-  transition: var(--transition);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .navbar.navbar-scrolled {
+  box-shadow: 0 4px 20px rgba(88, 20, 31, 0.06);
 }
 
 .nav-container {
@@ -561,8 +578,37 @@ section {
   border: 1px solid transparent;
 }
 
-.btn:active {
-  transform: scale(0.96) !important;
+/* --- iOS Spring Physics for All Interactive Controls --- */
+.btn,
+.filter-btn,
+.icon-btn,
+.thesis-tab-btn,
+.thesis-showcase-nav-btn,
+.transcript-nav-tab-btn,
+.transcript-filter-btn,
+.social-badge-link,
+.copy-btn,
+.back-to-top {
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              color 0.2s ease;
+  will-change: transform;
+}
+
+.btn:active,
+.filter-btn:active,
+.icon-btn:active,
+.thesis-tab-btn:active,
+.thesis-showcase-nav-btn:active,
+.transcript-nav-tab-btn:active,
+.transcript-filter-btn:active,
+.social-badge-link:active,
+.copy-btn:active,
+.back-to-top:active {
+  transform: scale(0.95) !important;
+  transition-duration: 0.08s;
 }
 
 .btn-primary, .btn-primary:visited {
@@ -3381,4 +3427,182 @@ body.modal-open {
   .hero-name {
     font-size: 1.95rem;
   }
+}
+
+/* ==========================================================================
+   ADVANCED GRAPHICAL EFFECTS & ANIMATIONS
+   ========================================================================== */
+
+/* --- Card Spotlight with Mouse-Following Glowing Border --- */
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(194, 65, 83, 0.65),
+    rgba(212, 185, 150, 0.28) 32%,
+    transparent 65%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    520px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(194, 65, 83, 0.08),
+    transparent 65%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.spotlight-card:hover::before,
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+[data-theme="light"] .spotlight-card::before {
+  background: radial-gradient(
+    420px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(123, 30, 43, 0.55),
+    rgba(184, 150, 110, 0.32) 32%,
+    transparent 65%
+  );
+}
+
+[data-theme="light"] .spotlight-card::after {
+  background: radial-gradient(
+    520px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(123, 30, 43, 0.05),
+    transparent 65%
+  );
+}
+
+/* --- iOS Spring Stagger Scroll Reveal --- */
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(24px) scale(0.985);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-stagger.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* --- INGV Seismic Micro-Waveform Ticker --- */
+.seismic-live-ticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(194, 65, 83, 0.12);
+  border: 1px solid rgba(194, 65, 83, 0.32);
+  color: var(--accent-bordeaux-bright);
+  font-size: 0.72rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease;
+}
+
+[data-theme="light"] .seismic-live-ticker {
+  background: rgba(123, 30, 43, 0.08);
+  border-color: rgba(123, 30, 43, 0.28);
+  color: var(--accent-bordeaux);
+  box-shadow: 0 2px 6px rgba(88, 20, 31, 0.08);
+}
+
+.seismic-ticker-dot {
+  width: 6.5px;
+  height: 6.5px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: seismicDotBlink 1.8s infinite ease-in-out;
+}
+
+@keyframes seismicDotBlink {
+  0%, 100% {
+    transform: scale(0.85);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 1;
+    box-shadow: 0 0 12px #10b981;
+  }
+}
+
+.seismic-ticker-svg {
+  width: 58px;
+  height: 14px;
+  overflow: visible;
+  color: var(--accent-bordeaux-bright);
+}
+
+[data-theme="light"] .seismic-ticker-svg {
+  color: var(--accent-bordeaux);
+}
+
+.seismic-ticker-path {
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: seismicWaveTrace 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes seismicWaveTrace {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0.15;
+  }
+  25% {
+    opacity: 1;
+  }
+  65% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  85%, 100% {
+    stroke-dashoffset: -120;
+    opacity: 0.15;
+  }
+}
+
+.seismic-ticker-lbl {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }

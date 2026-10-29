@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029_10">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029_11">
 </head>
 <body>
 
@@ -259,7 +259,16 @@
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <div class="timeline-header">
-              <div class="timeline-title" data-i18n="exp_ingv_title">Software Engineering Research Intern — Seismic Viewer</div>
+              <div style="display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap;">
+                <div class="timeline-title" data-i18n="exp_ingv_title">Software Engineering Research Intern — Seismic Viewer</div>
+                <div class="seismic-live-ticker" title="4D Real-time Seismic Monitor">
+                  <span class="seismic-ticker-dot"></span>
+                  <svg class="seismic-ticker-svg" viewBox="0 0 72 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="seismic-ticker-path" d="M1 8H14L18 3L22 13L26 2L30 14L34 6L38 10L42 8H71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="seismic-ticker-lbl">4D Telemetry</span>
+                </div>
+              </div>
               <div class="timeline-badge" data-i18n="exp_ingv_period">Research Internship</div>
             </div>
             <div class="timeline-org" data-i18n="exp_ingv_org">INGV (National Institute of Geophysics and Volcanology) & Sapienza</div>
@@ -1172,6 +1181,13 @@
         <div>
           <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.2rem; flex-wrap: wrap;">
             <h4 data-i18n="thesis_modal_title" style="margin: 0; font-size: 1.3rem; font-weight: 700;">Seismic Viewer</h4>
+            <div class="seismic-live-ticker" title="4D Seismic Visualisation Active">
+              <span class="seismic-ticker-dot"></span>
+              <svg class="seismic-ticker-svg" viewBox="0 0 72 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="seismic-ticker-path" d="M1 8H14L18 3L22 13L26 2L30 14L34 6L38 10L42 8H71" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="seismic-ticker-lbl">Live 4D</span>
+            </div>
             <span class="badge-tag" data-i18n="thesis_modal_badge" style="font-size: 0.72rem; padding: 0.15rem 0.55rem; background: var(--accent-bordeaux-glow); color: var(--accent-beige); border-color: rgba(194, 65, 83, 0.4);">
               <i class="fas fa-satellite-dish"></i> Internship Report
             </span>
@@ -1406,8 +1422,8 @@
   <div class="toast" id="toast">Copied to clipboard!</div>
 
   <!-- Scripts with cache busters -->
-  <script src="assets/js/canvas.js?v=20261029_02"></script>
-  <script src="assets/js/translations.js?v=20261029_10"></script>
-  <script src="assets/js/main.js?v=20261029_10"></script>
+  <script src="assets/js/canvas.js?v=20261029_03"></script>
+  <script src="assets/js/translations.js?v=20261029_11"></script>
+  <script src="assets/js/main.js?v=20261029_11"></script>
 </body>
 </html>

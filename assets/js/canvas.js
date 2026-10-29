@@ -78,6 +78,21 @@
     }
   }
 
+  // --- Interactive Seismic Shockwave & Particle Oscillation ---
+  let seismicWaves = [];
+
+  function triggerSeismicWave(x, y) {
+    if (seismicWaves.length > 5) seismicWaves.shift();
+    seismicWaves.push({
+      x: x,
+      y: y,
+      radius: 0,
+      maxRadius: Math.max(width, height) * 0.42,
+      speed: 4.4,
+      alpha: 0.72
+    });
+  }
+
   function initParticles() {
     particles = [];
     const count = Math.min(Math.floor((width * height) / 18000), 75);
@@ -89,12 +104,63 @@
   function animate() {
     ctx.clearRect(0, 0, width, height);
     const colors = getColors();
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 
+    // 1. Update and render active seismic shockwaves
+    for (let w = seismicWaves.length - 1; w >= 0; w--) {
+      const wave = seismicWaves[w];
+      wave.radius += wave.speed;
+      wave.alpha *= 0.965;
+
+      if (wave.alpha < 0.015 || wave.radius > wave.maxRadius) {
+        seismicWaves.splice(w, 1);
+        continue;
+      }
+
+      // Outer P-wave ring (Primary compressive shock)
+      ctx.beginPath();
+      ctx.arc(wave.x, wave.y, wave.radius, 0, Math.PI * 2);
+      ctx.strokeStyle = isLight 
+        ? `rgba(123, 30, 43, ${wave.alpha * 0.42})` 
+        : `rgba(194, 65, 83, ${wave.alpha * 0.5})`;
+      ctx.lineWidth = 1.6;
+      ctx.stroke();
+
+      // Inner S-wave ring (Secondary shear pulse)
+      if (wave.radius > 25) {
+        ctx.beginPath();
+        ctx.arc(wave.x, wave.y, wave.radius * 0.65, 0, Math.PI * 2);
+        ctx.strokeStyle = isLight 
+          ? `rgba(184, 150, 110, ${wave.alpha * 0.3})` 
+          : `rgba(212, 185, 150, ${wave.alpha * 0.38})`;
+        ctx.lineWidth = 1.1;
+        ctx.setLineDash([5, 5]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Displace particles near seismic wavefront
+      for (let p = 0; p < particles.length; p++) {
+        const pObj = particles[p];
+        const dx = pObj.x - wave.x;
+        const dy = pObj.y - wave.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const diff = Math.abs(dist - wave.radius);
+
+        if (dist > 0 && diff < 35) {
+          const force = (1 - diff / 35) * wave.alpha * 3.6;
+          pObj.x += (dx / dist) * force;
+          pObj.y += (dy / dist) * force;
+        }
+      }
+    }
+
+    // 2. Update and draw particles
     for (let i = 0; i < particles.length; i++) {
       particles[i].update();
       particles[i].draw(colors);
 
-      // Connect particles
+      // Connect particles within proximity
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
         const dy = particles[i].y - particles[j].y;
@@ -130,6 +196,13 @@
   window.addEventListener('mouseleave', () => {
     mouse.x = null;
     mouse.y = null;
+  });
+
+  // Tap or click on background triggers seismic impulse
+  window.addEventListener('pointerdown', (e) => {
+    if (!e.target.closest('.modal-content, .btn, .icon-btn, input, textarea, a, button, .thesis-showcase-card, .profile-card')) {
+      triggerSeismicWave(e.clientX, e.clientY);
+    }
   });
 
   document.addEventListener('visibilitychange', () => {

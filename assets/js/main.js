@@ -593,6 +593,7 @@
         ? '<i class="fas fa-times"></i>' 
         : '<i class="fas fa-bars"></i>';
       mobileMenuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      updateNavbarBlur();
     });
 
     navLinks.querySelectorAll('a').forEach((link) => {
@@ -600,6 +601,7 @@
         navLinks.classList.remove('open');
         mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        updateNavbarBlur();
       });
     });
 
@@ -788,6 +790,86 @@
     });
   }
 
+  // --- Dynamic Navbar Blur Progression ---
+  const navbar = document.getElementById('navbar');
+  function updateNavbarBlur() {
+    if (!navbar) return;
+    const isScrolled = (window.pageYOffset || document.documentElement.scrollTop || 0) > 20;
+    const isMobileMenuOpen = navLinks && navLinks.classList.contains('open');
+    if (isScrolled || isMobileMenuOpen) {
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+    }
+  }
+  window.addEventListener('scroll', updateNavbarBlur, { passive: true });
+
+  // --- Card Spotlight Mouse-Following Glowing Border ---
+  const spotlightCards = document.querySelectorAll(
+    '.project-card, .feature-card, .timeline-card, .skill-category-card, .stat-item, .thesis-showcase-card, .profile-card'
+  );
+  
+  spotlightCards.forEach((card) => {
+    card.classList.add('spotlight-card');
+    let ticking = false;
+
+    card.addEventListener('mousemove', (e) => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.removeProperty('--mouse-x');
+      card.style.removeProperty('--mouse-y');
+    }, { passive: true });
+  });
+
+  // --- iOS Spring Stagger Scroll Reveal ---
+  const staggerContainers = document.querySelectorAll(
+    '.stats-grid, .projects-grid, .skills-grid, .about-cards-column, .timeline-container'
+  );
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const items = entry.target.querySelectorAll(
+            '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item'
+          );
+          items.forEach((item, idx) => {
+            item.style.transitionDelay = `${idx * 65}ms`;
+            item.classList.add('revealed');
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.08
+    });
+
+    staggerContainers.forEach((container) => {
+      const items = container.querySelectorAll(
+        '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item'
+      );
+      items.forEach((item) => item.classList.add('reveal-stagger'));
+      revealObserver.observe(container);
+    });
+  } else {
+    document.querySelectorAll(
+      '.stat-item, .project-card, .skill-category-card, .feature-card, .timeline-item'
+    ).forEach((item) => item.classList.add('revealed'));
+  }
+
   // --- Force Dynamic Favicon Cache Busting ---
   function refreshFavicon() {
     const timestamp = Date.now();
@@ -802,6 +884,7 @@
 
   // --- Initialization ---
   refreshFavicon();
+  updateNavbarBlur();
   applyTheme(currentTheme);
   applyLanguage(currentLang);
 })();
