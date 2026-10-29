@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Main Stylesheet (Beige & Bordeaux Palette) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=20261029_04">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261029_05">
 </head>
 <body>
 
@@ -946,78 +946,51 @@
         </button>
       </div>
 
+      <!-- Segmented Navigation Picker: Exams vs Degree & Thesis -->
+      <div class="transcript-nav-tabs-wrapper">
+        <div class="transcript-nav-tabs">
+          <button class="transcript-nav-tab-btn active" data-ttab="exams" data-i18n="transcript_tab_exams">
+            📚 All Exams (23)
+          </button>
+          <button class="transcript-nav-tab-btn" data-ttab="degree" data-i18n="transcript_tab_degree">
+            🎓 Degree & Thesis (110L)
+          </button>
+        </div>
+      </div>
+
       <div class="modal-body modal-transcript-body">
-        <!-- Highlights Header Box (3 Blocks) -->
-        <div class="transcript-highlights-box">
-          <div class="transcript-metric">
-            <span class="transcript-metric-num">110 / 110</span>
-            <span class="transcript-metric-label" data-i18n="transcript_final_grade">Final Grade</span>
+        <!-- Tab Pane 1: Exams (Active by Default) -->
+        <div class="transcript-tab-pane active" id="ttab-pane-exams">
+          <!-- Category Filters (iOS Segmented Control) -->
+          <div class="transcript-filters-wrapper">
+            <div class="transcript-filters">
+              <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
+              <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision & HCI</button>
+              <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software & Systems</button>
+              <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math & Statistics</button>
+            </div>
           </div>
-          <div class="transcript-metric">
-            <span class="transcript-metric-num">180 CFU</span>
-            <span class="transcript-metric-label" data-i18n="transcript_total_credits">Total Credits</span>
-          </div>
-          <div class="transcript-metric">
-            <span class="transcript-metric-num">23 / 23</span>
-            <span class="transcript-metric-label" data-i18n="transcript_passed_exams">Passed Exams</span>
-          </div>
-        </div>
 
-        <!-- Official Thesis Box -->
-        <div class="transcript-thesis-card">
-          <div class="transcript-thesis-badge">
-            <i class="fas fa-scroll"></i> <span data-i18n="transcript_thesis_badge">B.Sc. Thesis & Internship</span>
-          </div>
-          <h5 class="transcript-thesis-title">
-            "Seismic Viewer: Design, Implementation and Evaluation of an Interactive 4D Spatio-Temporal Visualisation System for Seismological Data"
-          </h5>
-          <div class="transcript-thesis-meta">
-            <span><strong data-i18n="transcript_advisor">Advisor: Prof. Danilo Avola</strong></span>
-            <span>•</span>
-            <span><strong data-i18n="transcript_partner">Research Host: INGV</strong></span>
-            <span>•</span>
-            <span><strong data-i18n="transcript_date">Graduation Date: 23/10/2026</strong></span>
-          </div>
-          <div class="transcript-thesis-actions" style="margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            <button class="btn btn-primary btn-sm open-thesis-modal">
-              <i class="fas fa-eye"></i> <span data-i18n="thesis_card_btn_preview">Explore Thesis & 4D Preview</span>
-            </button>
-            <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_BSc_Thesis_INGV.pdf" class="btn btn-outline btn-sm">
-              <i class="fas fa-file-pdf"></i> <span data-i18n="thesis_card_btn_pdf">Download Thesis (PDF • 20 MB)</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Category Filters (iOS Segmented Control) -->
-        <div class="transcript-filters-wrapper">
-          <div class="transcript-filters">
-            <button class="transcript-filter-btn active" data-tfilter="all" data-i18n="tfilter_all">All Exams (23)</button>
-            <button class="transcript-filter-btn" data-tfilter="ai" data-i18n="tfilter_ai">AI, Vision & HCI</button>
-            <button class="transcript-filter-btn" data-tfilter="sw" data-i18n="tfilter_sw">Software & Systems</button>
-            <button class="transcript-filter-btn" data-tfilter="math" data-i18n="tfilter_math">Math & Statistics</button>
-          </div>
-        </div>
-
-        <!-- Table of Exams -->
-        <div class="transcript-table-wrapper">
-          <table class="transcript-table" id="transcript-table">
-            <thead>
-              <tr>
-                <th data-i18n="ttable_name">Course / Educational Activity</th>
-                <th data-i18n="ttable_ssd">Code & SSD</th>
-                <th data-i18n="ttable_cfu" style="text-align: center;">Credits</th>
-                <th data-i18n="ttable_date" style="text-align: center;">Date</th>
-                <th data-i18n="ttable_grade" style="text-align: right;">Grade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr data-category="math">
-                <td><strong>Linear Algebra</strong></td>
-                <td><code>10595524 (MAT/02)</code></td>
-                <td style="text-align: center;">6 CFU</td>
-                <td style="text-align: center; color: var(--text-secondary);">10/01/2024</td>
-                <td style="text-align: right;"><span class="grade-badge grade-standard">25 / 30</span></td>
-              </tr>
+          <!-- Table of Exams -->
+          <div class="transcript-table-wrapper">
+            <table class="transcript-table" id="transcript-table">
+              <thead>
+                <tr>
+                  <th data-i18n="ttable_name">Course / Educational Activity</th>
+                  <th data-i18n="ttable_ssd">Code & SSD</th>
+                  <th data-i18n="ttable_cfu" style="text-align: center;">Credits</th>
+                  <th data-i18n="ttable_date" style="text-align: center;">Date</th>
+                  <th data-i18n="ttable_grade" style="text-align: right;">Grade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-category="math">
+                  <td><strong>Linear Algebra</strong></td>
+                  <td><code>10595524 (MAT/02)</code></td>
+                  <td style="text-align: center;">6 CFU</td>
+                  <td style="text-align: center; color: var(--text-secondary);">10/01/2024</td>
+                  <td style="text-align: right;"><span class="grade-badge grade-standard">25 / 30</span></td>
+                </tr>
               <tr data-category="sw">
                 <td><strong>Programming (Python)</strong></td>
                 <td><code>10595102 (INF/01)</code></td>
@@ -1176,6 +1149,64 @@
           </table>
         </div>
       </div>
+
+      <!-- Tab Pane 2: Degree & Thesis Details -->
+      <div class="transcript-tab-pane" id="ttab-pane-degree">
+        <!-- Highlights Header Box (3 Blocks) -->
+        <div class="transcript-highlights-box">
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">110 / 110</span>
+            <span class="transcript-metric-label" data-i18n="transcript_final_grade">Final Grade</span>
+          </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">180 CFU</span>
+            <span class="transcript-metric-label" data-i18n="transcript_total_credits">Total Credits</span>
+          </div>
+          <div class="transcript-metric">
+            <span class="transcript-metric-num">23 / 23</span>
+            <span class="transcript-metric-label" data-i18n="transcript_passed_exams">Passed Exams</span>
+          </div>
+        </div>
+
+        <!-- Official Thesis Box -->
+        <div class="transcript-thesis-card">
+          <div class="transcript-thesis-badge">
+            <i class="fas fa-scroll"></i> <span data-i18n="transcript_thesis_badge">B.Sc. Thesis & Internship</span>
+          </div>
+          <h5 class="transcript-thesis-title">
+            "Seismic Viewer: Design, Implementation and Evaluation of an Interactive 4D Spatio-Temporal Visualisation System for Seismological Data"
+          </h5>
+          <div class="transcript-thesis-meta">
+            <span><strong data-i18n="transcript_advisor">Advisor: Prof. Danilo Avola</strong></span>
+            <span>•</span>
+            <span><strong data-i18n="transcript_partner">Research Host: INGV</strong></span>
+            <span>•</span>
+            <span><strong data-i18n="transcript_date">Graduation Date: 23/10/2026</strong></span>
+          </div>
+          <div class="transcript-thesis-actions" style="margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <button class="btn btn-primary btn-sm open-thesis-modal">
+              <i class="fas fa-eye"></i> <span data-i18n="thesis_card_btn_preview">Explore Thesis & 4D Preview</span>
+            </button>
+            <a href="assets/docs/L31_Curcio_internship.pdf" download="Alessio_Curcio_BSc_Thesis_INGV.pdf" class="btn btn-outline btn-sm">
+              <i class="fas fa-file-pdf"></i> <span data-i18n="thesis_card_btn_pdf">Download Thesis (PDF • 20 MB)</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Official Degree Details Card -->
+        <div class="transcript-degree-info-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-top: 0.5rem;">
+          <div style="font-size: 0.92rem; font-weight: 700; color: var(--accent-beige); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.45rem;">
+            <i class="fas fa-award"></i> <span>Sapienza University of Rome — Degree Summary</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 0.6rem;">
+            Bachelor's Degree in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong>, Faculty of Information Engineering, Informatics and Statistics. Program delivered 100% in English.
+          </p>
+          <div style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted); padding-top: 0.5rem; border-top: 1px dashed var(--border-color);" data-i18n="transcript_verified_note">
+            Official Sapienza University Certificate (L-31 L-270 Ordin. 2021) • UID: 5883130
+          </div>
+        </div>
+      </div>
+    </div>
 
       <div class="modal-footer" style="justify-content: space-between; align-items: center;">
         <span style="font-size: 0.8rem; color: var(--text-secondary);" data-i18n="transcript_verified_note">
@@ -1403,7 +1434,7 @@
 
   <!-- Scripts with cache busters -->
   <script src="assets/js/canvas.js?v=20261029_02"></script>
-  <script src="assets/js/translations.js?v=20261029_04"></script>
-  <script src="assets/js/main.js?v=20261029_04"></script>
+  <script src="assets/js/translations.js?v=20261029_05"></script>
+  <script src="assets/js/main.js?v=20261029_05"></script>
 </body>
 </html>

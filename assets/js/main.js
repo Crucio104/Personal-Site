@@ -285,6 +285,22 @@
     });
   }
 
+  // --- Transcript Modal Nav Tabs (Exams vs Degree & Thesis) ---
+  const tNavTabBtns = document.querySelectorAll('.transcript-nav-tab-btn');
+  const tTabPanes = document.querySelectorAll('.transcript-tab-pane');
+
+  tNavTabBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      tNavTabBtns.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const target = btn.getAttribute('data-ttab');
+
+      tTabPanes.forEach((pane) => pane.classList.remove('active'));
+      const activePane = document.getElementById('ttab-pane-' + target);
+      if (activePane) activePane.classList.add('active');
+    });
+  });
+
   // Transcript category filters
   tFilterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {

@@ -207,6 +207,8 @@ const translations = {
     // Transcript Modal
     transcript_modal_title: "Certificato di Laurea & Esami di Profitto",
     transcript_modal_sub: "Sapienza Università di Roma — Facoltà di Ingegneria dell'Informazione, Informatica e Statistica",
+    transcript_tab_exams: "📚 Esami di Profitto (23)",
+    transcript_tab_degree: "🎓 Laurea & Tesi (110L)",
     transcript_final_grade: "Voto Finale",
     transcript_total_credits: "Crediti Totali",
     transcript_passed_exams: "Esami Superati",
@@ -472,6 +474,8 @@ const translations = {
     // Transcript Modal
     transcript_modal_title: "Academic Degree Certificate & Profit Exams",
     transcript_modal_sub: "Sapienza University of Rome — Faculty of Information Engineering, Informatics & Statistics",
+    transcript_tab_exams: "📚 All Exams (23)",
+    transcript_tab_degree: "🎓 Degree & Thesis (110L)",
     transcript_final_grade: "Final Grade",
     transcript_total_credits: "Total Credits",
     transcript_passed_exams: "Passed Exams",

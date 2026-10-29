@@ -88,6 +88,61 @@
   padding: 0;
 }
 
+/* ==========================================================================
+   Apple / iOS Styled Custom Scrollbars (Across all sections, modals & tables)
+   ========================================================================== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196, 65, 84, 0.45) transparent;
+}
+
+[data-theme="light"] * {
+  scrollbar-color: rgba(123, 30, 43, 0.35) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(196, 65, 84, 0.35);
+  border-radius: var(--radius-full);
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-bordeaux-bright);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--accent-bordeaux);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(123, 30, 43, 0.3);
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-bordeaux);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:active {
+  background-color: #58141f;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -1674,6 +1729,92 @@ textarea.form-control {
   height: 90vh;
 }
 
+.transcript-nav-tabs-wrapper {
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.transcript-nav-tabs-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.transcript-nav-tabs {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(31, 23, 28, 0.72);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-color);
+  padding: 3px;
+  border-radius: 14px;
+  gap: 3px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .transcript-nav-tabs {
+  background: rgba(238, 230, 220, 0.75);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.transcript-nav-tab-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  padding: 0.45rem 1rem;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.transcript-nav-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.transcript-nav-tab-btn:active {
+  transform: scale(0.96);
+}
+
+.transcript-nav-tab-btn.active {
+  background: linear-gradient(135deg, var(--accent-bordeaux) 0%, var(--accent-bordeaux-bright) 100%);
+  color: #ffffff !important;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+[data-theme="light"] .transcript-nav-tab-btn.active {
+  background: var(--accent-bordeaux);
+  color: #ffffff !important;
+  box-shadow: 0 2px 6px rgba(123, 30, 43, 0.25);
+}
+
+.transcript-tab-pane {
+  display: none;
+  animation: iosTabFade 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.transcript-tab-pane.active {
+  display: block;
+}
+
 .modal-transcript-body {
   background: var(--bg-card);
   padding: 1.5rem;
@@ -2704,6 +2845,130 @@ textarea.form-control {
     font-size: 0.88rem;
   }
 
+  /* Transcript Modal Mobile Navigation */
+  .transcript-nav-tabs-wrapper {
+    padding: 0.5rem 0.85rem;
+  }
+
+  .transcript-nav-tab-btn {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  /* Transform table into responsive iOS Grouped Cells / Cards */
+  .transcript-table-wrapper {
+    overflow-x: visible;
+  }
+
+  .transcript-table,
+  .transcript-table thead,
+  .transcript-table tbody,
+  .transcript-table tr,
+  .transcript-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .transcript-table thead {
+    display: none;
+  }
+
+  .transcript-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .transcript-table tr {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 0.85rem 1rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    row-gap: 0.35rem;
+    column-gap: 0.75rem;
+    align-items: center;
+  }
+
+  [data-theme="light"] .transcript-table tr {
+    background: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px rgba(44, 18, 23, 0.05);
+  }
+
+  /* 1: Course Name */
+  .transcript-table td:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+    border: none;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+  }
+
+  /* 5: Grade Badge - ALWAYS prominently visible on top-right */
+  .transcript-table td:nth-child(5) {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 0;
+    border: none;
+    text-align: right;
+    display: flex !important;
+    justify-content: flex-end;
+    align-self: flex-start;
+  }
+
+  .transcript-table td:nth-child(5) .grade-badge {
+    font-size: 0.84rem;
+    padding: 0.28rem 0.65rem;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  /* 2: Code & SSD */
+  .transcript-table td:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 0;
+    border: none;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+  }
+
+  .transcript-table td:nth-child(2) code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+  }
+
+  /* 3: CFU */
+  .transcript-table td:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 0;
+    border: none;
+    text-align: right;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-bordeaux-bright);
+    font-family: var(--font-mono);
+    justify-self: end;
+  }
+
+  [data-theme="light"] .transcript-table td:nth-child(3) {
+    color: var(--accent-bordeaux);
+  }
+
+  /* 4: Date (hidden on mobile for clean cards) */
+  .transcript-table td:nth-child(4) {
+    display: none;
+  }
+
   /* Thesis Modal Mobile */
   .modal-thesis-content {
     height: 92vh;
@@ -2821,12 +3086,6 @@ textarea.form-control {
 
   .project-card {
     padding: 1.25rem;
-  }
-
-  /* Hide Date column on micro screens for optimal table fit */
-  .transcript-table th:nth-child(5),
-  .transcript-table td:nth-child(5) {
-    display: none;
   }
 }
 
