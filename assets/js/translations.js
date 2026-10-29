@@ -21,19 +21,19 @@ const translations = {
     hero_name: "Alessio Curcio",
     hero_roles: [
       "M.Sc. AIRO Student (2026) — Sapienza",
-      "Laurea ACSAI (110/110) — Sapienza",
+      "Laurea in ACSAI — Sapienza",
       "Tirocinio Ricerca Software — INGV",
       "Sistemi Multi-Agente & LLM",
       "Computer Vision & Robotica"
     ],
-    hero_bio: "Studente magistrale in Artificial Intelligence and Robotics (AIRO, immatricolato 2026) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) con <strong>110/110</strong> presso Sapienza Università di Roma. Ho svolto il tirocinio curriculare e tesi triennale presso l'<strong>INGV</strong> (Istituto Nazionale di Geofisica e Vulcanologia) sviluppando un sistema desktop 4D per l'analisi di dati sismici. Mi occupo di sistemi multi-agente, modelli linguistici locali (Local LLMs), computer vision e robotica.",
+    hero_bio: "Studente magistrale in Artificial Intelligence and Robotics (AIRO, immatricolato 2026) e laureato triennale in Applied Computer Science and Artificial Intelligence (ACSAI) presso Sapienza Università di Roma. Ho svolto il tirocinio curriculare e tesi triennale presso l'<strong>INGV</strong> (Istituto Nazionale di Geofisica e Vulcanologia) sviluppando un sistema desktop 4D per l'analisi di dati sismici. Mi occupo di sistemi multi-agente, modelli linguistici locali (Local LLMs), computer vision e robotica.",
     hero_btn_projects: "Progetti",
     hero_btn_contact: "Contattami",
     hero_btn_cv: "Scarica CV (PDF)",
     hero_btn_cv_preview: "Anteprima CV",
 
     // Quick Stats (Exactly 4 High-Impact Blocks)
-    stat_grade: "110 / 110",
+    stat_grade: "B.Sc.",
     stat_grade_sub: "Laurea ACSAI Sapienza",
     stat_msc: "AI & Robotica",
     stat_msc_sub: "Sapienza Università (2026)",
@@ -45,15 +45,15 @@ const translations = {
     // About Section
     about_badge: "Profilo",
     about_title: "Percorso Accademico & Tecnologie",
-    about_p1: "Ho conseguito la Laurea Triennale in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> presso <strong>Sapienza Università di Roma</strong> con votazione di <strong>110/110</strong>, completando un corso di studi tenuto interamente in lingua inglese.",
+    about_p1: "Ho conseguito la Laurea Triennale in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> presso <strong>Sapienza Università di Roma</strong>, completando un corso di studi tenuto interamente in lingua inglese.",
     about_p2: "Ho svolto il tirocinio curriculare e tesi di laurea presso l'<strong>INGV (Istituto Nazionale di Geofisica e Vulcanologia)</strong>, realizzando <strong>Seismic Viewer</strong>: un'applicazione desktop per la visualizzazione 4D spazio-temporale di dati sismici, clustering geologico e stima automatica dei piani di faglia.",
     about_p3: "Attualmente frequento la Laurea Magistrale in <strong>Artificial Intelligence and Robotics (AIRO)</strong> presso Sapienza (avviata nel 2026). Mi concentro su sistemi multi-agente, modelli linguistici eseguiti in locale (Local LLMs), computer vision con YOLO e programmazione robotica. Ho inoltre completato laboratori tecnici con <strong>IBM</strong> ed <strong>Ericsson</strong> e ottenuto il punteggio massimo nella competizione TeraBebras.",
     
     // Exactly 4 About Feature Cards
     about_card1_title: "Laurea Magistrale AIRO",
     about_card1_desc: "Sapienza Università di Roma (2026 – In corso) — Sistemi Multi-Agente, Reinforcement Learning, Robot Programming e Deep Learning.",
-    about_card2_title: "Laurea Triennale ACSAI (110/110)",
-    about_card2_desc: "Sapienza Università di Roma (2023 – 2026). Corso in lingua inglese. Voto finale 110/110.",
+    about_card2_title: "Laurea Triennale ACSAI",
+    about_card2_desc: "Sapienza Università di Roma (2023 – 2026). Corso in lingua inglese focalizzato su AI e informatica applicata.",
     about_card_ingv_title: "Tirocinio di Ricerca INGV",
     about_card_ingv_desc: "Tirocinio curriculare e ricerca software presso l'Istituto Nazionale di Geofisica e Vulcanologia.",
     about_card4_title: "Seismic Viewer 4D & Tesi",
@@ -172,7 +172,7 @@ const translations = {
     // Resume Banner & Modal
     resume_banner_badge: "Curriculum Vitae",
     resume_banner_title: "Scarica il CV in formato PDF",
-    resume_banner_desc: "CV per recruiter e sistemi ATS: include formazione (Laurea ACSAI 110/110, tesi INGV, magistrale AIRO dal 2026), progetti, competenze tecniche e contatti.",
+    resume_banner_desc: "CV per recruiter e sistemi ATS: include formazione (Laurea ACSAI, tesi INGV, magistrale AIRO dal 2026), progetti, competenze tecniche e contatti.",
     modal_title: "Curriculum Vitae — Alessio Curcio",
     modal_close: "Chiudi",
     modal_download: "Scarica PDF",
@@ -208,7 +208,7 @@ const translations = {
     transcript_modal_title: "Certificato di Laurea & Esami di Profitto",
     transcript_modal_sub: "Sapienza Università di Roma — Facoltà di Ingegneria dell'Informazione, Informatica e Statistica",
     transcript_tab_exams: "📚 Esami di Profitto (23)",
-    transcript_tab_degree: "🎓 Laurea & Tesi (110L)",
+    transcript_tab_degree: "🎓 Laurea & Tesi",
     transcript_final_grade: "Voto Finale",
     transcript_total_credits: "Crediti Totali",
     transcript_passed_exams: "Esami Superati",
@@ -242,9 +242,9 @@ const translations = {
     thesis_tab_pdf: "📄 Leggi Tesi (PDF 64 pag.)",
     thesis_tab_abstract: "📋 Abstract & Architettura",
     thesis_hero_banner_title: "Seismic Viewer 4D — Sistema di Visualizzazione Spazio-Temporale",
-    thesis_hero_banner_desc: "Progettazione, implementazione e validazione quantitativa sviluppata durante il tirocinio di ricerca presso l'INGV con votazione di 110/110.",
-    thesis_metric_grade: "110 / 110",
-    thesis_metric_grade_label: "Voto Finale di Laurea",
+    thesis_hero_banner_desc: "Progettazione, implementazione e validazione quantitativa sviluppata durante il tirocinio di ricerca presso l'INGV in collaborazione con Sapienza Università di Roma.",
+    thesis_metric_grade: "4 Modalità",
+    thesis_metric_grade_label: "2D, 3D, 4D & Clustering",
     thesis_metric_streaming: "-80% Payload",
     thesis_metric_streaming_label: "Streaming Binario vs JSON",
     thesis_metric_accuracy: "< 1.0° Errore",
@@ -269,7 +269,7 @@ const translations = {
     thesis_supervisor_academic: "Relatore Accademico: Prof. Danilo Avola (Sapienza Università di Roma)",
     thesis_supervisor_ingv: "Tutor Aziendale INGV: Dott. Daniele Bailo (INGV)",
     thesis_collaborators: "Collaboratori: Giada, Rossella",
-    thesis_degree_info: "Laurea Triennale in Applied Computer Science and Artificial Intelligence (ACSAI) • Sapienza Università di Roma • Votazione: 110/110"
+    thesis_degree_info: "Laurea Triennale in Applied Computer Science and Artificial Intelligence (ACSAI) • Sapienza Università di Roma"
   },
 
   en: {
@@ -288,20 +288,20 @@ const translations = {
     hero_name: "Alessio Curcio",
     hero_roles: [
       "M.Sc. AIRO Student (2026) — Sapienza",
-      "B.Sc. ACSAI Graduate (110/110) — Sapienza",
+      "B.Sc. in ACSAI — Sapienza",
       "Software Research Intern — INGV",
       "Multi-Agent Systems & LLMs",
       "Computer Vision & Robotics"
     ],
-    hero_bio: "Master's student in Artificial Intelligence and Robotics (AIRO, enrolled 2026) and Bachelor's graduate in Applied Computer Science and Artificial Intelligence (ACSAI) with <strong>110/110</strong> at Sapienza University of Rome. Completed a research software engineering internship at <strong>INGV</strong> (National Institute of Geophysics and Volcanology) developing an interactive 4D seismic analysis system. Working on multi-agent systems, local LLMs, computer vision, and robotics.",
+    hero_bio: "Master's student in Artificial Intelligence and Robotics (AIRO, enrolled 2026) and Bachelor's graduate in Applied Computer Science and Artificial Intelligence (ACSAI) at Sapienza University of Rome. Completed a research software engineering internship at <strong>INGV</strong> (National Institute of Geophysics and Volcanology) developing an interactive 4D seismic analysis system. Working on multi-agent systems, local LLMs, computer vision, and robotics.",
     hero_btn_projects: "Projects",
     hero_btn_contact: "Contact Me",
     hero_btn_cv: "Download CV (PDF)",
     hero_btn_cv_preview: "Preview CV",
 
     // Quick Stats (Exactly 4 High-Impact Blocks)
-    stat_grade: "110 / 110",
-    stat_grade_sub: "B.Sc. ACSAI Sapienza",
+    stat_grade: "B.Sc.",
+    stat_grade_sub: "ACSAI Graduate (Sapienza)",
     stat_msc: "AI & Robotics",
     stat_msc_sub: "Sapienza University (2026)",
     stat_ingv: "INGV Internship",
@@ -312,15 +312,15 @@ const translations = {
     // About Section
     about_badge: "Profile",
     about_title: "Academic Background & Focus",
-    about_p1: "I graduated with a Bachelor's degree in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> from <strong>Sapienza University of Rome</strong> with a final grade of <strong>110/110</strong>, completing an undergraduate curriculum taught entirely in English.",
+    about_p1: "I graduated with a Bachelor's degree in <strong>Applied Computer Science and Artificial Intelligence (ACSAI)</strong> from <strong>Sapienza University of Rome</strong>, completing an undergraduate curriculum taught entirely in English.",
     about_p2: "I completed my curricular internship and bachelor's thesis at the <strong>National Institute of Geophysics and Volcanology (INGV)</strong>, engineering <strong>Seismic Viewer</strong>: an interactive 4D desktop application for spatio-temporal seismic catalogue visualization, spatial clustering, and automated geological fault plane estimation.",
     about_p3: "I am currently pursuing my Master of Science in <strong>Artificial Intelligence and Robotics (AIRO)</strong> at Sapienza (started in 2026), focusing on multi-agent systems, local LLMs, computer vision with YOLO, and concurrent robotic control. I also completed technical programs with <strong>IBM</strong> and <strong>Ericsson</strong>, and achieved the top score in the TeraBebras competition.",
     
     // Exactly 4 About Feature Cards
     about_card1_title: "M.Sc. in AIRO",
     about_card1_desc: "Sapienza University of Rome (2026 – Present) — Multi-Agent Systems, Reinforcement Learning, Robot Programming, Deep Learning.",
-    about_card2_title: "B.Sc. in ACSAI (110/110)",
-    about_card2_desc: "Sapienza University of Rome (2023 – 2026). Taught in English. Final grade: 110/110.",
+    about_card2_title: "B.Sc. in ACSAI",
+    about_card2_desc: "Sapienza University of Rome (2023 – 2026). Curriculum taught entirely in English focusing on AI and computer science.",
     about_card_ingv_title: "INGV Research Internship",
     about_card_ingv_desc: "Curricular research internship at the National Institute of Geophysics and Volcanology focusing on seismic systems.",
     about_card4_title: "Seismic Viewer 4D & Thesis",
@@ -439,7 +439,7 @@ const translations = {
     // Resume Banner & Modal
     resume_banner_badge: "Curriculum Vitae",
     resume_banner_title: "Download CV in PDF format",
-    resume_banner_desc: "Recruiter and ATS-friendly CV: includes education (B.Sc. ACSAI 110/110, INGV thesis, M.Sc. AIRO starting 2026), projects, technical skills, and contact details.",
+    resume_banner_desc: "Recruiter and ATS-friendly CV: includes education (B.Sc. ACSAI, INGV thesis, M.Sc. AIRO starting 2026), projects, technical skills, and contact details.",
     modal_title: "Curriculum Vitae — Alessio Curcio",
     modal_close: "Close",
     modal_download: "Download PDF",
@@ -475,7 +475,7 @@ const translations = {
     transcript_modal_title: "Academic Degree Certificate & Profit Exams",
     transcript_modal_sub: "Sapienza University of Rome — Faculty of Information Engineering, Informatics & Statistics",
     transcript_tab_exams: "📚 All Exams (23)",
-    transcript_tab_degree: "🎓 Degree & Thesis (110L)",
+    transcript_tab_degree: "🎓 Degree & Thesis",
     transcript_final_grade: "Final Grade",
     transcript_total_credits: "Total Credits",
     transcript_passed_exams: "Passed Exams",
@@ -509,9 +509,9 @@ const translations = {
     thesis_tab_pdf: "📄 Read Full Thesis (64p PDF)",
     thesis_tab_abstract: "📋 Abstract & Architecture",
     thesis_hero_banner_title: "Seismic Viewer 4D — Spatio-Temporal Visualisation System",
-    thesis_hero_banner_desc: "Design, implementation and quantitative validation developed during research internship at INGV, awarded 110/110 final grade.",
-    thesis_metric_grade: "110 / 110",
-    thesis_metric_grade_label: "Final Degree Grade",
+    thesis_hero_banner_desc: "Design, implementation and quantitative validation developed during research internship at INGV in collaboration with Sapienza University of Rome.",
+    thesis_metric_grade: "4 Modes",
+    thesis_metric_grade_label: "2D, 3D, 4D & Clustering",
     thesis_metric_streaming: "-80% Payload",
     thesis_metric_streaming_label: "Binary Streaming vs JSON",
     thesis_metric_accuracy: "< 1.0° Error",
@@ -536,6 +536,6 @@ const translations = {
     thesis_supervisor_academic: "Academic Supervisor: Prof. Danilo Avola (Sapienza University of Rome)",
     thesis_supervisor_ingv: "Internship Host Supervisor: Dr. Daniele Bailo (INGV)",
     thesis_collaborators: "Collaborators: Giada, Rossella",
-    thesis_degree_info: "Bachelor's Degree in Applied Computer Science and Artificial Intelligence (ACSAI) • Sapienza University of Rome • Grade: 110/110"
+    thesis_degree_info: "Bachelor's Degree in Applied Computer Science and Artificial Intelligence (ACSAI) • Sapienza University of Rome"
   }
 };
