@@ -230,7 +230,7 @@
     }
   }
 
-  // --- Unified Modal Background Scroll Lock (Desktop & Mobile iOS/Android) ---
+  // --- Unified Modal Background Scroll Lock ---
   let lockedScrollY = 0;
   let activeModalsCount = 0;
 
@@ -241,12 +241,6 @@
 
       document.documentElement.classList.add('modal-open');
       document.body.classList.add('modal-open');
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${lockedScrollY}px`;
-      document.body.style.left = '0';
-      document.body.style.right = '0';
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
       if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
       }
@@ -257,16 +251,23 @@
   function unlockBodyScroll() {
     activeModalsCount = Math.max(0, activeModalsCount - 1);
     if (activeModalsCount === 0) {
-      document.documentElement.classList.remove('modal-open');
+      const htmlEl = document.documentElement;
+      const prevScrollBehavior = htmlEl.style.scrollBehavior;
+      htmlEl.style.scrollBehavior = 'auto';
+
+      htmlEl.classList.remove('modal-open');
       document.body.classList.remove('modal-open');
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.left = '';
-      document.body.style.right = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
       document.body.style.paddingRight = '';
-      window.scrollTo(0, lockedScrollY);
+
+      // If the scroll drifted from the position where the modal was opened, restore it instantly
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (Math.abs(currentScrollY - lockedScrollY) > 1) {
+        window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
+      }
+
+      setTimeout(() => {
+        htmlEl.style.scrollBehavior = prevScrollBehavior;
+      }, 100);
     }
   }
 
@@ -282,20 +283,33 @@
     unlockBodyScroll();
   }
 
-  // Prevent scroll propagation and touchmove on backdrops
-  document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
-    backdrop.addEventListener('wheel', (e) => {
-      if (e.target === backdrop) {
+  // Prevent scroll drift or touchmove outside scrollable modal containers
+  document.addEventListener('wheel', (e) => {
+    if (activeModalsCount > 0) {
+      const scrollable = e.target.closest('.modal-body, .modal-transcript-body');
+      if (!scrollable) {
         e.preventDefault();
       }
-    }, { passive: false });
+    }
+  }, { passive: false });
 
-    backdrop.addEventListener('touchmove', (e) => {
-      if (e.target === backdrop) {
+  document.addEventListener('touchmove', (e) => {
+    if (activeModalsCount > 0) {
+      const scrollable = e.target.closest('.modal-body, .modal-transcript-body');
+      if (!scrollable) {
         e.preventDefault();
       }
-    }, { passive: false });
-  });
+    }
+  }, { passive: false });
+
+  window.addEventListener('scroll', () => {
+    if (activeModalsCount > 0) {
+      const curY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (Math.abs(curY - lockedScrollY) > 1) {
+        window.scrollTo({ top: lockedScrollY, left: 0, behavior: 'instant' });
+      }
+    }
+  }, { passive: true });
 
   // Tap iOS sheet handle to dismiss modal
   document.querySelectorAll('.ios-sheet-handle').forEach((handle) => {
