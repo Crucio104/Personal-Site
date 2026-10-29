@@ -3569,9 +3569,10 @@ body.modal-open {
     rgba(212, 185, 150, 0.28) 32%,
     transparent 65%
   );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
   mask-composite: exclude;
+  -webkit-mask-composite: xor;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
